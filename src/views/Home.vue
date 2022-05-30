@@ -1,9 +1,15 @@
 <template>
   <div id="home">
-    <h1 class="mb-7 font-serif text-3xl font-extrabold text-gray-500">
+    <img src="../assets/logo.svg" class="mx-auto mb-4 h-24 w-24" />
+
+    <h1 class="mb-7 font-serif text-3xl font-extrabold text-red/primary">
       Component <br />
       Library
     </h1>
+
+    <p class="mx-auto w-9/12 max-w-lg font-sans italic text-black/2">
+      This is a UI framework designed for the campbell river fire department.
+    </p>
 
     <element-preview
       title="Input"
