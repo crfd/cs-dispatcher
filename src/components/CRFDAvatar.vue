@@ -4,8 +4,15 @@
     :class="classes"
     :style="{ width: width + 'px', height: width + 'px' }"
   >
-    <img v-if="!loadingError" :src="url" @error="loadingError = true" />
-    <p v-if="showInitials">{{ initials }}</p>
+    <img
+      v-if="!loadingError"
+      :src="url"
+      @error="loadingError = true"
+      @mouseenter="hover = true"
+      @mouseout="hover = false"
+      :style="{ opacity: hover && reveal ? 0.5 : 1 }"
+    />
+    <p v-if="showInitials || (hover && reveal)">{{ text }}</p>
   </div>
 </template>
 
@@ -18,7 +25,7 @@ export default {
     image: String,
     size: {
       type: String,
-      default: 'nm' // sm, nm, lg
+      default: 'nm' // sm, nm, lg, xl
     },
     name: {
       type: String,
@@ -27,11 +34,16 @@ export default {
     email: {
       type: String,
       default: ''
+    },
+    reveal: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
     return {
-      loadingError: false
+      loadingError: false,
+      hover: false
     }
   },
   computed: {
@@ -52,6 +64,12 @@ export default {
         .split(' ')
         .map((word) => word[0])
         .join('')
+    },
+    linebreakName() {
+      return this.name.split(' ').join('\n')
+    },
+    text() {
+      return this.size === 'xl' ? this.linebreakName : this.initials
     },
     hashedEmail() {
       return md5(this.email).toString()
@@ -86,6 +104,8 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  user-select: none;
+  pointer-events: none;
 }
 
 .sm p {
@@ -97,7 +117,7 @@ p {
 }
 
 .xl p {
-  @apply text-3xl;
+  @apply text-xl;
 }
 
 img {
