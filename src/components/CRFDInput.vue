@@ -1,17 +1,21 @@
 <template>
-  <label :class="{ focus: valueNotEmpty }" for="input">{{ placeholder }}</label>
-  <input
-    ref="input"
-    :type="type"
-    :value="modelValue"
-    :placeholder="placeholder"
-    @input="updateValue"
-    @focus="updateFocus(true)"
-    @blur="updateFocus(false)"
-    @keydown="keyDownHandler"
-    :disabled="disabled"
-    :class="classes"
-  />
+  <div class="container">
+    <label :class="{ focus: valueNotEmpty }" for="input">{{
+      placeholder
+    }}</label>
+    <input
+      ref="input"
+      :type="type"
+      :value="modelValue"
+      :placeholder="placeholder"
+      @input="updateValue"
+      @focus="updateFocus(true)"
+      @blur="updateFocus(false)"
+      @keydown="keyDownHandler"
+      :disabled="disabled"
+      :class="classes"
+    />
+  </div>
 </template>
 
 <script>
@@ -105,9 +109,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  @apply mt-1 inline-block;
+}
+
 input {
   box-sizing: border-box;
-  @apply cursor-text rounded border border-white/3 px-3 py-1.5 text-[15px] font-semibold text-black/primary outline-none transition-all ease-in-out placeholder:font-semibold placeholder:text-black/1 hover:border-white/2 focus:border-black/primary disabled:cursor-not-allowed disabled:bg-white/1 disabled:text-white/3 disabled:placeholder:text-white/3;
+  @apply cursor-text rounded border border-white/3 px-3 py-1.5 text-[15px] font-medium text-black/primary outline-none transition-all ease-in-out placeholder:font-medium placeholder:text-black/1 hover:border-white/2 focus:border-black/primary disabled:cursor-not-allowed disabled:bg-white/1 disabled:text-white/3 disabled:placeholder:text-white/3;
 }
 
 .icon {
@@ -146,7 +154,7 @@ input.autofill {
 }
 
 label {
-  @apply absolute mx-[13px] py-[7px] text-[15px] font-semibold text-black/1 opacity-0;
+  @apply absolute mx-[13px] py-[7px] text-[15px] font-medium text-black/1 opacity-0;
   pointer-events: none;
   transition: all ease-in-out 0.3s;
 
