@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <label :class="{ focus: valueNotEmpty }" for="input">{{
-      placeholder
-    }}</label>
+    <label :class="{ focus: valueNotEmpty }" for="input">
+      {{ placeholder }}
+    </label>
     <input
       ref="input"
       :type="type"
@@ -110,12 +110,12 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  @apply mt-1 inline-block;
+  @apply relative my-2 inline-block w-3/4;
 }
 
 input {
   box-sizing: border-box;
-  @apply cursor-text rounded border border-white/3 px-3 py-1.5 text-[15px] font-medium text-black/primary outline-none transition-all ease-in-out placeholder:font-medium placeholder:text-black/1 hover:border-white/2 focus:border-black/primary disabled:cursor-not-allowed disabled:bg-white/1 disabled:text-white/3 disabled:placeholder:text-white/3;
+  @apply w-full cursor-text rounded border border-white/3 px-3 py-1.5 text-[15px] font-medium text-black/primary outline-none transition-all ease-in-out placeholder:font-medium placeholder:text-black/2 hover:border-black/primary focus:border-black/primary disabled:cursor-not-allowed disabled:border-white/3 disabled:bg-white/1 disabled:text-white/3 disabled:placeholder:text-white/3;
 }
 
 .icon {

@@ -16,13 +16,15 @@
       v-model="inputFlavour"
       :options="inputFlavours"
     >
-      <crfd-input v-model="value" placeholder="Input" :flavour="inputFlavour" />
-      <br />
-      <div class="my-2"></div>
+      <crfd-input
+        v-model="value"
+        placeholder="Placeholder"
+        :flavour="inputFlavour"
+      />
       <crfd-input
         disabled
         v-model="value"
-        placeholder="Input"
+        placeholder="Placeholder"
         :flavour="inputFlavour"
       />
     </element-preview>
@@ -33,10 +35,19 @@
       :options="inputFlavours"
     >
       <crfd-dropdown
-        v-model="value"
-        placeholder="Dropdown"
+        v-model="dropdownValue"
+        placeholder="Fruit"
         :flavour="dropdownFlavour"
       />
+      <crfd-dropdown
+        disabled
+        v-model="dropdownValue"
+        placeholder="Fruit"
+        :flavour="dropdownFlavour"
+      />
+
+      <br />
+      {{ dropdownValue }}
     </element-preview>
 
     <element-preview
@@ -155,6 +166,7 @@ export default {
       inputFlavour: 'default',
       inputFlavours: ['default', 'success', 'error', 'autofill'],
       dropdownFlavour: 'default',
+      dropdownValue: '',
       buttonFlavour: 'primary',
       buttonFlavours: ['primary', 'secondary', 'critical'],
       modifierFlavour: 'button',
