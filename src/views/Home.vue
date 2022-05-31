@@ -54,8 +54,17 @@
     </element-preview>
 
     <element-preview title="Icon">
-      <crfd-colored-icon color="lightgreen" :icon="icons.Plus" />
-      <crfd-colored-icon color="orange" :icon="icons.InputAutofill" />
+      <crfd-colored-icon color="#E93731" :icon="icons.ArrowCircleRight" />
+      <crfd-colored-icon
+        color="#F5A623"
+        :icon="icons.ArrowCircleRight"
+        rotate="45"
+      />
+      <crfd-colored-icon
+        color="#0CCE6B"
+        :icon="icons.ArrowCircleRight"
+        rotate="90"
+      />
     </element-preview>
 
     <element-preview
