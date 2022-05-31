@@ -1,6 +1,17 @@
 <template>
+  <crfd-navbar />
   <router-view></router-view>
 </template>
+
+<script>
+import CRFDNavbar from './components/CRFDNavbar.vue'
+
+export default {
+  components: {
+    'crfd-navbar': CRFDNavbar
+  }
+}
+</script>
 
 <style>
 * {

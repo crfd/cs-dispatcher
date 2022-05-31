@@ -141,6 +141,7 @@ import CRFDPath from '../components/CRFDPath.vue'
 import CRFDIndicator from '../components/CRFDIndicator.vue'
 import CRFDCheckbox from '../components/CRFDCheckbox.vue'
 import CRFDDropdown from '../components/CRFDDropdown.vue'
+import CRFDNavbar from '../components/CRFDNavbar.vue'
 
 import * as icons from '../assets/icons'
 
@@ -157,7 +158,8 @@ export default {
     'crfd-path': CRFDPath,
     'crfd-indicator': CRFDIndicator,
     'crfd-checkbox': CRFDCheckbox,
-    'crfd-dropdown': CRFDDropdown
+    'crfd-dropdown': CRFDDropdown,
+    'crfd-navbar': CRFDNavbar
   },
   data() {
     return {
