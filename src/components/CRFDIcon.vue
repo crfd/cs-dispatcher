@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'crfd-colored-icon',
+  name: 'crfd-icon',
   props: {
     icon: String,
     color: {

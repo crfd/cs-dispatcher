@@ -9,7 +9,7 @@
     :class="classes"
   >
     <div class="flex justify-center space-x-0.5">
-      <crfd-colored-icon v-if="icon" width="16px" :icon="icon" :color="color" />
+      <crfd-icon v-if="icon" width="16px" :icon="icon" :color="color" />
       {{ title }}
       <span>
         {{ title }}
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import CRFDColoredIconVue from './CRFDColoredIcon.vue'
+import CRFDIcon from './CRFDIcon.vue'
 
 export default {
   name: 'crfd-button',
   components: {
-    'crfd-colored-icon': CRFDColoredIconVue
+    'crfd-icon': CRFDIcon
   },
   props: {
     title: {

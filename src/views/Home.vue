@@ -28,6 +28,18 @@
     </element-preview>
 
     <element-preview
+      title="Dropdown"
+      v-model="dropdownFlavour"
+      :options="inputFlavours"
+    >
+      <crfd-dropdown
+        v-model="value"
+        placeholder="Dropdown"
+        :flavour="dropdownFlavour"
+      />
+    </element-preview>
+
+    <element-preview
       title="Button"
       v-model="buttonFlavour"
       :options="buttonFlavours"
@@ -54,17 +66,9 @@
     </element-preview>
 
     <element-preview title="Icon">
-      <crfd-colored-icon color="#E93731" :icon="icons.ArrowCircleRight" />
-      <crfd-colored-icon
-        color="#F5A623"
-        :icon="icons.ArrowCircleRight"
-        rotate="45"
-      />
-      <crfd-colored-icon
-        color="#0CCE6B"
-        :icon="icons.ArrowCircleRight"
-        rotate="90"
-      />
+      <crfd-icon color="#E93731" :icon="icons.ArrowCircleRight" />
+      <crfd-icon color="#F5A623" :icon="icons.ArrowCircleRight" rotate="45" />
+      <crfd-icon color="#0CCE6B" :icon="icons.ArrowCircleRight" rotate="90" />
     </element-preview>
 
     <element-preview
@@ -118,13 +122,14 @@ import ElementPreview from '../layouts/ElementPreview.vue'
 
 import CRFDInput from '../components/CRFDInput.vue'
 import CRFDButton from '../components/CRFDButton.vue'
-import CRFDColoredIcon from '../components/CRFDColoredIcon.vue'
+import CRFDIcon from '../components/CRFDIcon.vue'
 import CRFDModifier from '../components/CRFDModifier.vue'
 import CRFDAvatar from '../components/CRFDAvatar.vue'
 import CRFDLabel from '../components/CRFDLabel.vue'
 import CRFDPath from '../components/CRFDPath.vue'
 import CRFDIndicator from '../components/CRFDIndicator.vue'
 import CRFDCheckbox from '../components/CRFDCheckbox.vue'
+import CRFDDropdown from '../components/CRFDDropdown.vue'
 
 import * as icons from '../assets/icons'
 
@@ -134,13 +139,14 @@ export default {
     'element-preview': ElementPreview,
     'crfd-input': CRFDInput,
     'crfd-button': CRFDButton,
-    'crfd-colored-icon': CRFDColoredIcon,
+    'crfd-icon': CRFDIcon,
     'crfd-modifier': CRFDModifier,
     'crfd-avatar': CRFDAvatar,
     'crfd-label': CRFDLabel,
     'crfd-path': CRFDPath,
     'crfd-indicator': CRFDIndicator,
-    'crfd-checkbox': CRFDCheckbox
+    'crfd-checkbox': CRFDCheckbox,
+    'crfd-dropdown': CRFDDropdown
   },
   data() {
     return {
@@ -148,6 +154,7 @@ export default {
       icons,
       inputFlavour: 'default',
       inputFlavours: ['default', 'success', 'error', 'autofill'],
+      dropdownFlavour: 'default',
       buttonFlavour: 'primary',
       buttonFlavours: ['primary', 'secondary', 'critical'],
       modifierFlavour: 'button',
