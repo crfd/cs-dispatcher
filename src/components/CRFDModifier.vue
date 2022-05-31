@@ -111,7 +111,7 @@ button {
 }
 
 button.inactive {
-  @apply border-white/2 bg-white/primary text-black/1 hover:border-black/primary hover:bg-white/primary hover:text-black/primary hover:opacity-100 active:border-black/primary active:bg-white/2 active:opacity-100 disabled:cursor-not-allowed  disabled:bg-white/1 disabled:text-white/3 disabled:hover:opacity-100;
+  @apply border-white/2 bg-white/primary text-black/1 hover:border-black/primary hover:bg-white/primary hover:text-black/primary hover:opacity-100 active:border-black/primary active:bg-white/2 active:opacity-100 disabled:cursor-not-allowed  disabled:bg-white/1 disabled:text-white/3 disabled:hover:border-white/2 disabled:hover:opacity-100;
 }
 
 button.applied {
