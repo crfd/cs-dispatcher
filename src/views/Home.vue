@@ -1,7 +1,5 @@
 <template>
   <div id="home">
-    <img src="../assets/logo.svg" class="mx-auto mb-4 h-24 w-24" />
-
     <h1 class="mb-7 font-serif text-3xl font-extrabold text-red/primary">
       Component <br />
       Library
@@ -143,14 +141,26 @@
       <crfd-map />
     </element-preview>
 
+    <element-preview title="Card">
+      <crfd-card class="w-3/4">
+        It’s always good to find out you’re going to be working from home…
+        <br />
+        <br />
+        <span class="text-sm italic text-black/1">
+          Unless you're a firefighter.
+        </span>
+        😜
+      </crfd-card>
+    </element-preview>
+
     <h3
       class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/2"
     >
       Work in Progress
     </h3>
 
-    <element-preview title="Card"> </element-preview>
     <element-preview title="Detail"> </element-preview>
+    <element-preview title="Datetime Input"> </element-preview>
     <element-preview title="Select"> </element-preview>
     <element-preview title="Multi-Select"> </element-preview>
     <element-preview title="Table"> </element-preview>
@@ -175,6 +185,7 @@ import CRFDDropdown from '../components/CRFDDropdown.vue'
 import CRFDNavbar from '../components/CRFDNavbar.vue'
 import CRFDIndicator from '../components/CRFDIndicator.vue'
 import CRFDMap from '../components/CRFDMap.vue'
+import CRFDCard from '../components/CRFDCard.vue'
 
 import * as icons from '../assets/icons'
 
@@ -194,7 +205,8 @@ export default {
     'crfd-dropdown': CRFDDropdown,
     'crfd-navbar': CRFDNavbar,
     'crfd-indicator': CRFDIndicator,
-    'crfd-map': CRFDMap
+    'crfd-map': CRFDMap,
+    'crfd-card': CRFDCard
   },
   data() {
     return {
