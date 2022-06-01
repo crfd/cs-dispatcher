@@ -17,7 +17,9 @@
       </div>
     </header>
     <div id="content" ref="content">
-      <router-view v-if="!isLoading"></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view v-if="!isLoading"></router-view>
+      </transition>
     </div>
   </div>
 </template>
@@ -56,6 +58,18 @@ export default {
 
 [v-cloak] {
   display: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 
 html,
