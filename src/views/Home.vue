@@ -139,8 +139,12 @@
       <crfd-indicator :active="indicatorValue" />
     </element-preview>
 
+    <element-preview title="Map">
+      <crfd-map />
+    </element-preview>
+
     <h3
-      class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/1"
+      class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/2"
     >
       Work in Progress
     </h3>
@@ -149,7 +153,6 @@
     <element-preview title="Detail"> </element-preview>
     <element-preview title="Select"> </element-preview>
     <element-preview title="Multi-Select"> </element-preview>
-    <element-preview title="Map"> </element-preview>
     <element-preview title="Table"> </element-preview>
     <element-preview title="Calendar"> </element-preview>
     <element-preview title="Command Palette"> </element-preview>
@@ -171,6 +174,7 @@ import CRFDCheckbox from '../components/CRFDCheckbox.vue'
 import CRFDDropdown from '../components/CRFDDropdown.vue'
 import CRFDNavbar from '../components/CRFDNavbar.vue'
 import CRFDIndicator from '../components/CRFDIndicator.vue'
+import CRFDMap from '../components/CRFDMap.vue'
 
 import * as icons from '../assets/icons'
 
@@ -189,7 +193,8 @@ export default {
     'crfd-checkbox': CRFDCheckbox,
     'crfd-dropdown': CRFDDropdown,
     'crfd-navbar': CRFDNavbar,
-    'crfd-indicator': CRFDIndicator
+    'crfd-indicator': CRFDIndicator,
+    'crfd-map': CRFDMap
   },
   data() {
     return {

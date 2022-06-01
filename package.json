@@ -11,13 +11,16 @@
     "@vueuse/core": "^8.5.0",
     "crypto-js": "^4.1.1",
     "firebase": "^9.8.2",
+    "mapbox-gl": "^2.8.2",
     "pinia": "^2.0.14",
     "sass": "^1.52.1",
+    "uuid": "^8.3.2",
     "vue": "3",
     "vue-i18n": "9",
     "vue-router": "4"
   },
   "devDependencies": {
+    "@types/mapbox-gl": "^2.7.2",
     "@vitejs/plugin-vue": "^2.3.3",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
