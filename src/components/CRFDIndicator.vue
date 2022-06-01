@@ -1,5 +1,9 @@
 <template>
-  <div class="indicator" :class="{ active: isActive }">
+  <div
+    @click="push('operations')"
+    class="indicator"
+    :class="{ active: isActive }"
+  >
     <div class="pulse-outline" v-if="isActive"></div>
     <span>{{ active }} Active</span>
   </div>
@@ -18,13 +22,18 @@ export default {
     isActive() {
       return this.active > 0
     }
+  },
+  methods: {
+    push(routeName) {
+      this.$router.push({ name: routeName })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .indicator {
-  @apply relative m-1 inline-block rounded-full bg-white/3 px-2.5 py-0.5 text-sm text-black/2;
+  @apply relative m-1 inline-block cursor-pointer rounded-full bg-white/3 px-2.5 py-0.5 text-sm text-black/2;
 }
 
 .active {
