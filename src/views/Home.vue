@@ -125,6 +125,19 @@
       <crfd-checkbox v-model="checkboxValue" />
       <crfd-checkbox v-model="checkboxValue" disabled />
     </element-preview>
+
+    <element-preview title="Indicator">
+      <input
+        type="number"
+        min="0"
+        max="3"
+        v-model="indicatorValue"
+        class="border border-black"
+      />
+      <br />
+      <br />
+      <crfd-indicator :active="indicatorValue" />
+    </element-preview>
   </div>
 </template>
 
@@ -142,6 +155,7 @@ import CRFDSpinner from '../components/CRFDSpinner.vue'
 import CRFDCheckbox from '../components/CRFDCheckbox.vue'
 import CRFDDropdown from '../components/CRFDDropdown.vue'
 import CRFDNavbar from '../components/CRFDNavbar.vue'
+import CRFDIndicator from '../components/CRFDIndicator.vue'
 
 import * as icons from '../assets/icons'
 
@@ -159,7 +173,8 @@ export default {
     'crfd-spinner': CRFDSpinner,
     'crfd-checkbox': CRFDCheckbox,
     'crfd-dropdown': CRFDDropdown,
-    'crfd-navbar': CRFDNavbar
+    'crfd-navbar': CRFDNavbar,
+    'crfd-indicator': CRFDIndicator
   },
   data() {
     return {
@@ -177,7 +192,8 @@ export default {
       avatarFlavours: ['sm', 'nm', 'lg', 'xl'],
       pathCurrent: 0,
       path: ['1. Step', '2. Step', '3. Step', '4. Step'],
-      checkboxValue: false
+      checkboxValue: false,
+      indicatorValue: 0
     }
   },
   computed: {

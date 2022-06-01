@@ -1,30 +1,48 @@
 <template>
-  <div class="indicator"></div>
+  <div class="indicator" :class="{ active: isActive }">
+    <div class="pulse-outline" v-if="isActive"></div>
+    <span>{{ active }} Active</span>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'crfd-indicator'
+  name: 'crfd-inidcator',
+  props: {
+    active: {
+      type: Number,
+      default: 0
+    }
+  },
+  computed: {
+    isActive() {
+      return this.active > 0
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .indicator {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 3px solid;
-  animation: linear spin 800ms infinite;
-  @apply border-black/1 border-b-transparent;
+  @apply relative m-1 inline-block rounded-full bg-white/3 px-2.5 py-0.5 text-sm text-black/2;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.active {
+  @apply bg-red/primary text-white/primary outline outline-0 outline-red/light;
+  animation: pulse 10s infinite ease-out;
+}
+
+.pulse-outline {
+  position: absolute;
+  @apply shadow-none;
+}
+
+@keyframes pulse {
+  90% {
+    @apply outline-0 outline-red/light;
   }
   100% {
-    transform: rotate(360deg);
+    @apply outline-[6px] outline-transparent;
   }
 }
 </style>
