@@ -1,5 +1,7 @@
 <template>
-  <crfd-navbar />
+  <div class="navbar">
+    <crfd-navbar />
+  </div>
   <router-view></router-view>
 </template>
 
@@ -23,7 +25,7 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
-  @apply bg-white/1;
+  @apply bg-white/primary;
 }
 
 #app {
@@ -32,5 +34,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   font-size: 15px;
+}
+
+.navbar {
+  @apply border-b-2 border-solid border-white/2;
 }
 </style>

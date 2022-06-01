@@ -4,6 +4,8 @@ import {
   createWebHistory
 } from 'vue-router'
 
+import * as icons from './assets/icons'
+
 import Home from './views/Home.vue'
 
 const User = {
@@ -31,7 +33,8 @@ const routes = [
     meta: {
       title: 'Dashboard',
       requiresAuth: true,
-      hidden: false
+      hidden: false,
+      icon: icons.Home
     }
   },
   {
@@ -41,7 +44,8 @@ const routes = [
     meta: {
       title: 'Operations',
       requiresAuth: true,
-      hidden: false
+      hidden: false,
+      icon: icons.Runner
     }
   },
   {
@@ -51,7 +55,8 @@ const routes = [
     meta: {
       title: 'Spaces',
       requiresAuth: true,
-      hidden: false
+      hidden: false,
+      icon: icons.City
     }
   },
   {
@@ -61,7 +66,8 @@ const routes = [
     meta: {
       title: 'Analytics',
       requiresAuth: true,
-      hidden: false
+      hidden: false,
+      icon: icons.PieChart
     }
   },
   {
@@ -71,7 +77,8 @@ const routes = [
     meta: {
       title: 'Settings',
       requiresAuth: true,
-      hidden: false
+      hidden: false,
+      icon: icons.Gear
     }
   }
 ]

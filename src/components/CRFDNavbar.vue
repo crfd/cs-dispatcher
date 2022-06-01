@@ -7,7 +7,16 @@
         :key="route.name"
         :class="{ active: isActive(route) }"
         :id="'route-' + route.name"
+        @mouseenter="mouseEnter(route)"
+        @mouseleave="hover = false"
       >
+        <crfd-icon
+          class="inline-block"
+          width="12px"
+          v-if="route.meta.icon"
+          :icon="route.meta.icon"
+          :color="iconColor(route)"
+        />
         {{ route.meta.title }}
       </li>
     </ul>
@@ -16,18 +25,23 @@
       :style="{ width: width + 'px', left: offsetLeft + 'px' }"
     ></div>
   </nav>
-
-  {{ activeElementId }}
 </template>
 
 <script>
+import CRFDIcon from './CRFDIcon.vue'
+
 export default {
   name: 'crfd-navbar',
+  components: {
+    'crfd-icon': CRFDIcon
+  },
   data() {
     return {
       mounted: false,
-      width: 2,
-      offsetLeft: 10
+      width: 0,
+      offsetLeft: 10,
+      hover: false,
+      hoverElementName: ''
     }
   },
   computed: {
@@ -58,10 +72,25 @@ export default {
     isActive(route) {
       return this.currentRoute.path === route.path
     },
+    iconColor(route) {
+      if (
+        route.name === this.hoverElementName &&
+        this.hover &&
+        !this.isActive(route)
+      ) {
+        return '#000'
+      }
+
+      return this.isActive(route) ? '#000' : '#aaa'
+    },
     updateIndicator() {
       if (!this.activeRef) return
       this.width = this.activeRef.offsetWidth
       this.offsetLeft = this.activeRef.offsetLeft
+    },
+    mouseEnter(route) {
+      this.hover = true
+      this.hoverElementName = route.name
     }
   },
   watch: {
@@ -73,12 +102,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+nav {
+  @apply overflow-x-hidden;
+}
+
 ul {
   @apply flex list-none;
 }
 
 li {
-  @apply mx-3 cursor-pointer text-black/2 transition-all ease-in-out hover:text-black/primary active:text-black/1;
+  @apply mx-3 flex cursor-pointer justify-center gap-2 py-2 text-black/2 transition-all ease-in-out hover:text-black/primary active:text-black/1;
 }
 
 li.active {
@@ -86,6 +119,6 @@ li.active {
 }
 
 .indicator {
-  @apply absolute h-[2px] rounded-full bg-black/primary;
+  @apply absolute h-[2px] bg-black/primary transition-all ease-in-out;
 }
 </style>
