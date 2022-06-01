@@ -55,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 input {
   -webkit-appearance: none;
-  @apply h-5 w-5 cursor-pointer rounded-sm border border-black/primary outline-none transition-all ease-in-out hover:bg-white/2;
+  @apply h-5 w-5 cursor-pointer rounded border border-black/primary outline-none transition-all ease-in-out hover:bg-white/2;
 }
 
 input:disabled {
@@ -79,7 +79,7 @@ input:hover.checked:not(:disabled) {
   position: absolute;
   pointer-events: none;
   top: 0;
-  margin-left: 4px;
-  margin-top: -1px;
+  margin-left: 3px;
+  margin-top: -2px;
 }
 </style>
