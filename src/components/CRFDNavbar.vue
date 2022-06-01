@@ -2,6 +2,13 @@
   <nav>
     <ul>
       <li
+        class="back-button"
+        @click="push(backRouteName)"
+        :class="{ hide: !backButton }"
+      >
+        <crfd-icon :icon="icons.ArrowLeft" width="18px" color="black" />
+      </li>
+      <li
         @click="push(route.name)"
         v-for="route in routes"
         :key="route.name"
@@ -29,19 +36,32 @@
 
 <script>
 import CRFDIcon from './CRFDIcon.vue'
+import * as icons from '../assets/icons'
 
 export default {
   name: 'crfd-navbar',
   components: {
     'crfd-icon': CRFDIcon
   },
+  props: {
+    backButton: {
+      type: Boolean,
+      default: false
+    },
+    backRouteName: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
+      icons,
       mounted: false,
       width: 0,
       offsetLeft: 10,
       hover: false,
-      hoverElementName: ''
+      hoverElementName: '',
+      backButtonChanged: false
     }
   },
   computed: {
@@ -84,9 +104,18 @@ export default {
       return this.isActive(route) ? '#000' : '#aaa'
     },
     updateIndicator() {
+      console.log(this.backButton)
+      console.log(this.backButtonChanged)
+
       if (!this.activeRef) return
       this.width = this.activeRef.offsetWidth
       this.offsetLeft = this.activeRef.offsetLeft
+
+      if (this.backButton && this.backButtonChanged) {
+        this.offsetLeft += 42
+      } else if (!this.backButton && this.backButtonChanged) {
+        this.offsetLeft -= 42
+      }
     },
     mouseEnter(route) {
       this.hover = true
@@ -96,6 +125,11 @@ export default {
   watch: {
     activeRef() {
       this.updateIndicator()
+    },
+    backButton() {
+      this.backButtonChanged = true
+      this.updateIndicator()
+      this.backButtonChanged = false
     }
   }
 }
@@ -116,6 +150,14 @@ li {
 
 li.active {
   @apply text-black/primary;
+}
+
+.back-button {
+  @apply ml-5 transition-all ease-out;
+}
+
+.back-button.hide {
+  @apply ml-[-24px] opacity-0;
 }
 
 .indicator {

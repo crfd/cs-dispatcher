@@ -8,6 +8,7 @@ import Gear from './gear.svg'
 import PieChart from './pie-chart.svg'
 import City from './city.svg'
 import Runner from './runner.svg'
+import ArrowLeft from './arrow-left.svg'
 import ArrowCircleRight from './arrow-circle-right.svg'
 
 export {
@@ -21,5 +22,6 @@ export {
   Gear,
   PieChart,
   City,
-  Runner
+  Runner,
+  ArrowLeft
 }

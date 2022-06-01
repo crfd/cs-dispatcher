@@ -1,34 +1,46 @@
 <template>
-  <header>
-    <h1 class="title">
-      <img src="./assets/logo-leaf.svg" width="28" class="inline-block" />
-      Confined Space Dispatcher
-    </h1>
-    <div class="navbar">
-      <crfd-navbar />
+  <div v-if="isLoading" class="center">
+    <crfd-indicator />
+  </div>
+  <div v-cloak>
+    <header>
+      <h1 class="title">
+        <img src="./assets/logo-leaf.svg" width="28" class="inline-block" />
+        Confined Space Dispatcher
+        <input v-model="backButton" type="checkbox" />
+      </h1>
+      <div class="navbar">
+        <crfd-navbar :back-button="backButton" />
+      </div>
+    </header>
+    <div id="content" ref="content">
+      <router-view v-if="!isLoading"></router-view>
     </div>
-  </header>
-  <div id="content" ref="content">
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import CRFDNavbar from './components/CRFDNavbar.vue'
+import CRFDIndicator from './components/CRFDIndicator.vue'
 
 export default {
   components: {
-    'crfd-navbar': CRFDNavbar
+    'crfd-navbar': CRFDNavbar,
+    'crfd-indicator': CRFDIndicator
   },
   data() {
     return {
-      isScrolled: false
+      isScrolled: false,
+      isLoading: true,
+      backButton: false
     }
   },
   mounted() {
     this.$refs.content.addEventListener('scroll', () => {
       this.isScrolled = this.$refs.content.scrollTop > 0
     })
+
+    this.isLoading = false
   }
 }
 </script>
@@ -36,6 +48,10 @@ export default {
 <style>
 * {
   box-sizing: border-box;
+}
+
+[v-cloak] {
+  display: none;
 }
 
 html,
@@ -60,6 +76,13 @@ header {
   position: relative;
   padding-bottom: -2px;
   @apply bg-white/primary transition-all ease-in-out;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .scroll {
