@@ -1,6 +1,6 @@
 <template>
   <div v-if="isLoading" class="center">
-    <crfd-indicator />
+    <crfd-spinner />
   </div>
   <div v-cloak>
     <header>
@@ -21,12 +21,12 @@
 
 <script>
 import CRFDNavbar from './components/CRFDNavbar.vue'
-import CRFDIndicator from './components/CRFDIndicator.vue'
+import CRFDSpinner from './components/CRFDSpinner.vue'
 
 export default {
   components: {
     'crfd-navbar': CRFDNavbar,
-    'crfd-indicator': CRFDIndicator
+    'crfd-spinner': CRFDSpinner
   },
   data() {
     return {

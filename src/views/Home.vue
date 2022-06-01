@@ -117,8 +117,8 @@
       <crfd-path :path="path" :value="pathCurrent" />
     </element-preview>
 
-    <element-preview title="Indicator">
-      <crfd-indicator />
+    <element-preview title="Spinner">
+      <crfd-spinner />
     </element-preview>
 
     <element-preview title="Checkbox">
@@ -138,7 +138,7 @@ import CRFDModifier from '../components/CRFDModifier.vue'
 import CRFDAvatar from '../components/CRFDAvatar.vue'
 import CRFDLabel from '../components/CRFDLabel.vue'
 import CRFDPath from '../components/CRFDPath.vue'
-import CRFDIndicator from '../components/CRFDIndicator.vue'
+import CRFDSpinner from '../components/CRFDSpinner.vue'
 import CRFDCheckbox from '../components/CRFDCheckbox.vue'
 import CRFDDropdown from '../components/CRFDDropdown.vue'
 import CRFDNavbar from '../components/CRFDNavbar.vue'
@@ -156,7 +156,7 @@ export default {
     'crfd-avatar': CRFDAvatar,
     'crfd-label': CRFDLabel,
     'crfd-path': CRFDPath,
-    'crfd-indicator': CRFDIndicator,
+    'crfd-spinner': CRFDSpinner,
     'crfd-checkbox': CRFDCheckbox,
     'crfd-dropdown': CRFDDropdown,
     'crfd-navbar': CRFDNavbar
