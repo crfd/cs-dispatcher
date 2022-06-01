@@ -4,15 +4,19 @@
   </div>
   <div v-cloak>
     <header>
-      <h1 class="title">
-        <img src="./assets/logo-leaf.svg" width="28" class="inline-block" />
-        Confined Space Dispatcher
-        <span class="ml-2 text-base font-normal">Show Back Button:</span>
-        <input v-model="backButton" type="checkbox" />
-        <span class="ml-2 text-base font-normal">Hide Icons:</span>
-        <input v-model="hideIcons" type="checkbox" />
-      </h1>
-      <div class="navbar">
+      <div class="title-wrapper">
+        <h1 class="title">
+          <img src="./assets/logo-leaf.svg" width="28" class="inline-block" />
+          Confined Space Dispatcher
+          <span class="ml-2 text-base font-normal">Hide Bar:</span>
+          <input v-model="hideBar" type="checkbox" />
+          <span class="ml-2 text-base font-normal">Show Back Button:</span>
+          <input v-model="backButton" type="checkbox" />
+          <span class="ml-2 text-base font-normal">Hide Icons:</span>
+          <input v-model="hideIcons" type="checkbox" />
+        </h1>
+      </div>
+      <div class="navbar" :class="{ hide: hideBar }">
         <crfd-navbar :back-button="backButton" :hide-icons="hideIcons" />
       </div>
     </header>
@@ -38,7 +42,8 @@ export default {
       isScrolled: false,
       isLoading: true,
       backButton: false,
-      hideIcons: false
+      hideIcons: false,
+      hideBar: false
     }
   },
   mounted() {
@@ -92,8 +97,7 @@ body {
 
 header {
   position: relative;
-  padding-bottom: -2px;
-  @apply bg-white/primary transition-all ease-in-out;
+  @apply border-b-2 border-solid border-white/2 bg-white/primary transition-all ease-in-out;
 }
 
 .center {
@@ -107,12 +111,22 @@ header {
   overflow-y: scroll;
 }
 
+.title-wrapper {
+  position: relative;
+  z-index: 5;
+}
+
 .title {
-  @apply mx-3 flex items-center gap-2 py-3 text-left text-lg font-semibold;
+  @apply flex items-center gap-2 bg-white/primary px-3 py-3 text-left text-lg font-semibold;
 }
 
 .navbar {
   position: relative;
-  @apply border-b-2 border-solid border-white/2;
+  z-index: 1;
+  @apply mt-0 transition-all ease-in-out;
+}
+
+.navbar.hide {
+  @apply mt-[-38px] opacity-0;
 }
 </style>

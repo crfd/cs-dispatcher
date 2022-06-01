@@ -160,7 +160,13 @@
     </h3>
 
     <element-preview title="Detail"> </element-preview>
-    <element-preview title="Datetime Input"> </element-preview>
+    <element-preview title="Datetime Input">
+      <a
+        href="https://dbrekalo.github.io/vue-date-pick/examples.html#calendar-widget"
+      >
+        https://dbrekalo.github.io/vue-date-pick/examples.html#calendar-widget
+      </a>
+    </element-preview>
     <element-preview title="Select"> </element-preview>
     <element-preview title="Multi-Select"> </element-preview>
     <element-preview title="Table"> </element-preview>
