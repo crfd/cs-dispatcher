@@ -1,15 +1,15 @@
 <template>
-  <div class="indicator"></div>
+  <div class="spinner"></div>
 </template>
 
 <script>
 export default {
-  name: 'crfd-indicator'
+  name: 'crfd-spinner'
 }
 </script>
 
 <style lang="scss" scoped>
-.indicator {
+.spinner {
   display: inline-block;
   width: 30px;
   height: 30px;
