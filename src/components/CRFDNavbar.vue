@@ -20,7 +20,7 @@
         <crfd-icon
           class="inline-block"
           width="12px"
-          v-if="route.meta.icon"
+          v-if="route.meta.icon && !hideIcons"
           :icon="route.meta.icon"
           :color="iconColor(route)"
         />
@@ -51,6 +51,10 @@ export default {
     backRouteName: {
       type: String,
       default: ''
+    },
+    hideIcons: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -130,6 +134,11 @@ export default {
       this.backButtonChanged = true
       this.updateIndicator()
       this.backButtonChanged = false
+    },
+    hideIcons() {
+      setTimeout(() => {
+        this.updateIndicator()
+      }, 5)
     }
   }
 }

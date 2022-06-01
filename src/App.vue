@@ -7,10 +7,13 @@
       <h1 class="title">
         <img src="./assets/logo-leaf.svg" width="28" class="inline-block" />
         Confined Space Dispatcher
+        <span class="ml-2 text-base font-normal">Show Back Button:</span>
         <input v-model="backButton" type="checkbox" />
+        <span class="ml-2 text-base font-normal">Hide Icons:</span>
+        <input v-model="hideIcons" type="checkbox" />
       </h1>
       <div class="navbar">
-        <crfd-navbar :back-button="backButton" />
+        <crfd-navbar :back-button="backButton" :hide-icons="hideIcons" />
       </div>
     </header>
     <div id="content" ref="content">
@@ -32,7 +35,8 @@ export default {
     return {
       isScrolled: false,
       isLoading: true,
-      backButton: false
+      backButton: false,
+      hideIcons: false
     }
   },
   mounted() {
