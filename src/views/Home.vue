@@ -138,6 +138,21 @@
       <br />
       <crfd-indicator :active="indicatorValue" />
     </element-preview>
+
+    <h3
+      class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/1"
+    >
+      Work in Progress
+    </h3>
+
+    <element-preview title="Card"> </element-preview>
+    <element-preview title="Detail"> </element-preview>
+    <element-preview title="Select"> </element-preview>
+    <element-preview title="Multi-Select"> </element-preview>
+    <element-preview title="Map"> </element-preview>
+    <element-preview title="Table"> </element-preview>
+    <element-preview title="Calendar"> </element-preview>
+    <element-preview title="Command Palette"> </element-preview>
   </div>
 </template>
 
@@ -193,7 +208,7 @@ export default {
       pathCurrent: 0,
       path: ['1. Step', '2. Step', '3. Step', '4. Step'],
       checkboxValue: false,
-      indicatorValue: 0
+      indicatorValue: 1
     }
   },
   computed: {
