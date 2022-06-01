@@ -23,15 +23,16 @@ const routes = [
     meta: {
       title: 'Login',
       requiresAuth: false,
-      hidden: true
+      hidden: true,
+      hideBar: true
     }
   },
   {
     path: '/',
-    name: 'dashboard',
+    name: 'home',
     component: Home,
     meta: {
-      title: 'Dashboard',
+      title: 'Home',
       requiresAuth: true,
       hidden: false,
       icon: icons.Home
