@@ -3,7 +3,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import * as icons from './assets/icons'
 
 import Home from './views/Home.vue'
-import Operations from './views/Operations.vue'
 
 const User = {
   template: '<div>User</div>'
@@ -38,7 +37,8 @@ const routes = [
   {
     path: '/operations',
     name: 'operations',
-    component: Operations,
+    component: () =>
+      import(/* webpackChunkName: "login" */ './views/Operations.vue'),
     meta: {
       title: 'Operations',
       requiresAuth: true,
@@ -49,7 +49,8 @@ const routes = [
   {
     path: '/spaces',
     name: 'spaces',
-    component: User,
+    component: () =>
+      import(/* webpackChunkName: "login" */ './views/Spaces.vue'),
     meta: {
       title: 'Spaces',
       requiresAuth: true,
@@ -60,7 +61,7 @@ const routes = [
   {
     path: '/map',
     name: 'map',
-    component: User,
+    component: () => import(/* webpackChunkName: "login" */ './views/Map.vue'),
     meta: {
       title: 'Map',
       requiresAuth: true,
@@ -71,7 +72,8 @@ const routes = [
   {
     path: '/anlytics',
     name: 'analytics',
-    component: User,
+    component: () =>
+      import(/* webpackChunkName: "login" */ './views/Analytics.vue'),
     meta: {
       title: 'Analytics',
       requiresAuth: true,
@@ -82,7 +84,8 @@ const routes = [
   {
     path: '/settings',
     name: 'settings',
-    component: User,
+    component: () =>
+      import(/* webpackChunkName: "login" */ './views/Settings.vue'),
     meta: {
       title: 'Settings',
       requiresAuth: true,
