@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { Done } from '../assets/icons'
+import { Done } from '../../assets/icons'
 
 import CRFDIcon from './CRFDIcon.vue'
 

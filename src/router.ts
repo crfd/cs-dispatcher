@@ -1,12 +1,9 @@
-import {
-  createRouter,
-  createWebHashHistory,
-  createWebHistory
-} from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import * as icons from './assets/icons'
 
 import Home from './views/Home.vue'
+import Operations from './views/Operations.vue'
 
 const User = {
   template: '<div>User</div>'
@@ -41,7 +38,7 @@ const routes = [
   {
     path: '/operations',
     name: 'operations',
-    component: User,
+    component: Operations,
     meta: {
       title: 'Operations',
       requiresAuth: true,
@@ -58,6 +55,17 @@ const routes = [
       requiresAuth: true,
       hidden: false,
       icon: icons.City
+    }
+  },
+  {
+    path: '/map',
+    name: 'map',
+    component: User,
+    meta: {
+      title: 'Map',
+      requiresAuth: true,
+      hidden: false,
+      icon: icons.Map
     }
   },
   {

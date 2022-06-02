@@ -19,7 +19,7 @@ export default {
   name: 'element-preview',
   props: {
     modelValue: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
     options: {
@@ -43,7 +43,6 @@ export default {
   methods: {
     updateValue(event) {
       const value = event.target.value
-      console.log(event)
       this.$emit('update:modelValue', value)
     }
   }

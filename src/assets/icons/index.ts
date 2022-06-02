@@ -10,6 +10,10 @@ import City from './city.svg'
 import Runner from './runner.svg'
 import ArrowLeft from './arrow-left.svg'
 import ArrowCircleRight from './arrow-circle-right.svg'
+import Map from './map.svg'
+import Filter from './filter.svg'
+import Calendar from './calendar.svg'
+import ConfinedSpace from './confined-space.svg'
 
 export {
   InputError,
@@ -23,5 +27,9 @@ export {
   PieChart,
   City,
   Runner,
-  ArrowLeft
+  ArrowLeft,
+  Map,
+  Filter,
+  Calendar,
+  ConfinedSpace
 }

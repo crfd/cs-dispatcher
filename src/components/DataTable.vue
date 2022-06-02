@@ -1,0 +1,240 @@
+<template>
+  <div
+    class="my-table no-scrollbar"
+    ref="table"
+    :style="{ maxWidth: maxWidth }"
+  >
+    <table>
+      <thead :class="{ shadow: scrolled && hasShadow }">
+        <tr>
+          <th
+            v-for="(h, i) in headers"
+            :key="h"
+            @click="changeOrder(i)"
+            :class="{ 'sort-key': i === sortKey }"
+          >
+            <span>{{ h }}</span>
+            <ChevronDownIcon
+              v-if="sortKey === i"
+              size="0.8x"
+              class="sort-icon"
+              :class="{ up: !ascending }"
+            />
+            <div class="icon-placeholder" v-if="sortKey !== i" />
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(r, iR) in sortedRows" :key="iR">
+          <td v-for="(h, i) in headers" :key="h">{{ r[i] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+// TODO: Generate UUIDs
+import { ChevronDownIcon } from '@zhuowenli/vue-feather-icons'
+
+export default {
+  name: 'data-table',
+  components: { ChevronDownIcon },
+  props: {
+    headers: {
+      type: Array,
+      required: true
+    },
+    rows: {
+      type: Array,
+      required: true
+    },
+    search: {
+      type: String,
+      default: ''
+    },
+    maxWidth: {
+      type: String,
+      default: '840px'
+    },
+    hasShadow: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: () => {
+    return {
+      scrollY: 0,
+      sortKey: 0,
+      ascending: true // ascending = 1 -> 100 - descending = 100 -> 1
+    }
+  },
+  methods: {
+    changeOrder(index) {
+      if (this.sortKey == index) {
+        this.ascending = !this.ascending
+      } else {
+        this.sortKey = index
+        this.ascending = true
+      }
+    }
+  },
+  computed: {
+    scrolled() {
+      return this.scrollY !== 0
+    },
+    sortedRows() {
+      const i = this.sortKey
+
+      return [...this.rows].sort((a, b) => {
+        return this.ascending ? a[i] > b[i] : a[i] < b[i]
+      })
+    }
+  },
+  mounted() {
+    const $table = this.$refs.table
+
+    $table.addEventListener('scroll', () => {
+      this.scrollY = $table.scrollTop
+    })
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.my-table {
+  position: relative;
+  display: block;
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto; // center horizontally
+  overscroll-behavior-y: none; // no bounce
+}
+
+/* https://stackoverflow.com/a/51312747/4179020 */
+table tr td:last-of-type {
+  width: 100%;
+}
+
+table tr th:last-of-type {
+  width: 100%;
+}
+
+table {
+  display: table;
+  position: relative;
+  border-collapse: collapse;
+  overflow: hidden;
+  height: 100%;
+
+  /* Text */
+  font-family: 'Roboto', 'Avenir', sans-serif;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  margin-bottom: -2px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all ease-in-out 160ms;
+  @apply bg-white/primary;
+}
+
+thead.shadow {
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+tbody {
+  position: relative;
+  color: #000;
+  height: 200px;
+  scrollbar-width: 0;
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+}
+
+/* Remove bottom border from last table row */
+tr:last-child td {
+  border: none;
+}
+
+/* Highlight table row */
+tr {
+  @apply transition-all ease-in-out;
+}
+
+tbody tr:hover {
+  @apply bg-white/2;
+}
+
+th,
+td {
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+th {
+  position: relative;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all ease-in-out 160ms;
+  font-weight: 500;
+  @apply text-black/1;
+}
+
+th.sort-key {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  font-weight: 600;
+  @apply text-black/primary;
+}
+
+td {
+  cursor: pointer;
+  border-bottom: 1px solid;
+  @apply border-b-white/2;
+}
+
+/* Padding to the left of the table */
+th:first-child,
+td:first-child {
+  padding-left: 20px;
+}
+
+/* Padding to the right of the table */
+th:last-child,
+td:last-child {
+  padding-right: 20px;
+}
+
+.sort-icon {
+  width: 12px;
+  height: 12px;
+  transition: all ease-in-out 300ms;
+  transform: rotate(360deg);
+}
+
+.icon-placeholder {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
+
+.up {
+  transform: rotate(180deg);
+}
+
+.no-scrollbar {
+  overflow: auto;
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+}
+</style>

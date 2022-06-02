@@ -49,7 +49,7 @@
 
 <script>
 import CRFDIcon from './CRFDIcon.vue'
-import { ArrowCircleRight } from '../assets/icons'
+import { ArrowCircleRight } from '../../assets/icons'
 
 export default {
   name: 'crfd-input',
@@ -205,10 +205,10 @@ export default {
         this.isFocused = value
 
         if (this.didChange && !value && !this.inOptions(this.inputValue)) {
-          console.log('not in options')
+          // console.log('not in options')
           this.updateValue('')
         } else if (this.didChange && !value) {
-          console.log('in options')
+          // console.log('in options')
           this.updateValue(this.inputValue)
         }
       }

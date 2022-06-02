@@ -36,7 +36,7 @@
 
 <script>
 import CRFDIcon from './CRFDIcon.vue'
-import * as icons from '../assets/icons'
+import * as icons from '../../assets/icons'
 
 export default {
   name: 'crfd-navbar',
@@ -108,8 +108,8 @@ export default {
       return this.isActive(route) ? '#000' : '#aaa'
     },
     updateIndicator() {
-      console.log(this.backButton)
-      console.log(this.backButtonChanged)
+      // console.log(this.backButton)
+      // console.log(this.backButtonChanged)
 
       if (!this.activeRef) return
       this.width = this.activeRef.offsetWidth

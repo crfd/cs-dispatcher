@@ -143,7 +143,7 @@
 
     <element-preview title="Card">
       <crfd-card class="w-3/4">
-        It’s always good to find out you’re going to be working from home…
+        It's always good to find out you're going to be working from home…
         <br />
         <br />
         <span class="text-sm italic text-black/1">
@@ -172,47 +172,34 @@
     <element-preview title="Table"> </element-preview>
     <element-preview title="Calendar"> </element-preview>
     <element-preview title="Command Palette"> </element-preview>
+    <element-preview title="Modal"> </element-preview>
+    <element-preview title="List"> </element-preview>
   </div>
 </template>
 
 <script>
-import ElementPreview from '../layouts/ElementPreview.vue'
-
-import CRFDInput from '../components/CRFDInput.vue'
-import CRFDButton from '../components/CRFDButton.vue'
-import CRFDIcon from '../components/CRFDIcon.vue'
-import CRFDModifier from '../components/CRFDModifier.vue'
-import CRFDAvatar from '../components/CRFDAvatar.vue'
-import CRFDLabel from '../components/CRFDLabel.vue'
-import CRFDPath from '../components/CRFDPath.vue'
-import CRFDSpinner from '../components/CRFDSpinner.vue'
-import CRFDCheckbox from '../components/CRFDCheckbox.vue'
-import CRFDDropdown from '../components/CRFDDropdown.vue'
-import CRFDNavbar from '../components/CRFDNavbar.vue'
-import CRFDIndicator from '../components/CRFDIndicator.vue'
-import CRFDMap from '../components/CRFDMap.vue'
-import CRFDCard from '../components/CRFDCard.vue'
+import * as Components from '../components'
+const CRFD = Components.CRFD
 
 import * as icons from '../assets/icons'
 
 export default {
   name: 'Home',
   components: {
-    'element-preview': ElementPreview,
-    'crfd-input': CRFDInput,
-    'crfd-button': CRFDButton,
-    'crfd-icon': CRFDIcon,
-    'crfd-modifier': CRFDModifier,
-    'crfd-avatar': CRFDAvatar,
-    'crfd-label': CRFDLabel,
-    'crfd-path': CRFDPath,
-    'crfd-spinner': CRFDSpinner,
-    'crfd-checkbox': CRFDCheckbox,
-    'crfd-dropdown': CRFDDropdown,
-    'crfd-navbar': CRFDNavbar,
-    'crfd-indicator': CRFDIndicator,
-    'crfd-map': CRFDMap,
-    'crfd-card': CRFDCard
+    'element-preview': Components.ElementPreview,
+    'crfd-button': CRFD.Button,
+    'crfd-modifier': CRFD.Modifier,
+    'crfd-icon': CRFD.Icon,
+    'crfd-input': CRFD.Input,
+    'crfd-dropdown': CRFD.Dropdown,
+    'crfd-avatar': CRFD.Avatar,
+    'crfd-label': CRFD.Label,
+    'crfd-path': CRFD.Path,
+    'crfd-spinner': CRFD.Spinner,
+    'crfd-checkbox': CRFD.Checkbox,
+    'crfd-indicator': CRFD.Indicator,
+    'crfd-map': CRFD.Map,
+    'crfd-card': CRFD.Card
   },
   data() {
     return {

@@ -8,8 +8,14 @@
     :disabled="disabled"
     :class="classes"
   >
-    <div class="flex justify-center space-x-0.5">
-      <crfd-icon v-if="icon" width="16px" :icon="icon" :color="color" />
+    <div class="flex justify-center">
+      <crfd-icon
+        v-if="icon"
+        width="16px"
+        :icon="icon"
+        :color="color"
+        class="icon"
+      />
       {{ title }}
       <span>
         {{ title }}
@@ -54,24 +60,24 @@ export default {
       active: false,
       iconColors: {
         default: {
-          button: '#fff',
-          inactive: '#ddd',
-          applied: '#000'
+          primary: '#fff',
+          secondary: '#000',
+          critical: '#fff'
         },
         hover: {
-          button: '#fff',
-          inactive: '#000',
-          applied: '#000'
+          primary: '#000',
+          secondary: '#000',
+          critical: '#fff'
         },
         active: {
-          button: '#fff',
-          inactive: '#000',
-          applied: '#000'
+          primary: '#000',
+          secondary: '#000',
+          critical: '#e93731'
         },
         disabled: {
-          button: '#ddd',
-          inactive: '#ddd',
-          applied: '#ddd'
+          primary: '#fff',
+          secondary: '#666',
+          critical: '#fff'
         }
       }
     }
@@ -107,14 +113,19 @@ export default {
 
 <style scoped>
 button {
-  @apply m-1 cursor-pointer rounded-full border border-black/primary bg-black/primary px-[8px] py-[1px] text-[15px] text-white/primary transition-all ease-in-out hover:opacity-70 active:opacity-50 disabled:cursor-not-allowed disabled:border-white/3 disabled:bg-white/1 disabled:text-white/3 disabled:hover:opacity-100;
+  box-sizing: border-box;
+  @apply m-1 inline-block cursor-pointer rounded-md border border-black/primary bg-black/primary px-3 py-1.5 font-medium text-white/primary transition-all ease-in-out hover:border-black/primary hover:bg-white/primary hover:text-black/primary  active:border-black/primary active:bg-white/2 active:text-black/primary disabled:cursor-not-allowed disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
 }
 
-button.inactive {
-  @apply border-white/2 bg-white/primary text-black/1 hover:border-black/primary hover:bg-white/primary hover:text-black/primary hover:opacity-100 active:border-black/primary active:bg-white/2 active:opacity-100 disabled:cursor-not-allowed  disabled:bg-white/1 disabled:text-white/3 disabled:hover:border-white/2 disabled:hover:opacity-100;
+button.secondary {
+  @apply border-white/2 bg-white/primary text-black/primary hover:border-black/primary hover:bg-white/primary active:border-black/primary active:bg-white/2 disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
 }
 
-button.applied {
-  @apply border-black/primary bg-white/primary text-black/primary hover:border-white/3 hover:text-black/primary hover:opacity-100 active:bg-white/2  active:text-black/primary active:opacity-100 disabled:cursor-not-allowed disabled:border-white/3 disabled:bg-white/1 disabled:text-white/3 disabled:hover:opacity-100;
+button.critical {
+  @apply border-red/primary bg-red/primary uppercase text-white/primary hover:border-red/dark hover:bg-red/dark active:border-red/primary active:bg-white/primary active:text-red/primary disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
+}
+
+.icon {
+  @apply mr-1;
 }
 </style>
