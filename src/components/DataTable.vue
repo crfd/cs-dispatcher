@@ -106,7 +106,6 @@ export default {
   position: relative;
   display: block;
   overflow: scroll;
-  height: 100%;
   width: 100%;
   margin: 0 auto; // center horizontally
   overscroll-behavior-y: none; // no bounce
@@ -126,7 +125,6 @@ table {
   position: relative;
   border-collapse: collapse;
   overflow: hidden;
-  height: 100%;
 
   /* Text */
   font-family: 'Roboto', 'Avenir', sans-serif;
@@ -152,7 +150,6 @@ thead.shadow {
 tbody {
   position: relative;
   color: #000;
-  height: 200px;
   scrollbar-width: 0;
   -ms-overflow-style: none;
   overflow-y: scroll;
