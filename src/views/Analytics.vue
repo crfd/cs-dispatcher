@@ -10,9 +10,11 @@
 </template>
 
 <script>
+import { ContentHeader } from '../components'
+
 export default {
   name: 'analytics',
-  components: {},
+  components: { ContentHeader },
   props: {},
   data() {
     return {}
