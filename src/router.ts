@@ -28,7 +28,7 @@ const routes = [
     name: 'home',
     component: Home,
     meta: {
-      title: 'Home',
+      title: 'Component Library',
       requiresAuth: true,
       hidden: false,
       icon: HomeIcon
@@ -43,6 +43,17 @@ const routes = [
       requiresAuth: true,
       hidden: false,
       icon: RunnerIcon
+    }
+  },
+  {
+    path: '/operations/new',
+    name: 'operation-new',
+    component: () => import('@views/NewOperation.vue'),
+    meta: {
+      title: 'New Operation',
+      requiresAuth: true,
+      hidden: true,
+      hideBar: true
     }
   },
   {
@@ -108,6 +119,29 @@ const routes = [
       requiresAuth: true,
       hidden: false,
       icon: CityIcon
+    }
+  },
+  {
+    path: '/spaces/new',
+    name: 'space-new',
+    component: () => import('@views/NewSpace.vue'),
+    meta: {
+      title: 'New Space',
+      requiresAuth: true,
+      hidden: true,
+      hideBar: true
+    }
+  },
+  {
+    path: '/spaces/:id',
+    name: 'space-detail',
+    component: () => import('@views/SpaceDetail/Index.vue'),
+    meta: {
+      title: 'Overview',
+      requiresAuth: true,
+      hidden: true,
+      back: 'spaces',
+      customNavbar: ['space-detail']
     }
   },
   {

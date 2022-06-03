@@ -4,7 +4,7 @@
       <template v-slot:left></template>
       <template v-slot:right>
         <crfd-button flavour="secondary">Edit</crfd-button>
-        <crfd-button>Create</crfd-button>
+        <crfd-button @click="push('space-new')">Create</crfd-button>
       </template>
       <template v-slot:sub-left>
         <crfd-modifier title="Filter" :icon="icons.Filter" flavour="inactive" />
@@ -13,7 +13,12 @@
     </ContentHeader>
 
     <div class="white-table-header"></div>
-    <DataTable class="data-table" :headers="headers" :rows="rows" />
+    <DataTable
+      class="data-table"
+      :headers="headers"
+      :rows="rows"
+      @select="rowSelectionHandler"
+    />
   </div>
 </template>
 
@@ -53,7 +58,21 @@ export default {
       ]
     }
   },
-  methods: {}
+  methods: {
+    push(name) {
+      this.$router.push({ name })
+    },
+    rowSelectionHandler(i) {
+      const row = this.rows[i]
+
+      this.$router.push({
+        name: 'space-detail',
+        params: {
+          id: i
+        }
+      })
+    }
+  }
 }
 </script>
 

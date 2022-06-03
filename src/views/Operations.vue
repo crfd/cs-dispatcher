@@ -4,7 +4,7 @@
       <template v-slot:left></template>
       <template v-slot:right>
         <crfd-button flavour="secondary">Edit</crfd-button>
-        <crfd-button>Create</crfd-button>
+        <crfd-button @click="push('operation-new')">Create</crfd-button>
       </template>
       <template v-slot:sub-left>
         <crfd-modifier title="Calender View" :icon="icons.Calendar" />
@@ -64,6 +64,9 @@ export default {
     }
   },
   methods: {
+    push(name) {
+      this.$router.push({ name })
+    },
     rowSelectionHandler(i) {
       const row = this.rows[i]
 
