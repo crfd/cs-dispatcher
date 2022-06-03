@@ -59,12 +59,12 @@ summary {
 }
 
 .detail-content {
-  @apply pt-4;
+  @apply px-1 pt-4 pb-2;
 }
 
 .toggle-icon {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   @apply mr-2 transition-all ease-in-out;
 }
 
