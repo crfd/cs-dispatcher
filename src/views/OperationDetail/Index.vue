@@ -21,7 +21,6 @@ export default {
   },
   computed: {
     title() {
-      console.dir(this.$route.params)
       return 'Operation ' + this.$route.params.id
     }
   },
