@@ -38,6 +38,7 @@
           class="text"
           color-class="bg-white/primary"
           text-color-class="text-black/primary"
+          :disabled="diamond.special === ''"
         >
           <p :class="{ 'line-through': diamond.specialNotice === 'W' }">
             {{ diamond.specialNotice }}
