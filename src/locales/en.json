@@ -1,0 +1,30 @@
+{
+  "hazardDiamond": {
+    "flammability": {
+      "0": "**Flammability** Will not ignite",
+      "1": "**Flammability** Must be preheated before ignition",
+      "2": "**Flammability** Must be heated or high ambient temperature before ignition",
+      "3": "**Flammability** Can be ignited under almost all ambient temperatures",
+      "4": "**Flammability** Will vaporize and readily burn at normal temperatures"
+    },
+    "health": {
+      "0": "**Health** No hazard",
+      "1": "**Health** Can cause significant irritation",
+      "2": "**Health** Can cause temporary incapaciations or residual injuries",
+      "3": "**Health** Can cause serious or permanent damage",
+      "4": "**Health** Can be lethal"
+    },
+    "reactivity": {
+      "0": "**Reactivitiy** Stable",
+      "1": "**Reactivitiy** Normally stable. High temperature make unstable",
+      "2": "**Reactivitiy** Violent chemical change at high temperatures or pressures",
+      "3": "**Reactivitiy** May explode at high temperatures or shock",
+      "4": "**Reactivitiy** May explode at normal temperatures or pressures"
+    },
+    "specialNotice": {
+      "OX": "**Special** Oxidizing",
+      "W": "**Special** Reacts violently or explosively with water",
+      "SA": "**Special** Simple asphyxiants"
+    }
+  }
+}

@@ -153,6 +153,33 @@
       </crfd-card>
     </element-preview>
 
+    <element-preview title="NFPA 704 Hazard Diamond">
+      <crfd-hazard-diamond />
+      <br />
+      <crfd-hazard-diamond
+        flammability="4"
+        special="W"
+        health="3"
+        reactivity="1"
+      />
+    </element-preview>
+
+    <element-preview
+      title="Tooltip"
+      v-model="tooltipPosition"
+      :options="tooltipPositions"
+    >
+      <crfd-tooltip text="Some Tooltip" :position="tooltipPosition">
+        <p>Hover here!</p>
+      </crfd-tooltip>
+    </element-preview>
+
+    <element-preview title="Markdown">
+      <markdown
+        value="This is some [**Markdown**](https://github.com/developit/snarkdown)"
+      />
+    </element-preview>
+
     <h3
       class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/2"
     >
@@ -178,20 +205,23 @@
 </template>
 
 <script>
-import { ElementPreview } from '@components'
+import { ElementPreview, Markdown } from '@components'
 import * as CRFD from '@crfd'
+import HazardDiamond from '../components/CRFD/CRFDHazardDiamond.vue'
 
-import * as icons from '../assets/icons'
+import * as icons from '@icons'
 
 export default {
   name: 'Home',
   components: {
+    markdown: Markdown,
     'element-preview': ElementPreview,
     'crfd-button': CRFD.Button,
     'crfd-modifier': CRFD.Modifier,
     'crfd-icon': CRFD.Icon,
     'crfd-input': CRFD.Input,
     'crfd-dropdown': CRFD.Dropdown,
+    'crfd-hazard-diamond': HazardDiamond,
     'crfd-avatar': CRFD.Avatar,
     'crfd-label': CRFD.Label,
     'crfd-path': CRFD.Path,
@@ -199,7 +229,8 @@ export default {
     'crfd-checkbox': CRFD.Checkbox,
     'crfd-indicator': CRFD.Indicator,
     'crfd-map': CRFD.Map,
-    'crfd-card': CRFD.Card
+    'crfd-card': CRFD.Card,
+    'crfd-tooltip': CRFD.Tooltip
   },
   data() {
     return {
@@ -218,7 +249,9 @@ export default {
       pathCurrent: 0,
       path: ['1. Step', '2. Step', '3. Step', '4. Step'],
       checkboxValue: false,
-      indicatorValue: 1
+      indicatorValue: 1,
+      tooltipPositions: ['top', 'right', 'bottom', 'left'],
+      tooltipPosition: 'top'
     }
   },
   computed: {

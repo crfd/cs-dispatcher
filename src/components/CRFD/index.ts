@@ -2,6 +2,7 @@ import Avatar from './CRFDAvatar.vue'
 import Button from './CRFDButton.vue'
 import Card from './CRFDCard.vue'
 import Checkbox from './CRFDCheckbox.vue'
+import HazardDiamond from './CRFDHazardDiamond.vue'
 import Dropdown from './CRFDDropdown.vue'
 import Icon from './CRFDIcon.vue'
 import Indicator from './CRFDIndicator.vue'
@@ -12,6 +13,7 @@ import Modifier from './CRFDModifier.vue'
 import Navbar from './CRFDNavbar.vue'
 import Path from './CRFDPath.vue'
 import Spinner from './CRFDSpinner.vue'
+import Tooltip from './CRFDTooltip.vue'
 
 export {
   Avatar,
@@ -19,6 +21,7 @@ export {
   Card,
   Checkbox,
   Dropdown,
+  HazardDiamond,
   Icon,
   Indicator,
   Input,
@@ -27,5 +30,6 @@ export {
   Modifier,
   Navbar,
   Path,
-  Spinner
+  Spinner,
+  Tooltip
 }
