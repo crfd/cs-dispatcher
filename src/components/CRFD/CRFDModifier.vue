@@ -58,12 +58,12 @@ export default {
           applied: '#000'
         },
         hover: {
-          button: '#fff',
+          button: '#000',
           inactive: '#000',
           applied: '#000'
         },
         active: {
-          button: '#fff',
+          button: '#000',
           inactive: '#000',
           applied: '#000'
         },
@@ -107,7 +107,7 @@ export default {
 
 <style scoped>
 button {
-  @apply m-1 cursor-pointer rounded-full border border-black/primary bg-black/primary px-[8px] py-[1px] text-[15px] text-white/primary transition-all ease-in-out hover:opacity-70 active:opacity-50 disabled:cursor-not-allowed disabled:border-white/3 disabled:bg-white/1 disabled:text-white/3 disabled:hover:opacity-100;
+  @apply m-1 cursor-pointer rounded-full border border-black/primary bg-black/primary px-[8px] py-[1px] text-[15px] text-white/primary transition-all ease-in-out hover:border-black/primary hover:bg-white/primary hover:text-black/primary active:bg-white/2 disabled:cursor-not-allowed disabled:border-white/3 disabled:bg-white/1 disabled:text-white/3 disabled:hover:opacity-100;
 }
 
 button.inactive {
