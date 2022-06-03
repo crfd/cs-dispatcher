@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { Container } from './Hydrogen'
+import { Container } from '@hydrogen'
 
 export default {
   name: 'content-header',

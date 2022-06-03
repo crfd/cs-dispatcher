@@ -1,21 +1,21 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import * as icons from './assets/icons'
+import Home from '@views/Home.vue'
 
-import Home from './views/Home.vue'
-
-const User = {
-  template: '<div>User</div>'
-}
-
-// import Home from './views/Home.vue'
+import {
+  Home as HomeIcon,
+  Runner as RunnerIcon,
+  City as CityIcon,
+  Map as MapIcon,
+  PieChart as PieChartIcon,
+  Gear as GearIcon
+} from './assets/icons'
 
 const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () =>
-      import(/* webpackChunkName: "login" */ './views/Login.vue'),
+    component: () => import(/* webpackChunkName: "login" */ '@views/Login.vue'),
     meta: {
       title: 'Login',
       requiresAuth: false,
@@ -31,7 +31,7 @@ const routes = [
       title: 'Home',
       requiresAuth: true,
       hidden: false,
-      icon: icons.Home
+      icon: HomeIcon
     }
   },
   {
@@ -43,7 +43,7 @@ const routes = [
       title: 'Operations',
       requiresAuth: true,
       hidden: false,
-      icon: icons.Runner
+      icon: RunnerIcon
     }
   },
   {
@@ -55,7 +55,7 @@ const routes = [
       title: 'Spaces',
       requiresAuth: true,
       hidden: false,
-      icon: icons.City
+      icon: CityIcon
     }
   },
   {
@@ -66,7 +66,7 @@ const routes = [
       title: 'Map',
       requiresAuth: true,
       hidden: false,
-      icon: icons.Map
+      icon: MapIcon
     }
   },
   {
@@ -78,7 +78,7 @@ const routes = [
       title: 'Analytics',
       requiresAuth: true,
       hidden: false,
-      icon: icons.PieChart
+      icon: PieChartIcon
     }
   },
   {
@@ -90,7 +90,7 @@ const routes = [
       title: 'Settings',
       requiresAuth: true,
       hidden: false,
-      icon: icons.Gear
+      icon: GearIcon
     }
   }
 ]

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -14,9 +15,24 @@
     "skipLibCheck": true,
     "allowJs": true,
     "paths": {
-      "@": ["./src"]
+      "@/*": ["./src/*"],
+      "@assets": ["./src/assets/index.ts"],
+      "@assets/*": ["./src/assets/*"],
+      "@icons": ["./src/assets/icons"],
+      "@icons/*": ["./src/assets/icons/*"],
+      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
+      "@crfd": ["./src/components/crfd"],
+      "@crfd/*": ["./src/components/crfd/*"],
+      "@hydrogen": ["./src/components/hydrogen"],
+      "@hydrogen/*": ["./src/components/hydrogen/*"],
+      "@layouts": ["./src/layouts"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@styles": ["./src/styles"],
+      "@styles/*": ["./src/styles/*"],
+      "@views": ["src/views"],
+      "@views/*": ["src/views/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

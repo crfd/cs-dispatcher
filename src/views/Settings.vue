@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { ContentHeader } from '../components'
+import { ContentHeader } from '@components'
 
 export default {
   name: 'settings',

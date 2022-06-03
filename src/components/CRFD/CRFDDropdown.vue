@@ -48,13 +48,13 @@
 </template>
 
 <script>
-import CRFDIcon from './CRFDIcon.vue'
-import { ArrowCircleRight } from '../../assets/icons'
+import { Icon } from '@crfd/'
+import { ArrowCircleRight } from '@icons'
 
 export default {
   name: 'crfd-input',
   components: {
-    'crfd-icon': CRFDIcon
+    'crfd-icon': Icon
   },
   props: {
     type: {

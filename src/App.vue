@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import { PageHeader } from './components'
-import { Container } from './components/Hydrogen'
-import { Spinner } from './components/CRFD'
+import { PageHeader } from '@components'
+import { Spinner } from '@crfd'
+import { Container } from '@hydrogen'
 
 export default {
   components: {

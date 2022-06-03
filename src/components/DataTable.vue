@@ -103,8 +103,6 @@ export default {
 
 <style lang="scss" scoped>
 .my-table {
-  position: relative;
-  display: block;
   overflow: scroll;
   width: 100%;
   margin: 0 auto; // center horizontally
@@ -127,20 +125,16 @@ table {
   overflow: hidden;
 
   /* Text */
-  font-family: 'Roboto', 'Avenir', sans-serif;
   text-align: left;
   font-size: 14px;
-  font-weight: 400;
 }
 
 thead {
   position: sticky;
   top: 0;
   z-index: 200;
-  margin-bottom: -2px;
   color: rgba(255, 255, 255, 0.9);
-  transition: all ease-in-out 160ms;
-  @apply bg-white/primary;
+  @apply bg-white/primary transition-all ease-in-out;
 }
 
 thead.shadow {
@@ -148,11 +142,10 @@ thead.shadow {
 }
 
 tbody {
-  position: relative;
   color: #000;
   scrollbar-width: 0;
-  -ms-overflow-style: none;
   overflow-y: scroll;
+  -ms-overflow-style: none;
 }
 
 /* Remove bottom border from last table row */
@@ -176,7 +169,6 @@ td {
 }
 
 th {
-  position: relative;
   padding-top: 12px;
   padding-bottom: 12px;
   cursor: pointer;

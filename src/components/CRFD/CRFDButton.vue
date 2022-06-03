@@ -29,12 +29,14 @@
 </template>
 
 <script>
-import CRFDIcon from './CRFDIcon.vue'
+// ERROR: "can't access lexical declaration when using"
+// import { Icon } from '@crfd'
+import Icon from '@crfd/CRFDIcon.vue'
 
 export default {
   name: 'crfd-button',
   components: {
-    'crfd-icon': CRFDIcon
+    'crfd-icon': Icon
   },
   props: {
     title: {

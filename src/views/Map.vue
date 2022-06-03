@@ -1,20 +1,32 @@
 <template>
   <div id="page">
     <crfd-map class="map" />
+    <crfd-card class="panel">
+      <crfd-modifier title="Filter" flavour="inactive" :icon="icons.Filter" />
+    </crfd-card>
   </div>
 </template>
 
 <script>
-import { Map } from '../components/CRFD'
+import { Map, Card, Modifier } from '@crfd'
+import { Container } from '@hydrogen'
+import { Filter } from '@icons'
 
 export default {
   name: 'operations',
   components: {
-    'crfd-map': Map
+    Container,
+    'crfd-map': Map,
+    'crfd-card': Card,
+    'crfd-modifier': Modifier
   },
   props: {},
   data() {
-    return {}
+    return {
+      icons: {
+        Filter
+      }
+    }
   },
   computed: {},
   methods: {}
@@ -24,15 +36,19 @@ export default {
 <style lang="scss" scoped>
 #page {
   position: relative;
-  display: inline-flex;
-  flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow: hidden;
-  flex: 1;
 }
 
 .map {
   height: 100%;
+}
+
+.panel {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
 }
 </style>

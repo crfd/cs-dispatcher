@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import CRFDIcon from './CRFDIcon.vue'
-import * as icons from '../../assets/icons'
+import { Icon } from '@crfd'
+import { ArrowLeft } from '@icons'
 
 export default {
   name: 'crfd-navbar',
   components: {
-    'crfd-icon': CRFDIcon
+    'crfd-icon': Icon
   },
   props: {
     backButton: {
@@ -59,7 +59,9 @@ export default {
   },
   data() {
     return {
-      icons,
+      icons: {
+        ArrowLeft
+      },
       mounted: false,
       width: 0,
       offsetLeft: 10,

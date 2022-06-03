@@ -20,7 +20,7 @@
 <script>
 import { Done } from '../../assets/icons'
 
-import CRFDIcon from './CRFDIcon.vue'
+import CRFDIcon from '@crfd/CRFDIcon.vue'
 
 export default {
   name: 'crfd-checkbox',

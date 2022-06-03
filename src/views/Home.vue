@@ -178,15 +178,15 @@
 </template>
 
 <script>
-import * as Components from '../components'
-const CRFD = Components.CRFD
+import { ElementPreview } from '@components'
+import * as CRFD from '@crfd'
 
 import * as icons from '../assets/icons'
 
 export default {
   name: 'Home',
   components: {
-    'element-preview': Components.ElementPreview,
+    'element-preview': ElementPreview,
     'crfd-button': CRFD.Button,
     'crfd-modifier': CRFD.Modifier,
     'crfd-icon': CRFD.Icon,

@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import { ContentHeader, DataTable } from '../components/'
-import { Button, Modifier } from '../components/CRFD'
-import { Container } from '../components/Hydrogen'
-import * as icons from '../assets/icons'
+import { ContentHeader, DataTable } from '@components'
+import { Button, Modifier } from '@crfd'
+import { Container } from '@hydrogen'
+import { Filter, Calendar } from '@icons'
 
 export default {
   name: 'operations',
@@ -36,7 +36,10 @@ export default {
   props: {},
   data() {
     return {
-      icons,
+      icons: {
+        Filter,
+        Calendar
+      },
       headers: ['#', 'Space', 'Classification', 'Time', 'Date', 'Task']
     }
   },

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { Navbar } from './CRFD'
+import { Navbar } from '@crfd'
 
 export default {
   name: 'PageHeader',

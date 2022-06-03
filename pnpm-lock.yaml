@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/lodash': ^4.14.182
   '@types/mapbox-gl': ^2.7.2
   '@types/vue-i18n': ^7.0.0
   '@vitejs/plugin-vue': ^2.3.3
@@ -9,6 +10,7 @@ specifiers:
   autoprefixer: ^10.4.7
   crypto-js: ^4.1.1
   firebase: ^9.8.2
+  lodash: ^4.17.21
   mapbox-gl: ^2.8.2
   pinia: ^2.0.14
   postcss: ^8.4.14
@@ -16,7 +18,7 @@ specifiers:
   prettier-plugin-tailwindcss: ^0.1.11
   sass: ^1.52.1
   tailwindcss: ^3.0.24
-  typescript: ^4.5.4
+  typescript: ^4.7.2
   uuid: ^8.3.2
   vite: ^2.9.9
   vue: '3'
@@ -29,6 +31,7 @@ dependencies:
   '@zhuowenli/vue-feather-icons': 5.0.2
   crypto-js: 4.1.1
   firebase: 9.8.2
+  lodash: 4.17.21
   mapbox-gl: 2.8.2
   pinia: 2.0.14_qhv4oyzxhhzeba5rd2zztmcg2y
   sass: 1.52.1
@@ -38,6 +41,7 @@ dependencies:
   vue-router: 4.0.15_vue@3.2.36
 
 devDependencies:
+  '@types/lodash': 4.14.182
   '@types/mapbox-gl': 2.7.2
   '@types/vue-i18n': 7.0.0_vue@3.2.36
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.36
@@ -703,6 +707,10 @@ packages:
 
   /@types/geojson/7946.0.8:
     resolution: {integrity: sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==}
+    dev: true
+
+  /@types/lodash/4.14.182:
+    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
     dev: true
 
   /@types/long/4.0.2:
@@ -1526,6 +1534,10 @@ packages:
 
   /lodash.camelcase/4.3.0:
     resolution: {integrity: sha1-soqmKIorn8ZRA1x3EfZathkDMaY=}
+    dev: false
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
   /long/4.0.0:

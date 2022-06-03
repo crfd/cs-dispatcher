@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import CRFDIcon from './CRFDIcon.vue'
+import { Icon } from '@crfd'
 
 export default {
   name: 'crfd-button',
   components: {
-    'crfd-icon': CRFDIcon
+    'crfd-icon': Icon
   },
   props: {
     title: {
