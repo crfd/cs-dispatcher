@@ -53,9 +53,9 @@
       v-model="buttonFlavour"
       :options="buttonFlavours"
     >
-      <crfd-button :flavour="buttonFlavour" :icon="icons.Plus"
-        >Button</crfd-button
-      >
+      <crfd-button :flavour="buttonFlavour" :icon="icons.Plus">
+        Button
+      </crfd-button>
       <crfd-button :flavour="buttonFlavour">Button</crfd-button>
       <crfd-button disabled :flavour="buttonFlavour">Button</crfd-button>
     </element-preview>
@@ -180,13 +180,21 @@
       />
     </element-preview>
 
+    <element-preview title="Detail">
+      <crfd-detail title="Some Detail">
+        <template v-slot:summary> This is some detail </template>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        quos optio eius atque, dicta possimus inventore fugiat consequatur esse
+        ipsa maxime fugit sint pariatur voluptatem dolorum quod facere odit id.
+      </crfd-detail>
+    </element-preview>
+
     <h3
       class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/2"
     >
       Work in Progress
     </h3>
 
-    <element-preview title="Detail"> </element-preview>
     <element-preview title="Datetime Input">
       <a
         href="https://dbrekalo.github.io/vue-date-pick/examples.html#calendar-widget"
@@ -220,6 +228,7 @@ export default {
     'crfd-modifier': CRFD.Modifier,
     'crfd-icon': CRFD.Icon,
     'crfd-input': CRFD.Input,
+    'crfd-detail': CRFD.Detail,
     'crfd-dropdown': CRFD.Dropdown,
     'crfd-hazard-diamond': HazardDiamond,
     'crfd-avatar': CRFD.Avatar,

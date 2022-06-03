@@ -2,8 +2,9 @@ import Avatar from './CRFDAvatar.vue'
 import Button from './CRFDButton.vue'
 import Card from './CRFDCard.vue'
 import Checkbox from './CRFDCheckbox.vue'
-import HazardDiamond from './CRFDHazardDiamond.vue'
+import Detail from './CRFDDetail.vue'
 import Dropdown from './CRFDDropdown.vue'
+import HazardDiamond from './CRFDHazardDiamond.vue'
 import Icon from './CRFDIcon.vue'
 import Indicator from './CRFDIndicator.vue'
 import Input from './CRFDInput.vue'
@@ -20,6 +21,7 @@ export {
   Button,
   Card,
   Checkbox,
+  Detail,
   Dropdown,
   HazardDiamond,
   Icon,
