@@ -6,20 +6,12 @@
           <img src="../assets/logo-leaf.svg" width="28" class="inline-block" />
           Confined Space Dispatcher
         </span>
-        <span class="ml-2 text-base font-normal">Hide Bar:</span>
-        <input
-          v-model="hideBar"
-          :disabled="$route.meta.hideBar"
-          type="checkbox"
-        />
-        <span class="ml-2 text-base font-normal">Show Back Button:</span>
-        <input v-model="backButton" type="checkbox" />
         <span class="ml-2 text-base font-normal">Hide Icons:</span>
         <input v-model="hideIcons" type="checkbox" />
       </h1>
     </div>
     <div class="navbar" :class="{ hide: hideBar || $route.meta.hideBar }">
-      <crfd-navbar :back-button="backButton" :hide-icons="hideIcons" />
+      <crfd-navbar :hide-icons="hideIcons" />
     </div>
   </header>
 </template>

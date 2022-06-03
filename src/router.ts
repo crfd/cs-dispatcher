@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import Home from '@views/Home.vue'
+import Home from '@views/Index.vue'
 
 import {
   Home as HomeIcon,
@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: "login" */ '@views/Login.vue'),
+    component: () => import('@views/Login.vue'),
     meta: {
       title: 'Login',
       requiresAuth: false,
@@ -37,8 +37,7 @@ const routes = [
   {
     path: '/operations',
     name: 'operations',
-    component: () =>
-      import(/* webpackChunkName: "login" */ './views/Operations.vue'),
+    component: () => import('@views/Operations.vue'),
     meta: {
       title: 'Operations',
       requiresAuth: true,
@@ -47,10 +46,63 @@ const routes = [
     }
   },
   {
+    path: '/operations/:id',
+    name: 'operation-detail',
+    component: () => import('@views/OperationDetail/Index.vue'),
+    meta: {
+      title: 'Overview',
+      requiresAuth: true,
+      hidden: true,
+      back: 'operations',
+      customNavbar: [
+        'operation-detail',
+        'operation-detail-space',
+        'operation-detail-contact',
+        'operation-detail-documents',
+        'operation-detail-map'
+      ]
+    }
+  },
+  {
+    path: '/operations/:id/space',
+    name: 'operation-detail-space',
+    component: () => import('@views/OperationDetail/Index.vue'),
+    meta: {
+      title: 'Space',
+      requiresAuth: true,
+      hidden: true,
+      back: 'operations',
+      customNavbar: [
+        'operation-detail',
+        'operation-detail-space',
+        'operation-detail-contact',
+        'operation-detail-documents',
+        'operation-detail-map'
+      ]
+    }
+  },
+  {
+    path: '/operations/:id/contact',
+    name: 'operation-detail-contact',
+    component: () => import('@views/OperationDetail/Index.vue'),
+    meta: {
+      title: 'Contact',
+      requiresAuth: true,
+      hidden: true,
+      back: 'operations',
+      customNavbar: [
+        'operation-detail',
+        'operation-detail-space',
+        'operation-detail-contact',
+        'operation-detail-documents',
+        'operation-detail-map'
+      ]
+    }
+  },
+  {
     path: '/spaces',
     name: 'spaces',
-    component: () =>
-      import(/* webpackChunkName: "login" */ './views/Spaces.vue'),
+    component: () => import('@views/Spaces.vue'),
     meta: {
       title: 'Spaces',
       requiresAuth: true,
@@ -61,7 +113,7 @@ const routes = [
   {
     path: '/map',
     name: 'map',
-    component: () => import(/* webpackChunkName: "login" */ './views/Map.vue'),
+    component: () => import('@views/Map.vue'),
     meta: {
       title: 'Map',
       requiresAuth: true,
@@ -72,8 +124,7 @@ const routes = [
   {
     path: '/anlytics',
     name: 'analytics',
-    component: () =>
-      import(/* webpackChunkName: "login" */ './views/Analytics.vue'),
+    component: () => import('@views/Analytics.vue'),
     meta: {
       title: 'Analytics',
       requiresAuth: true,
@@ -84,8 +135,7 @@ const routes = [
   {
     path: '/settings',
     name: 'settings',
-    component: () =>
-      import(/* webpackChunkName: "login" */ './views/Settings.vue'),
+    component: () => import('@views/Settings.vue'),
     meta: {
       title: 'Settings',
       requiresAuth: true,

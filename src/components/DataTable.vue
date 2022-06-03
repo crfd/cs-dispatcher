@@ -25,7 +25,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(r, iR) in sortedRows" :key="iR">
+        <tr v-for="(r, iR) in sortedRows" :key="iR" @click="clickHandler(iR)">
           <td v-for="(h, i) in headers" :key="h">{{ r[i] }}</td>
         </tr>
       </tbody>
@@ -69,6 +69,7 @@ export default {
       ascending: true // ascending = 1 -> 100 - descending = 100 -> 1
     }
   },
+  emits: ['select'],
   methods: {
     changeOrder(index) {
       if (this.sortKey == index) {
@@ -77,6 +78,9 @@ export default {
         this.sortKey = index
         this.ascending = true
       }
+    },
+    clickHandler(index) {
+      this.$emit('select', index)
     }
   },
   computed: {

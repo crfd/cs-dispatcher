@@ -44,14 +44,6 @@ export default {
     'crfd-icon': Icon
   },
   props: {
-    backButton: {
-      type: Boolean,
-      default: false
-    },
-    backRouteName: {
-      type: String,
-      default: ''
-    },
     hideIcons: {
       type: Boolean,
       default: true
@@ -71,8 +63,25 @@ export default {
     }
   },
   computed: {
+    hasCustomNavbar() {
+      return this.$route.meta.customNavbar !== undefined
+    },
+    customRouteNames() {
+      return this.$route.meta.customNavbar
+    },
     routes() {
-      return this.$router.getRoutes().filter((route) => !route.meta.hidden)
+      if (this.hasCustomNavbar) {
+        return this.$router
+          .getRoutes()
+          .filter((route) => this.customRouteNames.includes(route.name))
+          .sort(
+            (a, b) =>
+              this.customRouteNames.indexOf(a.name) -
+              this.customRouteNames.indexOf(b.name)
+          )
+      } else {
+        return this.$router.getRoutes().filter((route) => !route.meta.hidden)
+      }
     },
     currentRoute() {
       return this.$route
@@ -85,6 +94,12 @@ export default {
     },
     activeRef() {
       return document.getElementById(this.activeElementId)
+    },
+    backButton() {
+      return this.$route.meta.back !== undefined
+    },
+    backRouteName() {
+      return this.$route.meta.back || '404'
     }
   },
   mounted() {
@@ -95,8 +110,11 @@ export default {
     push(name) {
       this.$router.push({ name })
     },
+    route() {
+      return this.$route
+    },
     isActive(route) {
-      return this.currentRoute.path === route.path
+      return this.currentRoute.name === route.name
     },
     iconColor(route) {
       if (
@@ -129,6 +147,10 @@ export default {
     }
   },
   watch: {
+    $route(to, from) {
+      console.log('changed route from', from.name, 'to', to.name)
+      this.updateIndicator()
+    },
     activeRef() {
       this.updateIndicator()
     },
@@ -138,9 +160,7 @@ export default {
       this.backButtonChanged = false
     },
     hideIcons() {
-      setTimeout(() => {
-        this.updateIndicator()
-      }, 5)
+      setTimeout(this.updateIndicator(), 5)
     }
   }
 }

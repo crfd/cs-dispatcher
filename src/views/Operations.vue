@@ -14,7 +14,12 @@
     </ContentHeader>
 
     <div class="white-table-header"></div>
-    <DataTable class="data-table" :headers="headers" :rows="rows" />
+    <DataTable
+      class="data-table"
+      :headers="headers"
+      :rows="rows"
+      @select="rowSelectionHandler"
+    />
   </div>
 </template>
 
@@ -58,7 +63,18 @@ export default {
       ]
     }
   },
-  methods: {}
+  methods: {
+    rowSelectionHandler(i) {
+      const row = this.rows[i]
+
+      this.$router.push({
+        name: 'operation-detail',
+        params: {
+          id: i
+        }
+      })
+    }
+  }
 }
 </script>
 
