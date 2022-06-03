@@ -14,8 +14,8 @@ export default defineConfig({
       '@assets': resolve(__dirname, 'src/assets'),
       '@icons': resolve(__dirname, 'src/assets/icons'),
       '@components': resolve(__dirname, 'src/components'),
-      '@crfd': resolve(__dirname, 'src/components/crfd'),
-      '@hydrogen': resolve(__dirname, 'src/components/hydrogen'),
+      '@crfd': resolve(__dirname, 'src/components/CRFD'),
+      '@hydrogen': resolve(__dirname, 'src/components/Hydrogen'),
       '@layouts': resolve(__dirname, 'src/layouts'),
       '@styles': resolve(__dirname, 'src/styles'),
       '@views': resolve(__dirname, 'src/views')
