@@ -181,8 +181,7 @@
     </element-preview>
 
     <element-preview title="Detail">
-      <crfd-detail title="Some Detail">
-        <template v-slot:summary> This is some detail </template>
+      <crfd-detail title="Some Detail" summary="Extend">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
         quos optio eius atque, dicta possimus inventore fugiat consequatur esse
         ipsa maxime fugit sint pariatur voluptatem dolorum quod facere odit id.
