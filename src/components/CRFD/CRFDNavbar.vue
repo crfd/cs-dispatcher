@@ -148,7 +148,6 @@ export default {
   },
   watch: {
     $route(to, from) {
-      console.log('changed route from', from.name, 'to', to.name)
       this.updateIndicator()
     },
     activeRef() {
