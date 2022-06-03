@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { PageHeader } from '@components'
+import { PageHeader } from '@/components'
 import { Spinner } from '@crfd'
 import { Container } from '@hydrogen'
 
