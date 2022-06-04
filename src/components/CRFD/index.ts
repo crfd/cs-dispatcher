@@ -1,4 +1,5 @@
 import Avatar from './CRFDAvatar.vue'
+import Box from './CRFDBox.vue'
 import Button from './CRFDButton.vue'
 import Card from './CRFDCard.vue'
 import Checkbox from './CRFDCheckbox.vue'
@@ -18,6 +19,7 @@ import Tooltip from './CRFDTooltip.vue'
 
 export {
   Avatar,
+  Box,
   Button,
   Card,
   Checkbox,
