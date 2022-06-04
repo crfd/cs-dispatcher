@@ -66,28 +66,32 @@ export default {
           secondary: '#000',
           critical: '#fff',
           link: '#666',
-          'link-active': '#000'
+          'link-active': '#000',
+          'link-active-2': '#fff'
         },
         hover: {
           primary: '#000',
           secondary: '#000',
           critical: '#fff',
           link: '#000',
-          'link-active': '#000'
+          'link-active': '#000',
+          'link-active-2': '#fff'
         },
         active: {
           primary: '#000',
           secondary: '#000',
           critical: '#e93731',
           link: '#000',
-          'link-active': '#000'
+          'link-active': '#000',
+          'link-active-2': '#fff'
         },
         disabled: {
           primary: '#fff',
           secondary: '#666',
           critical: '#fff',
           link: '#666',
-          'link-active': '#000'
+          'link-active': '#000',
+          'link-active-2': '#fff'
         }
       }
     }
@@ -136,11 +140,15 @@ button.critical {
 }
 
 button.link {
-  @apply border-transparent bg-transparent text-black/1 hover:border-white/2 hover:bg-white/2 hover:text-black/primary  active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
+  @apply border-transparent bg-transparent text-black/2 hover:border-white/2 hover:bg-white/2 hover:text-black/1  active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
 }
 
 button.link-active {
-  @apply border-transparent bg-transparent text-black/primary hover:border-white/2 hover:bg-white/2 hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
+  @apply border-transparent bg-transparent text-black/primary hover:border-transparent hover:bg-transparent hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
+}
+
+button.link-active-2 {
+  @apply border-black/primary bg-black/primary text-white/primary hover:border-black/primary hover:bg-black/primary hover:text-white/primary active:border-black/1 active:bg-black/1 disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2 disabled:hover:border-white/2 disabled:hover:bg-white/2;
 }
 
 .icon {

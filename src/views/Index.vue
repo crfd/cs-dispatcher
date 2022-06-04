@@ -254,7 +254,8 @@ export default {
         'secondary',
         'critical',
         'link',
-        'link-active'
+        'link-active',
+        'link-active-2'
       ],
       modifierFlavour: 'button',
       modifierFlavours: ['button', 'inactive', 'applied'],
