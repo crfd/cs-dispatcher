@@ -6,8 +6,10 @@
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
     </ContentHeader>
-    <InPageNavigationLayout>
-      <lorem-ipsum />
+
+    <InPageNavigationLayout :routes="routes">
+      <template #operations>Operations</template>
+      <template #response>Response Time</template>
     </InPageNavigationLayout>
   </div>
 </template>
@@ -21,7 +23,18 @@ export default {
   components: { InPageNavigationLayout, ContentHeader, LoremIpsum },
   props: {},
   data() {
-    return {}
+    return {
+      routes: [
+        {
+          id: 'operations',
+          name: 'Operations'
+        },
+        {
+          id: 'response',
+          name: 'Response Time'
+        }
+      ]
+    }
   },
   computed: {},
   methods: {}

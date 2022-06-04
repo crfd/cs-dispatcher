@@ -6,8 +6,11 @@
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
     </ContentHeader>
-    <InPageNavigationLayout>
-      <lorem-ipsum />
+    <InPageNavigationLayout :routes="routes">
+      <template #general>General</template>
+      <template #personal>
+        <lorem-ipsum />
+      </template>
     </InPageNavigationLayout>
   </div>
 </template>
@@ -21,7 +24,18 @@ export default {
   components: { InPageNavigationLayout, ContentHeader, LoremIpsum },
   props: {},
   data() {
-    return {}
+    return {
+      routes: [
+        {
+          id: 'general',
+          name: 'General'
+        },
+        {
+          id: 'personal',
+          name: 'Personal'
+        }
+      ]
+    }
   },
   computed: {},
   methods: {}
