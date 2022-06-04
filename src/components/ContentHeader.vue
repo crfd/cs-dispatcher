@@ -3,13 +3,19 @@
     <container center class="container">
       <div>
         <h2 class="content-header-title">{{ title }}</h2>
-        <slot name="left"></slot>
+        <slot name="left" />
       </div>
-      <div><slot name="right"></slot></div>
+      <div>
+        <slot name="right" />
+      </div>
     </container>
     <container center class="container">
-      <div><slot name="sub-left"></slot></div>
-      <div><slot name="sub-right"></slot></div>
+      <div>
+        <slot name="sub-left" />
+      </div>
+      <div>
+        <slot name="sub-right" />
+      </div>
     </container>
   </div>
 </template>
@@ -33,7 +39,17 @@ export default {
   data() {
     return {}
   },
-  computed: {},
+  computed: {
+    hasSubLeft() {
+      return !!this.$slots.subLeft
+    },
+    hasSubRight() {
+      return !!this.$slots.subRight
+    },
+    hasSub() {
+      return this.hasSubLeft || this.hasSubRight
+    }
+  },
   methods: {}
 }
 </script>
