@@ -156,7 +156,7 @@ const routes = [
     }
   },
   {
-    path: '/anlytics',
+    path: '/analytics',
     name: 'analytics',
     component: () => import('@views/Analytics.vue'),
     meta: {
