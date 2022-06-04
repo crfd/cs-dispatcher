@@ -29,7 +29,7 @@
   },
   "settings": {
     "about": {
-      "content": "This software was developed as part of a Bachelor Thesis in Electrical Engineering and Information Technology at the University of Applied Science, Düsseldorf.<br>The thesis was supervised by <a href=\"https://ei.hs-duesseldorf.de/personen/lux\" target=\"_blank\">Prof. Dr. rer. nat. Wolfgang Lux</a> and <a href=\"https://github.com/Feichtmeier\" target=\"_blank\">B. Eng. Frederik Feichtmeier</a>.<br><br>The complete thesis can be viewed here: <a href=\"https://thesis.kuhlti.me/output.pdf\" target=\"_blank\">https://thesis.kuhlti.me/output.pdf</a>."
+      "content": "This software was developed as part of a Bachelor Thesis in Electrical Engineering and Information Technology at the University of Applied Science, <a href=\"https://hs-duesseldorf.de\" target=\"_blank\">Hochschule Düsseldorf</a>. The thesis was supervised by <a href=\"https://ei.hs-duesseldorf.de/personen/lux\" target=\"_blank\">Prof. Dr. rer. nat. Wolfgang Lux</a> and <a href=\"https://github.com/Feichtmeier\" target=\"_blank\">B. Eng. Frederik Feichtmeier</a>.<br><br>The complete thesis can be viewed here: <a href=\"https://thesis.kuhlti.me/output.pdf\" target=\"_blank\">https://thesis.kuhlti.me/output.pdf</a>."
     }
   }
 }

@@ -8,6 +8,8 @@
     </ContentHeader>
     <InPageNavigationLayout :routes="routes">
       <template #general>
+        <h4 class="title">General</h4>
+
         <crfd-box class="box" title="1. Setting">
           <template #footer-left>Some Text</template>
           Here is some text that is inside the box
@@ -26,10 +28,12 @@
       </template>
 
       <template #account>
+        <h4 class="title">Account</h4>
         <lorem-ipsum />
       </template>
 
       <template #about>
+        <h4 class="title">About</h4>
         <markdown :value="$t('settings.about.content')" />
       </template>
 
@@ -155,7 +159,7 @@ export default {
   flex: 1;
 }
 
-.box:not(:first-child) {
+.box:not(:first-of-type) {
   @apply mt-6;
 }
 
