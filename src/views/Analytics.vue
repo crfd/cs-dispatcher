@@ -1,20 +1,24 @@
 <template>
   <div id="page">
-    <ContentHeader class="content-header" title="Analytics">
+    <ContentHeader class="content-header" title="Analytics" border>
       <template v-slot:left></template>
       <template v-slot:right></template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
     </ContentHeader>
+    <InPageNavigationLayout>
+      <lorem-ipsum />
+    </InPageNavigationLayout>
   </div>
 </template>
 
 <script>
-import { ContentHeader } from '@components'
+import { ContentHeader, LoremIpsum } from '@components'
+import InPageNavigationLayout from '@layouts/InPageNavigationLayout.vue'
 
 export default {
   name: 'analytics',
-  components: { ContentHeader },
+  components: { InPageNavigationLayout, ContentHeader, LoremIpsum },
   props: {},
   data() {
     return {}
