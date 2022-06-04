@@ -11,11 +11,15 @@ WORKDIR /usr/src/app
 RUN npm install -g pnpm
 
 # Install app dependencies
-COPY package*.json ./
-RUN pnpm install
+# See: https://pnpm.io/cli/fetch
+COPY pnpm-lock.yaml ./
+RUN pnpm fetch
 
 # Copy files
 COPY . .
+
+# Install using preinstalled dependencies
+RUN pnpm install -r --offline
 
 # Run build
 RUN pnpm build
