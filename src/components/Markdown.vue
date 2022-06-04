@@ -22,16 +22,8 @@ export default {
 #markdown {
   /* https://github.com/vuejs/vue-loader/issues/749 */
   :deep(a) {
-    /* Style */
-    @apply text-blue/primary transition-all ease-in-out;
-
-    /* Text */
     text-decoration: none;
-
-    &:hover {
-      /* Style */
-      @apply text-blue/dark;
-    }
+    @apply text-blue/primary transition-all ease-in-out hover:text-blue/dark;
   }
 
   // TODO: Set Markdown in external SCSS file
