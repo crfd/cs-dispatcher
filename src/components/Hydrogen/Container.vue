@@ -19,10 +19,6 @@ export default {
     center: {
       type: Boolean,
       default: false
-    },
-    debug: {
-      type: Boolean,
-      default: false
     }
   },
   methods: {
@@ -40,8 +36,7 @@ export default {
       return {
         margin: `0 ${this.center ? 'auto' : '0'}`,
         width: this.width,
-        maxWidth: this.maxWidth,
-        border: this.debug ? '1px dashed red' : 'none'
+        maxWidth: this.maxWidth
       }
     }
   }
