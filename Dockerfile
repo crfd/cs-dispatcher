@@ -7,18 +7,18 @@ FROM node:18.2.0-alpine3.14
 # Select working directory
 WORKDIR /usr/src/app
 
-# Disable npm update message
-RUN npm config set update-notifier false
+# Install pnpm
+RUN npm install -g pnpm
 
 # Install app dependencies
 COPY package*.json ./
-RUN npm ci
+RUN pnpm install
 
 # Copy files
 COPY . .
 
 # Run build
-RUN npm run build
+RUN pnpm build
 
 
 #############

@@ -14,6 +14,7 @@ function getSearchParams() {
  */
 function getQueryParams(): object {
   const a: Record<string, string> = {}
+  // https://github.com/Microsoft/TypeScript/issues/23174#issuecomment-379044619
   for (let pair of getSearchParams().entries()) {
     a[pair[0]] = pair[1]
   }
