@@ -3,8 +3,13 @@
     <template #left>
       <nav>
         <ul>
-          <li v-for="route in routes" :key="route.id">
+          <li
+            v-for="route in routes"
+            :key="route.id"
+            :class="{ divider: route.newSection }"
+          >
             <crfd-button
+              :icon="route.icon"
               :flavour="buttonFlavour(route)"
               @click="routeChangeHandler(route)"
             >
@@ -111,7 +116,7 @@ export default {
      * @returns {Object} The route object
      */
     getRouteById(id) {
-      return this.routes.find((route) => route.id === id)
+      return this.routes.find(route => route.id === id)
     },
 
     /**
@@ -125,3 +130,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+li.divider {
+  @apply mt-1 border-t-2 border-t-white/2 pt-1;
+}
+</style>

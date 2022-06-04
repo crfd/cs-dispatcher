@@ -16,6 +16,7 @@
     "@zhuowenli/vue-feather-icons": "^5.0.2",
     "crypto-js": "^4.1.1",
     "firebase": "^9.8.2",
+    "legally": "^3.5.10",
     "lodash": "^4.17.21",
     "pinia": "^2.0.14",
     "sass": "^1.52.1",

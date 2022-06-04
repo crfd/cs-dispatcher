@@ -7,10 +7,7 @@
       <template v-slot:sub-right></template>
     </ContentHeader>
 
-    <InPageNavigationLayout :routes="routes">
-      <template #operations>Operations</template>
-      <template #response>Response Time</template>
-    </InPageNavigationLayout>
+    <InPageNavigationLayout :routes="routes"> </InPageNavigationLayout>
   </div>
 </template>
 
@@ -31,7 +28,15 @@ export default {
         },
         {
           id: 'response',
-          name: 'Response Time'
+          name: 'Response'
+        },
+        {
+          id: 'performance',
+          name: 'Performance'
+        },
+        {
+          id: 'worker',
+          name: 'Worker'
         }
       ]
     }

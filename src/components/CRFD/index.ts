@@ -10,6 +10,7 @@ import Icon from './CRFDIcon.vue'
 import Indicator from './CRFDIndicator.vue'
 import Input from './CRFDInput.vue'
 import Label from './CRFDLabel.vue'
+import LibraryDetail from './CRFDLibraryDetail.vue'
 import Map from './CRFDMap.vue'
 import Modifier from './CRFDModifier.vue'
 import Navbar from './CRFDNavbar.vue'
@@ -30,6 +31,7 @@ export {
   Indicator,
   Input,
   Label,
+  LibraryDetail,
   Map,
   Modifier,
   Navbar,

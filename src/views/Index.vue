@@ -103,12 +103,36 @@
     </element-preview>
 
     <element-preview title="Label">
-      <crfd-label title="Black" class="bg-black/primary text-white/primary" />
-      <crfd-label title="Green" class="bg-green/primary text-white/primary" />
-      <crfd-label title="Yellow" class="bg-yellow/primary text-white/primary" />
-      <crfd-label title="Red" class="bg-red/primary text-white/primary" />
-      <crfd-label title="Blue" class="bg-blue/primary text-white/primary" />
-      <crfd-label title="Purple" class="bg-purple/primary text-white/primary" />
+      <crfd-label
+        title="Black"
+        class="bg-black/primary text-white/primary"
+        lowercase
+      />
+      <crfd-label
+        title="Green"
+        class="bg-green/primary text-white/primary"
+        lowercase
+      />
+      <crfd-label
+        title="Yellow"
+        class="bg-yellow/primary text-white/primary"
+        lowercase
+      />
+      <crfd-label
+        title="Red"
+        class="bg-red/primary text-white/primary"
+        lowercase
+      />
+      <crfd-label
+        title="Blue"
+        class="bg-blue/primary text-white/primary"
+        lowercase
+      />
+      <crfd-label
+        title="Purple"
+        class="bg-purple/primary text-white/primary"
+        lowercase
+      />
     </element-preview>
 
     <element-preview title="Path" v-model="pathCurrent" :options="pathOptions">
@@ -181,7 +205,7 @@
     </element-preview>
 
     <element-preview title="Detail">
-      <crfd-detail title="Some Detail" summary="Extend">
+      <crfd-detail summary="Extend">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
         quos optio eius atque, dicta possimus inventore fugiat consequatur esse
         ipsa maxime fugit sint pariatur voluptatem dolorum quod facere odit id.
