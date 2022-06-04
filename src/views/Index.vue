@@ -249,7 +249,13 @@ export default {
       dropdownFlavour: 'default',
       dropdownValue: '',
       buttonFlavour: 'primary',
-      buttonFlavours: ['primary', 'secondary', 'critical'],
+      buttonFlavours: [
+        'primary',
+        'secondary',
+        'critical',
+        'link',
+        'link-active'
+      ],
       modifierFlavour: 'button',
       modifierFlavours: ['button', 'inactive', 'applied'],
       avatarFlavour: 'lg',

@@ -49,7 +49,7 @@ export default {
     },
     flavour: {
       type: String,
-      default: 'primary' // primary, secondary, cirtical
+      default: 'primary' // primary, secondary, cirtical, link, link-active
     },
     icon: {
       type: String,
@@ -64,22 +64,30 @@ export default {
         default: {
           primary: '#fff',
           secondary: '#000',
-          critical: '#fff'
+          critical: '#fff',
+          link: '#666',
+          'link-active': '#000'
         },
         hover: {
           primary: '#000',
           secondary: '#000',
-          critical: '#fff'
+          critical: '#fff',
+          link: '#000',
+          'link-active': '#000'
         },
         active: {
           primary: '#000',
           secondary: '#000',
-          critical: '#e93731'
+          critical: '#e93731',
+          link: '#000',
+          'link-active': '#000'
         },
         disabled: {
           primary: '#fff',
           secondary: '#666',
-          critical: '#fff'
+          critical: '#fff',
+          link: '#666',
+          'link-active': '#000'
         }
       }
     }
@@ -125,6 +133,14 @@ button.secondary {
 
 button.critical {
   @apply border-red/primary bg-red/primary uppercase text-white/primary hover:border-red/dark hover:bg-red/dark active:border-red/primary active:bg-white/primary active:text-red/primary disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
+}
+
+button.link {
+  @apply border-transparent bg-transparent text-black/1 hover:border-white/2 hover:bg-white/2 hover:text-black/primary  active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
+}
+
+button.link-active {
+  @apply border-transparent bg-transparent text-black/primary hover:border-white/2 hover:bg-white/2 hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
 }
 
 .icon {
