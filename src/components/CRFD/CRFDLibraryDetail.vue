@@ -1,5 +1,9 @@
 <template>
-  <crfd-detail @toggle-extend="extendHandler" :summary="library">
+  <crfd-detail
+    class="bg-white/primary"
+    @toggle-extend="extendHandler"
+    :summary="library"
+  >
     <p v-if="!libraryData">Loading...</p>
     <div v-else>
       <markdown v-if="description" :value="description" />
