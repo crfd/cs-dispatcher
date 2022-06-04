@@ -1,5 +1,5 @@
 <template>
-  <div class="label">
+  <div class="label" :class="{ lowercase: lowercase }">
     {{ title }}
   </div>
 </template>
@@ -12,17 +12,16 @@ export default {
       type: String,
       default: 'Unknown'
     },
-    color: {
-      type: String,
-      default: 'black'
-    },
-    random: Boolean
+    lowercase: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
 
 <style>
 .label {
-  @apply m-1 inline-block rounded-full px-2 lowercase;
+  @apply m-1 inline-block rounded-full  px-2;
 }
 </style>
