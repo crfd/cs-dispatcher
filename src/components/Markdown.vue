@@ -21,7 +21,7 @@ export default {
 <style lang="scss" scoped>
 #markdown {
   /* https://github.com/vuejs/vue-loader/issues/749 */
-  ::v-deep a {
+  :deep(a) {
     /* Style */
     @apply text-blue/primary transition-all ease-in-out;
 
@@ -35,7 +35,7 @@ export default {
   }
 
   // TODO: Set Markdown in external SCSS file
-  ::v-deep blockquote {
+  :deep(blockquote) {
     border-left: 1px solid #fff;
     padding-left: 12px;
     margin-left: 1px;
