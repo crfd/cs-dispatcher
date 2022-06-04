@@ -41,6 +41,7 @@ export default {
 .left {
   min-width: 200px;
   padding: 16px 0;
+  overflow-y: scroll;
   padding-right: 48px;
   // border: 2px solid blueviolet;
 }
