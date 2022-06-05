@@ -8,6 +8,8 @@
         </span>
         <span class="ml-2 text-base font-normal">Hide Icons:</span>
         <input v-model="hideIcons" type="checkbox" />
+        <div class="spacer"></div>
+        <p class="text-sm text-red/primary">⚠️ Under Development</p>
       </h1>
     </div>
     <div class="navbar" :class="{ hide: hideBar || $route.meta.hideBar }">
@@ -48,6 +50,10 @@ header {
 
 .title {
   @apply flex items-center gap-2 bg-white/primary px-3 py-3 text-left text-lg font-semibold;
+}
+
+.spacer {
+  flex-grow: 1;
 }
 
 .title-home-button {
