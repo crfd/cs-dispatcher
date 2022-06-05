@@ -28,6 +28,13 @@ body,
   @apply bg-white/1;
 }
 
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 ::selection {
   @apply rounded bg-black/primary text-white/primary;
 }
