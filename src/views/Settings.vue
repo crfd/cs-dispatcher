@@ -114,9 +114,13 @@ export default {
           name: 'Feedback'
         },
         {
-          id: 'about',
-          name: 'About',
+          id: 'changelog',
+          name: 'Changelog',
           newSection: true
+        },
+        {
+          id: 'about',
+          name: 'About'
         },
         {
           id: 'licenses',
