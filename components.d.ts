@@ -28,6 +28,7 @@ declare module '@vue/runtime-core' {
     CRFDPath: typeof import('./src/components/CRFD/CRFDPath.vue')['default']
     CRFDSpinner: typeof import('./src/components/CRFD/CRFDSpinner.vue')['default']
     CRFDTemplate: typeof import('./src/components/CRFD/CRFDTemplate.vue')['default']
+    CRFDTextarea: typeof import('./src/components/CRFD/CRFDTextarea.vue')['default']
     CRFDTooltip: typeof import('./src/components/CRFD/CRFDTooltip.vue')['default']
     DataTable: typeof import('./src/components/DataTable.vue')['default']
     ElementPreview: typeof import('./src/components/ElementPreview.vue')['default']

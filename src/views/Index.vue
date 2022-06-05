@@ -223,6 +223,17 @@
       </CRFDBox>
     </ElementPreview>
 
+    <ElementPreview title="Textarea">
+      <CRFDTextarea v-model="textAreaValue" placeholder="Test" />
+      <CRFDTextarea
+        v-model="textAreaValue"
+        placeholder="Test"
+        disabled
+        class="mt-3"
+      />
+      {{ textAreaValue }}
+    </ElementPreview>
+
     <h3
       class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/2"
     >
@@ -244,7 +255,6 @@
     <ElementPreview title="Command Options"> </ElementPreview>
     <ElementPreview title="Modal"> </ElementPreview>
     <ElementPreview title="List"> </ElementPreview>
-    <ElementPreview title="Textarea"> </ElementPreview>
     <ElementPreview title="Date Input"> </ElementPreview>
     <ElementPreview title="Datetime Input"> </ElementPreview>
   </div>
@@ -281,7 +291,8 @@ export default {
       checkboxValue: false,
       indicatorValue: 1,
       tooltipPositions: ['top', 'right', 'bottom', 'left'],
-      tooltipPosition: 'top'
+      tooltipPosition: 'top',
+      textAreaValue: ''
     }
   },
   computed: {
