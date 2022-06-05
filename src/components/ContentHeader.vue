@@ -5,7 +5,7 @@
         <h2 class="content-header-title">{{ title }}</h2>
         <slot name="left" />
       </div>
-      <div>
+      <div class="right">
         <slot name="right" />
       </div>
     </Container>
@@ -66,5 +66,9 @@ export default {
 
 .content-header-title {
   @apply text-2xl font-bold;
+}
+
+.right {
+  @apply flex gap-3 py-1;
 }
 </style>

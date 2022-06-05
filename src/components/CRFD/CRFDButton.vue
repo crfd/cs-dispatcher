@@ -121,7 +121,7 @@ export default {
 <style scoped>
 button {
   box-sizing: border-box;
-  @apply m-1 inline-block cursor-pointer whitespace-nowrap rounded-md border border-black/primary bg-black/primary px-3 py-1.5 font-medium text-white/primary transition-all ease-in-out hover:border-black/primary hover:bg-white/primary hover:text-black/primary  active:border-black/primary active:bg-white/2 active:text-black/primary disabled:cursor-not-allowed disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
+  @apply inline-block cursor-pointer whitespace-nowrap rounded-md border border-black/primary bg-black/primary px-3 py-1.5 font-medium text-white/primary transition-all ease-in-out hover:border-black/primary hover:bg-white/primary hover:text-black/primary  active:border-black/primary active:bg-white/2 active:text-black/primary disabled:cursor-not-allowed disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
 }
 
 button.secondary {

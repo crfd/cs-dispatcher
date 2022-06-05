@@ -47,6 +47,6 @@ export default {
 }
 
 .footer {
-  @apply flex flex-row items-center justify-between border-t border-t-white/2 bg-white/1 py-1 px-6;
+  @apply flex flex-row items-center justify-between border-t border-t-white/2 bg-white/1 py-2 px-6;
 }
 </style>

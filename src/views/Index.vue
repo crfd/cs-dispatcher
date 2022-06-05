@@ -55,11 +55,13 @@
       v-model="buttonFlavour"
       :options="buttonFlavours"
     >
-      <CRFDButton :flavour="buttonFlavour" :icon="icons.Plus">
-        Button
-      </CRFDButton>
-      <CRFDButton :flavour="buttonFlavour">Button</CRFDButton>
-      <CRFDButton disabled :flavour="buttonFlavour">Button</CRFDButton>
+      <div class="flex justify-center gap-3">
+        <CRFDButton :flavour="buttonFlavour" :icon="icons.Plus">
+          Button
+        </CRFDButton>
+        <CRFDButton :flavour="buttonFlavour">Button</CRFDButton>
+        <CRFDButton disabled :flavour="buttonFlavour">Button</CRFDButton>
+      </div>
     </ElementPreview>
 
     <ElementPreview
@@ -233,7 +235,6 @@
         disabled
         class="mt-3"
       />
-      {{ textAreaValue }}
     </ElementPreview>
 
     <h3

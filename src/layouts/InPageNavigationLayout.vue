@@ -9,6 +9,7 @@
             :class="{ divider: route.newSection }"
           >
             <CRFDButton
+              class="button"
               :icon="route.icon"
               :flavour="buttonFlavour(route)"
               @click="routeChangeHandler(route)"
@@ -128,6 +129,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.button {
+  @apply m-1;
+}
 li.divider {
   @apply mt-1 border-t-2 border-t-white/2 pt-1;
 }
