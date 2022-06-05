@@ -9,7 +9,7 @@
   isFocused: {{ isFocused }}
   <br /> -->
   <div class="container">
-    <label :class="{ focus: valueNotEmpty }" for="input">
+    <label :class="{ focus: valueNotEmpty, ...flavourClass }" for="input">
       {{ placeholder }}
     </label>
     <CRFDIcon
@@ -31,7 +31,7 @@
       @mouseenter="hover = true"
       @mouseleave="hover = false"
       :disabled="disabled"
-      :class="classes"
+      :class="{ ...flavourClass }"
     />
     <ul
       ref="list"
@@ -124,7 +124,7 @@ export default {
     valueNotEmpty() {
       return this.modelValue.length !== 0
     },
-    classes() {
+    flavourClass() {
       return {
         [this.flavour]: true
       }
@@ -244,7 +244,7 @@ input {
 input.success {
   @apply border-green/primary text-green/primary placeholder:text-green/light focus:text-green/primary;
   @apply icon;
-  background-image: url('../assets/icons/input-success.svg');
+  background-image: url('@icons/input-success.svg');
   background-repeat: no-repeat;
   background-position: 10px center;
   background-size: 15px;
@@ -253,7 +253,7 @@ input.success {
 input.error {
   @apply border-red/primary text-red/primary placeholder:text-red/light focus:text-red/primary;
   @apply icon;
-  background-image: url('../assets/icons/input-error.svg');
+  background-image: url('@icons/input-error.svg');
   background-repeat: no-repeat;
   background-position: 10px center;
   background-size: 15px;
@@ -262,7 +262,7 @@ input.error {
 input.autofill {
   @apply border-blue/primary text-blue/primary placeholder:text-blue/light focus:text-blue/primary disabled:border-blue/light disabled:text-blue/light disabled:placeholder:text-blue/light;
   @apply icon;
-  background-image: url('../assets/icons/input-autofill.svg');
+  background-image: url('@icons/input-autofill.svg');
   background-repeat: no-repeat;
   background-position: 10px center;
   background-size: 17px;
@@ -275,6 +275,18 @@ label {
   &.focus {
     transform: translateY(-50%);
     @apply top-0 left-[10px] bg-white/primary px-1 text-sm text-black/primary opacity-100;
+  }
+
+  &.focus.success {
+    @apply text-green/primary;
+  }
+
+  &.focus.error {
+    @apply text-red/primary;
+  }
+
+  &.focus.autofill {
+    @apply text-blue/primary;
   }
 }
 
