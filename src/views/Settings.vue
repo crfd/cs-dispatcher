@@ -45,7 +45,13 @@
             Do you have any suggestion or issues with the application? Please
             let me know.
           </p>
-          <textarea></textarea>
+          <CRFDInput placeholder="Name" class="mt-3">Send</CRFDInput>
+          <CRFDTextarea class="mt-3" />
+          <div class="mt-3 flex items-center gap-2">
+            <CRFDButton flavour="secondary">Append a File</CRFDButton>
+            No files
+          </div>
+          (Max File Size: 5MB)
           <template #footer-right>
             <CRFDButton flavour="secondary">Send</CRFDButton>
           </template>
