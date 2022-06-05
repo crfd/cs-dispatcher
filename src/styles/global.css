@@ -27,3 +27,10 @@ body,
   overflow: hidden;
   @apply bg-white/1;
 }
+
+::selection {
+  @apply rounded bg-black/primary text-white/primary;
+}
+::-moz-selection {
+  @apply rounded bg-black/primary text-white/primary;
+}
