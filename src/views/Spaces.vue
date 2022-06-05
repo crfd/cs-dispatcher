@@ -3,11 +3,11 @@
     <ContentHeader class="content-header" title="Spaces">
       <template v-slot:left></template>
       <template v-slot:right>
-        <crfd-button flavour="secondary">Edit</crfd-button>
-        <crfd-button @click="push('space-new')">Create</crfd-button>
+        <CRFDButton flavour="secondary">Edit</CRFDButton>
+        <CRFDButton @click="push('space-new')">Create</CRFDButton>
       </template>
       <template v-slot:sub-left>
-        <crfd-modifier title="Filter" :icon="icons.Filter" flavour="inactive" />
+        <CRFDModifier title="Filter" :icon="icons.Filter" flavour="inactive" />
       </template>
       <template v-slot:sub-right></template>
     </ContentHeader>
@@ -23,20 +23,10 @@
 </template>
 
 <script>
-import { ContentHeader, DataTable } from '@components/'
-import { Button, Modifier } from '@crfd'
-import { Container } from '@hydrogen'
 import { Filter } from '@icons'
 
 export default {
   name: 'operations',
-  components: {
-    ContentHeader,
-    Container,
-    DataTable,
-    'crfd-button': Button,
-    'crfd-modifier': Modifier
-  },
   props: {},
   data() {
     return {

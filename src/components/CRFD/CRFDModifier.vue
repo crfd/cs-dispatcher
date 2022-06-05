@@ -9,7 +9,7 @@
     :class="classes"
   >
     <div class="flex justify-center space-x-0.5">
-      <crfd-icon v-if="icon" width="16px" :icon="icon" :color="color" />
+      <CRFDIcon v-if="icon" width="16px" :icon="icon" :color="color" />
       <span>
         {{ title }}
       </span>
@@ -22,13 +22,8 @@
 </template>
 
 <script>
-import { Icon } from '@crfd'
-
 export default {
   name: 'crfd-button',
-  components: {
-    'crfd-icon': Icon
-  },
   props: {
     title: {
       type: String,

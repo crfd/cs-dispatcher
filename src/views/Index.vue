@@ -9,35 +9,35 @@
       This is a UI framework designed for the campbell river fire department.
     </p>
 
-    <element-preview
+    <ElementPreview
       title="Input"
       v-model="inputFlavour"
       :options="inputFlavours"
     >
-      <crfd-input
+      <CRFDInput
         v-model="value"
         placeholder="Placeholder"
         :flavour="inputFlavour"
       />
-      <crfd-input
+      <CRFDInput
         disabled
         v-model="value"
         placeholder="Placeholder"
         :flavour="inputFlavour"
       />
-    </element-preview>
+    </ElementPreview>
 
-    <element-preview
+    <ElementPreview
       title="Dropdown"
       v-model="dropdownFlavour"
       :options="inputFlavours"
     >
-      <crfd-dropdown
+      <CRFDDropdown
         v-model="dropdownValue"
         placeholder="Fruit"
         :flavour="dropdownFlavour"
       />
-      <crfd-dropdown
+      <CRFDDropdown
         disabled
         v-model="dropdownValue"
         placeholder="Fruit"
@@ -46,109 +46,109 @@
 
       <br />
       {{ dropdownValue }}
-    </element-preview>
+    </ElementPreview>
 
-    <element-preview
+    <ElementPreview
       title="Button"
       v-model="buttonFlavour"
       :options="buttonFlavours"
     >
-      <crfd-button :flavour="buttonFlavour" :icon="icons.Plus">
+      <CRFDButton :flavour="buttonFlavour" :icon="icons.Plus">
         Button
-      </crfd-button>
-      <crfd-button :flavour="buttonFlavour">Button</crfd-button>
-      <crfd-button disabled :flavour="buttonFlavour">Button</crfd-button>
-    </element-preview>
+      </CRFDButton>
+      <CRFDButton :flavour="buttonFlavour">Button</CRFDButton>
+      <CRFDButton disabled :flavour="buttonFlavour">Button</CRFDButton>
+    </ElementPreview>
 
-    <element-preview
+    <ElementPreview
       title="Modifier"
       v-model="modifierFlavour"
       :options="modifierFlavours"
     >
-      <crfd-modifier :flavour="modifierFlavour" :icon="icons.Plus">
+      <CRFDModifier :flavour="modifierFlavour" :icon="icons.Plus">
         Modifier
-      </crfd-modifier>
-      <crfd-modifier :flavour="modifierFlavour"> Modifier </crfd-modifier>
-      <crfd-modifier disabled :flavour="modifierFlavour">
+      </CRFDModifier>
+      <CRFDModifier :flavour="modifierFlavour"> Modifier </CRFDModifier>
+      <CRFDModifier disabled :flavour="modifierFlavour">
         Modifier
-      </crfd-modifier>
-    </element-preview>
+      </CRFDModifier>
+    </ElementPreview>
 
-    <element-preview title="Icon">
-      <crfd-icon color="#E93731" :icon="icons.ArrowCircleRight" />
-      <crfd-icon color="#F5A623" :icon="icons.ArrowCircleRight" rotate="45" />
-      <crfd-icon color="#0CCE6B" :icon="icons.ArrowCircleRight" rotate="90" />
-    </element-preview>
+    <ElementPreview title="Icon">
+      <CRFDIcon color="#E93731" :icon="icons.ArrowCircleRight" />
+      <CRFDIcon color="#F5A623" :icon="icons.ArrowCircleRight" rotate="45" />
+      <CRFDIcon color="#0CCE6B" :icon="icons.ArrowCircleRight" rotate="90" />
+    </ElementPreview>
 
-    <element-preview
+    <ElementPreview
       title="Avatar"
       v-model="avatarFlavour"
       :options="avatarFlavours"
     >
-      <crfd-avatar
+      <CRFDAvatar
         name="André Kuhlmann"
         email="error"
         :size="avatarFlavour"
-      ></crfd-avatar>
-      <crfd-avatar
+      ></CRFDAvatar>
+      <CRFDAvatar
         name="André Kuhlmann"
         email="andre.kuhlmann@study.hs-duesseldorf.de"
         :size="avatarFlavour"
-      ></crfd-avatar>
-      <crfd-avatar
+      ></CRFDAvatar>
+      <CRFDAvatar
         image="https://i.pinimg.com/originals/5a/e4/0a/5ae40a32eb62babcd4cfc1b2d8e6088b.gif"
         name="Chandler Bing"
         :size="avatarFlavour"
-      ></crfd-avatar>
-    </element-preview>
+      ></CRFDAvatar>
+    </ElementPreview>
 
-    <element-preview title="Label">
-      <crfd-label
+    <ElementPreview title="Label">
+      <CRFDLabel
         title="Black"
         class="bg-black/primary text-white/primary"
         lowercase
       />
-      <crfd-label
+      <CRFDLabel
         title="Green"
         class="bg-green/primary text-white/primary"
         lowercase
       />
-      <crfd-label
+      <CRFDLabel
         title="Yellow"
         class="bg-yellow/primary text-white/primary"
         lowercase
       />
-      <crfd-label
+      <CRFDLabel
         title="Red"
         class="bg-red/primary text-white/primary"
         lowercase
       />
-      <crfd-label
+      <CRFDLabel
         title="Blue"
         class="bg-blue/primary text-white/primary"
         lowercase
       />
-      <crfd-label
+      <CRFDLabel
         title="Purple"
         class="bg-purple/primary text-white/primary"
         lowercase
       />
-    </element-preview>
+    </ElementPreview>
 
-    <element-preview title="Path" v-model="pathCurrent" :options="pathOptions">
+    <ElementPreview title="Path" v-model="pathCurrent" :options="pathOptions">
       <crfd-path :path="path" :value="pathCurrent" />
-    </element-preview>
+    </ElementPreview>
 
-    <element-preview title="Spinner">
-      <crfd-spinner />
-    </element-preview>
+    <ElementPreview title="Spinner">
+      <CRFDSpinner />
+    </ElementPreview>
 
-    <element-preview title="Checkbox">
-      <crfd-checkbox v-model="checkboxValue" />
-      <crfd-checkbox v-model="checkboxValue" disabled />
-    </element-preview>
+    <ElementPreview title="Checkbox">
+      <CRFDCheckbox v-model="checkboxValue" />
+      <CRFDCheckbox v-model="checkboxValue" disabled />
+    </ElementPreview>
 
-    <element-preview title="Indicator">
+    <ElementPreview title="Indicator">
       <input
         type="number"
         min="0"
@@ -158,15 +158,15 @@
       />
       <br />
       <br />
-      <crfd-indicator :active="indicatorValue" />
-    </element-preview>
+      <CRFDIndicator :active="indicatorValue" />
+    </ElementPreview>
 
-    <element-preview title="Map">
-      <crfd-map />
-    </element-preview>
+    <ElementPreview title="Map">
+      <CRFDMap />
+    </ElementPreview>
 
-    <element-preview title="Card">
-      <crfd-card class="w-3/4">
+    <ElementPreview title="Card">
+      <CRFDCard class="w-3/4">
         It's always good to find out you're going to be working from home…
         <br />
         <br />
@@ -174,43 +174,54 @@
           Unless you're a firefighter.
         </span>
         😜
-      </crfd-card>
-    </element-preview>
+      </CRFDCard>
+    </ElementPreview>
 
-    <element-preview title="NFPA 704 Hazard Diamond">
-      <crfd-hazard-diamond />
+    <ElementPreview title="NFPA 704 Hazard Diamond">
+      <CRFDHazardDiamond />
       <br />
-      <crfd-hazard-diamond
+      <CRFDHazardDiamond
         flammability="4"
         special="W"
         health="3"
         reactivity="1"
       />
-    </element-preview>
+    </ElementPreview>
 
-    <element-preview
+    <ElementPreview
       title="Tooltip"
       v-model="tooltipPosition"
       :options="tooltipPositions"
     >
-      <crfd-tooltip text="Some Tooltip" :position="tooltipPosition">
+      <CRFDTooltip text="Some Tooltip" :position="tooltipPosition">
         <p>Hover here!</p>
-      </crfd-tooltip>
-    </element-preview>
+      </CRFDTooltip>
+    </ElementPreview>
 
-    <element-preview title="Markdown">
-      <markdown
+    <ElementPreview title="Markdown">
+      <Markdown
         value="This is some [**Markdown**](https://github.com/developit/snarkdown)"
       />
-    </element-preview>
+    </ElementPreview>
 
-    <element-preview title="Detail">
-      <crfd-detail summary="Extend">
+    <ElementPreview title="Detail">
+      <CRFDDetail summary="Extend">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
         quos optio eius atque, dicta possimus inventore fugiat consequatur esse
         ipsa maxime fugit sint pariatur voluptatem dolorum quod facere odit id.
-      </crfd-detail>
-    </element-preview>
+      </CRFDDetail>
+    </ElementPreview>
+
+    <ElementPreview title="Box">
+      <CRFDBox :title="Box">
+        This is a simple box component, that provides a way to bundle
+        information. It provides an optional footer.
+        <template #footer-left> Left </template>
+        <template #footer-right>
+          <CRFDButton flavour="secondary">Right</CRFDButton>
+        </template>
+      </CRFDBox>
+    </ElementPreview>
 
     <h3
       class="mt-12 border-t-2 border-t-white/2 pt-8 pb-4 text-lg font-bold text-black/2"
@@ -218,52 +229,32 @@
       Work in Progress
     </h3>
 
-    <element-preview title="Datetime Input">
+    <ElementPreview title="Datetime Input">
       <a
         href="https://dbrekalo.github.io/vue-date-pick/examples.html#calendar-widget"
       >
         https://dbrekalo.github.io/vue-date-pick/examples.html#calendar-widget
       </a>
-    </element-preview>
-    <element-preview title="Select"> </element-preview>
-    <element-preview title="Multi-Select"> </element-preview>
-    <element-preview title="Table"> </element-preview>
-    <element-preview title="Calendar"> </element-preview>
-    <element-preview title="Command Palette"> </element-preview>
-    <element-preview title="Modal"> </element-preview>
-    <element-preview title="List"> </element-preview>
+    </ElementPreview>
+    <ElementPreview title="Select"> </ElementPreview>
+    <ElementPreview title="Multi-Select"> </ElementPreview>
+    <ElementPreview title="Table"> </ElementPreview>
+    <ElementPreview title="Calendar"> </ElementPreview>
+    <ElementPreview title="Command Palette"> </ElementPreview>
+    <ElementPreview title="Command Options"> </ElementPreview>
+    <ElementPreview title="Modal"> </ElementPreview>
+    <ElementPreview title="List"> </ElementPreview>
+    <ElementPreview title="Textarea"> </ElementPreview>
+    <ElementPreview title="Date Input"> </ElementPreview>
+    <ElementPreview title="Datetime Input"> </ElementPreview>
   </div>
 </template>
 
 <script>
-import { ElementPreview, Markdown } from '@components'
-import * as CRFD from '@crfd'
-import HazardDiamond from '../components/CRFD/CRFDHazardDiamond.vue'
-
 import * as icons from '@icons'
 
 export default {
   name: 'Home',
-  components: {
-    markdown: Markdown,
-    'element-preview': ElementPreview,
-    'crfd-button': CRFD.Button,
-    'crfd-modifier': CRFD.Modifier,
-    'crfd-icon': CRFD.Icon,
-    'crfd-input': CRFD.Input,
-    'crfd-detail': CRFD.Detail,
-    'crfd-dropdown': CRFD.Dropdown,
-    'crfd-hazard-diamond': HazardDiamond,
-    'crfd-avatar': CRFD.Avatar,
-    'crfd-label': CRFD.Label,
-    'crfd-path': CRFD.Path,
-    'crfd-spinner': CRFD.Spinner,
-    'crfd-checkbox': CRFD.Checkbox,
-    'crfd-indicator': CRFD.Indicator,
-    'crfd-map': CRFD.Map,
-    'crfd-card': CRFD.Card,
-    'crfd-tooltip': CRFD.Tooltip
-  },
   data() {
     return {
       value: '',

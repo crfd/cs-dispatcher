@@ -6,6 +6,7 @@
     </div>
     <div class="footer" v-if="hasFooter">
       <slot name="footer-left" />
+      <div class="spacer"></div>
       <slot name="footer-right" />
     </div>
   </div>
@@ -33,6 +34,10 @@ export default {
   @apply flex flex-col overflow-hidden rounded-lg border border-white/2 bg-white/primary text-left;
 }
 
+.spacer {
+  flex-grow: 1;
+}
+
 .title {
   @apply px-6 pt-4 text-xl font-semibold;
 }
@@ -42,6 +47,6 @@ export default {
 }
 
 .footer {
-  @apply flex flex-row items-center justify-between border-t border-t-white/2 bg-white/1 py-1 pr-5 pl-6;
+  @apply flex flex-row items-center justify-between border-t border-t-white/2 bg-white/1 py-1 px-6;
 }
 </style>

@@ -12,12 +12,8 @@
 </template>
 
 <script>
-import { ContentHeader, LoremIpsum } from '@components'
-import InPageNavigationLayout from '@layouts/InPageNavigationLayout.vue'
-
 export default {
   name: 'analytics',
-  components: { InPageNavigationLayout, ContentHeader, LoremIpsum },
   props: {},
   data() {
     return {

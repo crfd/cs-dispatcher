@@ -10,31 +10,56 @@
       <template #general>
         <h4 class="title">General</h4>
 
-        <crfd-box class="box" title="1. Setting">
-          <template #footer-left>Some Text</template>
+        <CRFDBox class="box" title="1. Setting">
           Here is some text that is inside the box
+          <template #footer-left>Some Text</template>
           <template #footer-right>
-            <crfd-button flavour="secondary" disabled>Save</crfd-button>
+            <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
           </template>
-        </crfd-box>
+        </CRFDBox>
 
-        <crfd-box class="box" title="2. Setting">
-          <template #footer-left>Some Text</template>
+        <CRFDBox class="box" title="2. Setting">
           Here is some text that is inside the box
+          <template #footer-left>Some Text</template>
           <template #footer-right>
-            <crfd-button flavour="secondary" disabled>Save</crfd-button>
+            <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
           </template>
-        </crfd-box>
+        </CRFDBox>
+
+        <CRFDBox class="box" title="Map View">
+          <CRFDInput type="text" />
+          <template #footer-right>
+            <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
+          </template>
+        </CRFDBox>
       </template>
 
       <template #account>
         <h4 class="title">Account</h4>
-        <lorem-ipsum />
+        <LoremIpsum />
+      </template>
+
+      <template #feedback>
+        <CRFDBox class="box" title="Feedback">
+          <p>
+            Do you have any suggestion or issues with the application? Please
+            let me know.
+          </p>
+          <textarea></textarea>
+          <template #footer-right>
+            <CRFDButton flavour="secondary">Send</CRFDButton>
+          </template>
+        </CRFDBox>
+      </template>
+
+      <template #map>
+        <h4 class="title">Map</h4>
+        <LoremIpsum />
       </template>
 
       <template #about>
         <h4 class="title">About</h4>
-        <markdown :value="$t('settings.about.content')" />
+        <Markdown :value="$t('settings.about.content')" />
       </template>
 
       <template #licenses>
@@ -43,7 +68,7 @@
           A huge thanks to the developers of the following open source
           libraries:
         </p>
-        <crfd-library-detail v-for="dep in deps" :key="dep" :library="dep" />
+        <CRFDLibraryDetail v-for="dep in deps" :key="dep" :library="dep" />
       </template>
     </InPageNavigationLayout>
     <a
@@ -57,24 +82,10 @@
 </template>
 
 <script>
-import InPageNavigationLayout from '@layouts/InPageNavigationLayout.vue'
-import { ContentHeader, LoremIpsum, Markdown } from '@components'
-import { Box, Button, Detail, LibraryDetail } from '@crfd'
-
 import packageJson from '../../package.json'
 
 export default {
   name: 'settings',
-  components: {
-    InPageNavigationLayout,
-    ContentHeader,
-    LoremIpsum,
-    Markdown,
-    'crfd-box': Box,
-    'crfd-button': Button,
-    'crfd-detail': Detail,
-    'crfd-library-detail': LibraryDetail
-  },
   props: {},
   data() {
     return {

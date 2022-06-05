@@ -2,7 +2,7 @@
   <div class="boundry">
     <div class="tooltip-outer" :class="outerClasses">
       <div class="tooltip" :class="tooltipClasses">
-        <markdown :value="text" />
+        <Markdown :value="text" />
       </div>
     </div>
     <div @mouseenter="isHovering = true" @mouseleave="isHovering = false">
@@ -12,13 +12,8 @@
 </template>
 
 <script>
-import Markdown from '@/components/Markdown.vue'
-
 export default {
   name: 'crfd-tooltip',
-  components: {
-    Markdown
-  },
   props: {
     text: {
       type: String,

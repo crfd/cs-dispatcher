@@ -1,6 +1,6 @@
 <template>
   <div class="content-header" :class="{ 'content-header-border': border }">
-    <container center class="container">
+    <Container center class="container">
       <div>
         <h2 class="content-header-title">{{ title }}</h2>
         <slot name="left" />
@@ -8,24 +8,21 @@
       <div>
         <slot name="right" />
       </div>
-    </container>
-    <container center class="container">
+    </Container>
+    <Container center class="container">
       <div>
         <slot name="sub-left" />
       </div>
       <div>
         <slot name="sub-right" />
       </div>
-    </container>
+    </Container>
   </div>
 </template>
 
 <script>
-import { Container } from '@hydrogen'
-
 export default {
   name: 'content-header',
-  components: { Container },
   props: {
     title: {
       type: String,

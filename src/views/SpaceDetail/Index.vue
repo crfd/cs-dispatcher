@@ -10,11 +10,8 @@
 </template>
 
 <script>
-import { ContentHeader } from '@components'
-
 export default {
   name: 'space-detail',
-  components: { ContentHeader },
   props: {},
   data() {
     return {}

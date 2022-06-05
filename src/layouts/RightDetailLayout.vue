@@ -1,22 +1,19 @@
 <template>
   <div id="layout">
-    <container center class="container">
+    <Container center class="container">
       <div class="left">
         <slot name="left" />
       </div>
       <div class="right">
         <slot name="right" />
       </div>
-    </container>
+    </Container>
   </div>
 </template>
 
 <script>
-import { Container } from '@hydrogen'
-
 export default {
-  name: 'right-detail-layout',
-  components: { Container }
+  name: 'right-detail-layout'
 }
 </script>
 

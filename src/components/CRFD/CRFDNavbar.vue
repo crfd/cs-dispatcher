@@ -6,7 +6,7 @@
         @click="push(backRouteName)"
         :class="{ hide: !backButton }"
       >
-        <crfd-icon :icon="icons.ArrowLeft" width="18px" color="black" />
+        <CRFDIcon :icon="icons.ArrowLeft" width="18px" color="black" />
       </li>
       <li
         @click="push(route.name)"
@@ -17,7 +17,7 @@
         @mouseenter="mouseEnter(route)"
         @mouseleave="hover = false"
       >
-        <crfd-icon
+        <CRFDIcon
           class="inline-block"
           width="12px"
           v-if="route.meta.icon && !hideIcons"
@@ -35,14 +35,10 @@
 </template>
 
 <script>
-import { Icon } from '@crfd'
 import { ArrowLeft } from '@icons'
 
 export default {
   name: 'crfd-navbar',
-  components: {
-    'crfd-icon': Icon
-  },
   props: {
     hideIcons: {
       type: Boolean,
@@ -73,14 +69,14 @@ export default {
       if (this.hasCustomNavbar) {
         return this.$router
           .getRoutes()
-          .filter((route) => this.customRouteNames.includes(route.name))
+          .filter(route => this.customRouteNames.includes(route.name))
           .sort(
             (a, b) =>
               this.customRouteNames.indexOf(a.name) -
               this.customRouteNames.indexOf(b.name)
           )
       } else {
-        return this.$router.getRoutes().filter((route) => !route.meta.hidden)
+        return this.$router.getRoutes().filter(route => !route.meta.hidden)
       }
     },
     currentRoute() {

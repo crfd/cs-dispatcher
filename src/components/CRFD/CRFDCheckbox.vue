@@ -1,6 +1,6 @@
 <template>
   <div class="relative m-1 inline-block">
-    <crfd-icon
+    <CRFDIcon
       v-if="modelValue == true"
       class="checkmark"
       :icon="doneIcon"
@@ -20,13 +20,8 @@
 <script>
 import { Done } from '../../assets/icons'
 
-import CRFDIcon from '@crfd/CRFDIcon.vue'
-
 export default {
   name: 'crfd-checkbox',
-  components: {
-    'crfd-icon': CRFDIcon
-  },
   props: {
     modelValue: {
       type: Boolean,

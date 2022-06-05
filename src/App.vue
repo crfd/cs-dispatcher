@@ -1,6 +1,6 @@
 <template>
   <div id="global" v-cloak>
-    <page-header id="header" />
+    <PageHeader id="header" />
 
     <div id="content">
       <router-view v-slot="{ Component }">
@@ -13,16 +13,8 @@
 </template>
 
 <script>
-import { PageHeader } from '@/components'
-import { Spinner } from '@crfd'
-import { Container } from '@hydrogen'
-
 export default {
-  components: {
-    PageHeader,
-    Container,
-    'crfd-spinner': Spinner
-  },
+  name: 'App',
   data() {
     return {}
   },

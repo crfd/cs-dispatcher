@@ -1,5 +1,5 @@
 <template>
-  <crfd-detail
+  <CRFDDetail
     class="bg-white/primary"
     @toggle-extend="extendHandler"
     :summary="library"
@@ -21,25 +21,17 @@
         </li>
       </ul>
 
-      <crfd-label class="label" v-if="author" :title="'Author: ' + author" />
-      <crfd-label class="label" v-if="license" :title="'License: ' + license" />
+      <CRFDLabel class="label" v-if="author" :title="'Author: ' + author" />
+      <CRFDLabel class="label" v-if="license" :title="'License: ' + license" />
     </div>
 
     <p v-if="error" class="text-red/primary">Error: {{ error }}</p>
-  </crfd-detail>
+  </CRFDDetail>
 </template>
 
 <script>
-import { Markdown } from '@components'
-import { Detail, Label } from '@crfd'
-
 export default {
   name: 'crfd-library-detail',
-  components: {
-    Markdown,
-    'crfd-detail': Detail,
-    'crfd-label': Label
-  },
   props: {
     library: {
       type: String,

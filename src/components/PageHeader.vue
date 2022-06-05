@@ -11,19 +11,14 @@
       </h1>
     </div>
     <div class="navbar" :class="{ hide: hideBar || $route.meta.hideBar }">
-      <crfd-navbar :hide-icons="hideIcons" />
+      <CRFDNavbar :hide-icons="hideIcons" />
     </div>
   </header>
 </template>
 
 <script>
-import { Navbar } from '@crfd'
-
 export default {
   name: 'PageHeader',
-  components: {
-    'crfd-navbar': Navbar
-  },
   data() {
     return {
       hideBar: false,

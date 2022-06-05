@@ -9,7 +9,7 @@
     :class="classes"
   >
     <div class="flex justify-center">
-      <crfd-icon
+      <CRFDIcon
         v-if="icon"
         width="16px"
         :icon="icon"
@@ -29,15 +29,8 @@
 </template>
 
 <script>
-// ERROR: "can't access lexical declaration when using"
-// import { Icon } from '@crfd'
-import Icon from '@crfd/CRFDIcon.vue'
-
 export default {
   name: 'crfd-button',
-  components: {
-    'crfd-icon': Icon
-  },
   props: {
     title: {
       type: String,

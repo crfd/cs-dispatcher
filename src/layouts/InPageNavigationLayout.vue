@@ -1,5 +1,5 @@
 <template>
-  <right-detail-layout>
+  <RightDetailLayout>
     <template #left>
       <nav>
         <ul>
@@ -8,13 +8,13 @@
             :key="route.id"
             :class="{ divider: route.newSection }"
           >
-            <crfd-button
+            <CRFDButton
               :icon="route.icon"
               :flavour="buttonFlavour(route)"
               @click="routeChangeHandler(route)"
             >
               {{ route.name }}
-            </crfd-button>
+            </CRFDButton>
           </li>
         </ul>
       </nav>
@@ -26,18 +26,14 @@
         </slot>
       </template>
     </template>
-  </right-detail-layout>
+  </RightDetailLayout>
 </template>
 
 <script>
 import { setQueryParam, getQueryParam } from '@lib/queryParams'
 
-import { RightDetailLayout } from './'
-import { Button } from '@crfd'
-
 export default {
   name: 'in-page-navigation-layout',
-  components: { RightDetailLayout, 'crfd-button': Button },
   props: {
     routes: {
       type: Array,

@@ -2,37 +2,37 @@
   <div class="inline-block p-3">
     <div class="diamond">
       <div class="pixel red">
-        <crfd-tooltip
+        <CRFDTooltip
           :text="$t(translationKeys.flammability)"
           position="top"
           class="text"
           color-class="bg-red/primary"
         >
           <p>{{ diamond.flammability }}</p>
-        </crfd-tooltip>
+        </CRFDTooltip>
       </div>
       <div class="pixel yellow">
-        <crfd-tooltip
+        <CRFDTooltip
           :text="$t(translationKeys.reactivity)"
           position="right"
           class="text"
           color-class="bg-yellow/primary"
         >
           <p>{{ diamond.reactivity }}</p>
-        </crfd-tooltip>
+        </CRFDTooltip>
       </div>
       <div class="pixel blue">
-        <crfd-tooltip
+        <CRFDTooltip
           :text="$t(translationKeys.health)"
           position="left"
           class="text"
           color-class="bg-blue/primary"
         >
           <p>{{ diamond.health }}</p>
-        </crfd-tooltip>
+        </CRFDTooltip>
       </div>
       <div class="pixel white">
-        <crfd-tooltip
+        <CRFDTooltip
           :text="$t(translationKeys.specialNotice)"
           position="bottom"
           class="text"
@@ -43,7 +43,7 @@
           <p :class="{ 'line-through': diamond.specialNotice === 'W' }">
             {{ diamond.specialNotice }}
           </p>
-        </crfd-tooltip>
+        </CRFDTooltip>
       </div>
     </div>
   </div>
@@ -51,13 +51,9 @@
 
 <script>
 import { HazardDiamond } from '@/models'
-import Tooltip from './CRFDTooltip.vue'
 
 export default {
   name: 'crfd-hazard-diamond',
-  components: {
-    'crfd-tooltip': Tooltip
-  },
   props: {
     flammability: {
       type: [String, Number],

@@ -1,25 +1,18 @@
 <template>
   <div id="page">
-    <crfd-map class="map" />
-    <crfd-card class="panel">
-      <crfd-modifier title="Filter" flavour="inactive" :icon="icons.Filter" />
-    </crfd-card>
+    <CRFDMap class="map" />
+    <CRFDCard class="panel">
+      <CRFDModifier title="Filter" flavour="inactive" :icon="icons.Filter" />
+    </CRFDCard>
   </div>
 </template>
 
 <script>
-import { Map, Card, Modifier } from '@crfd'
-import { Container } from '@hydrogen'
 import { Filter } from '@icons'
 
 export default {
   name: 'operations',
-  components: {
-    Container,
-    'crfd-map': Map,
-    'crfd-card': Card,
-    'crfd-modifier': Modifier
-  },
+
   props: {},
   data() {
     return {

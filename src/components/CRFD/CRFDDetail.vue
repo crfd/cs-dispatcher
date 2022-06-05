@@ -15,14 +15,10 @@
 </template>
 
 <script>
-import { Icon } from '@crfd'
 import { ArrowCircleRight } from '@icons'
 
 export default {
   name: 'crfd-detail',
-  components: {
-    'crfd-icon': Icon
-  },
   props: {
     summary: {
       type: String,

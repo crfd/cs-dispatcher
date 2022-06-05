@@ -12,7 +12,7 @@
     <label :class="{ focus: valueNotEmpty }" for="input">
       {{ placeholder }}
     </label>
-    <crfd-icon
+    <CRFDIcon
       class="dropdown-icon"
       :icon="icon"
       width="20px"
@@ -48,14 +48,10 @@
 </template>
 
 <script>
-import { Icon } from '@crfd/'
 import { ArrowCircleRight } from '@icons'
 
 export default {
   name: 'crfd-input',
-  components: {
-    'crfd-icon': Icon
-  },
   props: {
     type: {
       type: String,
@@ -71,7 +67,7 @@ export default {
     },
     formatter: {
       type: Function,
-      default: (value) => value
+      default: value => value
     },
     escapable: {
       type: Boolean,
@@ -142,7 +138,7 @@ export default {
     filteredOptions() {
       var a
       if (this.didChange) {
-        a = this.options.filter((option) =>
+        a = this.options.filter(option =>
           option.toLowerCase().includes(this.inputValue.toLowerCase())
         )
       } else {

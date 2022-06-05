@@ -3,10 +3,10 @@
     <ContentHeader class="content-header" title="New Space">
       <template v-slot:left></template>
       <template v-slot:right>
-        <crfd-button flavour="secondary" @click="push('spaces')">
+        <CRFDButton flavour="secondary" @click="push('spaces')">
           Cancle
-        </crfd-button>
-        <crfd-button :disabled="disabled">Save</crfd-button>
+        </CRFDButton>
+        <CRFDButton :disabled="disabled">Save</CRFDButton>
       </template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
@@ -17,12 +17,8 @@
 </template>
 
 <script>
-import { ContentHeader } from '@components'
-import { Button } from '@crfd'
-
 export default {
   name: 'new-spaces',
-  components: { ContentHeader, 'crfd-button': Button },
   props: {},
   data() {
     return {}
