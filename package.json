@@ -17,7 +17,6 @@
     "crypto-js": "^4.1.1",
     "firebase": "^9.8.2",
     "legally": "^3.5.10",
-    "lodash": "^4.17.21",
     "pinia": "^2.0.14",
     "sass": "^1.52.1",
     "snarkdown": "^2.0.0",
@@ -27,7 +26,6 @@
     "vue-router": "4"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.182",
     "@vitejs/plugin-vue": "^2.3.3",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",

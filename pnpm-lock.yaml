@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/lodash': ^4.14.182
   '@vitejs/plugin-vue': ^2.3.3
   '@vueuse/core': ^8.5.0
   '@zhuowenli/vue-feather-icons': ^5.0.2
@@ -9,7 +8,6 @@ specifiers:
   crypto-js: ^4.1.1
   firebase: ^9.8.2
   legally: ^3.5.10
-  lodash: ^4.17.21
   pinia: ^2.0.14
   postcss: ^8.4.14
   prettier: ^2.6.2
@@ -34,7 +32,6 @@ dependencies:
   crypto-js: 4.1.1
   firebase: 9.8.2
   legally: 3.5.10
-  lodash: 4.17.21
   pinia: 2.0.14_qhv4oyzxhhzeba5rd2zztmcg2y
   sass: 1.52.1
   snarkdown: 2.0.0
@@ -44,7 +41,6 @@ dependencies:
   vue-router: 4.0.15_vue@3.2.36
 
 devDependencies:
-  '@types/lodash': 4.14.182
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.36
   autoprefixer: 10.4.7_postcss@8.4.14
   postcss: 8.4.14
@@ -747,10 +743,6 @@ packages:
 
   /@types/linkify-it/3.0.2:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
-    dev: true
-
-  /@types/lodash/4.14.182:
-    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
     dev: true
 
   /@types/long/4.0.2:
@@ -2353,6 +2345,7 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /log-symbols/4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
