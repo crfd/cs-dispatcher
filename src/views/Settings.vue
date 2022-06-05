@@ -38,25 +38,7 @@
       </template>
 
       <template #feedback>
-        <CRFDBox class="box" title="Feedback">
-          <p>
-            Do you have any suggestion or issues with the application? Please
-            let me know.
-          </p>
-          <CRFDInput placeholder="Name" class="mt-3">Send</CRFDInput>
-          <CRFDTextarea class="mt-3" />
-          <div class="mt-3 flex items-center gap-2">
-            <CRFDButton flavour="secondary">Append a File</CRFDButton>
-            No files
-          </div>
-          <p class="mt-3">(Max File Size: 5MB)</p>
-          <template #footer-left>
-            There are still some fields missing
-          </template>
-          <template #footer-right>
-            <CRFDButton flavour="secondary" disabled>Send</CRFDButton>
-          </template>
-        </CRFDBox>
+        <FeedbackBox />
       </template>
 
       <template #map>

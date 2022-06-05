@@ -5,9 +5,13 @@
       <slot />
     </div>
     <div class="footer" v-if="hasFooter">
-      <slot name="footer-left" />
+      <HFlex>
+        <slot name="footer-left" />
+      </HFlex>
       <div class="spacer"></div>
-      <slot name="footer-right" />
+      <HFlex>
+        <slot name="footer-right" />
+      </HFlex>
     </div>
   </div>
 </template>
@@ -43,7 +47,7 @@ export default {
 }
 
 .content {
-  @apply mt-2 px-6 pb-4;
+  @apply mt-2 flex flex-col gap-3 px-6 pb-4;
 }
 
 .footer {

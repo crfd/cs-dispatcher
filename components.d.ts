@@ -32,6 +32,8 @@ declare module '@vue/runtime-core' {
     CRFDTooltip: typeof import('./src/components/CRFD/CRFDTooltip.vue')['default']
     DataTable: typeof import('./src/components/DataTable.vue')['default']
     ElementPreview: typeof import('./src/components/ElementPreview.vue')['default']
+    FeedbackBox: typeof import('./src/views/Settings/FeedbackBox.vue')['default']
+    HFlex: typeof import('./src/components/HFlex.vue')['default']
     Index: typeof import('./src/views/Index.vue')['default']
     InPageNavigationLayout: typeof import('./src/layouts/InPageNavigationLayout.vue')['default']
     Login: typeof import('./src/views/Login.vue')['default']
@@ -48,6 +50,7 @@ declare module '@vue/runtime-core' {
     Settings: typeof import('./src/views/Settings.vue')['default']
     Spaces: typeof import('./src/views/Spaces.vue')['default']
     TableLayout: typeof import('./src/layouts/TableLayout.vue')['default']
+    VFlex: typeof import('./src/components/VFlex.vue')['default']
   }
 }
 
