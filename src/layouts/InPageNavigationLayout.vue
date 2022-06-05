@@ -130,7 +130,7 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-  @apply m-1;
+  @apply my-1;
 }
 li.divider {
   @apply mt-1 border-t-2 border-t-white/2 pt-1;
