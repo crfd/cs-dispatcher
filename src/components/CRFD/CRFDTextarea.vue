@@ -13,7 +13,6 @@
       @blur="updateFocus(false)"
       @keydown="keyDownHandler"
       :disabled="disabled"
-      :class="classes"
     />
   </div>
 </template>
@@ -60,11 +59,6 @@ export default {
   computed: {
     valueNotEmpty() {
       return this.modelValue.length !== 0
-    },
-    classes() {
-      return {
-        [this.flavour]: true
-      }
     }
   },
   emits: ['update:modelValue', 'update:focused', 'enter', 'escape'],
@@ -116,7 +110,7 @@ export default {
 textarea {
   box-sizing: border-box;
   min-height: 64px;
-  height: 64px;
+  height: 130px;
   @apply w-full cursor-text rounded-md border border-white/3 px-3 py-1.5 text-[15px] font-medium text-black/primary outline-none transition-all ease-in-out placeholder:font-medium placeholder:text-black/2 hover:border-black/primary focus:border-black/primary disabled:cursor-not-allowed disabled:border-white/3 disabled:bg-white/1 disabled:text-white/3 disabled:placeholder:text-white/3;
 }
 
