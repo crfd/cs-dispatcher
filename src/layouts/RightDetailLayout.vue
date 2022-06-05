@@ -42,8 +42,13 @@ export default {
   min-width: 200px;
   padding: 16px 0;
   overflow-y: scroll;
+  scrollbar-width: none;
   padding-right: 48px;
   // border: 2px solid blueviolet;
+}
+
+.left::-webkit-scrollbar {
+  display: none;
 }
 
 .right {
