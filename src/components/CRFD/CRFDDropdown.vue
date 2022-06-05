@@ -225,7 +225,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  @apply relative my-2 inline-block w-3/4;
+  @apply relative w-full;
 }
 
 input {
@@ -269,12 +269,12 @@ input.autofill {
 }
 
 label {
-  @apply absolute mx-[13px] py-[7px] text-[15px] font-medium text-black/1 opacity-0;
   pointer-events: none;
-  transition: all ease-in-out 0.3s;
+  @apply absolute top-[7px] left-[12px] text-[15px] text-black/2 opacity-0 transition-all;
 
   &.focus {
-    @apply my-[-7px] mx-[9px] bg-white/primary px-1 py-0 text-[10px] text-black/primary opacity-100;
+    transform: translateY(-50%);
+    @apply top-0 left-[10px] bg-white/primary px-1 text-sm text-black/primary opacity-100;
   }
 }
 

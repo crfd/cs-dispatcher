@@ -9,7 +9,9 @@
       </option>
     </select>
     <div class="my-3">
-      <slot></slot>
+      <Container center>
+        <slot></slot>
+      </Container>
     </div>
   </div>
 </template>

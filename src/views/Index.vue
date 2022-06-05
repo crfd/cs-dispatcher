@@ -24,6 +24,7 @@
         v-model="value"
         placeholder="Placeholder"
         :flavour="inputFlavour"
+        class="mt-3"
       />
     </ElementPreview>
 
@@ -42,9 +43,10 @@
         v-model="dropdownValue"
         placeholder="Fruit"
         :flavour="dropdownFlavour"
+        class="mt-3"
       />
 
-      <br />
+      <br v-if="dropdownValue" />
       {{ dropdownValue }}
     </ElementPreview>
 
