@@ -8,8 +8,6 @@
     </ContentHeader>
     <InPageNavigationLayout :routes="routes">
       <template #general>
-        <h4 class="title">General</h4>
-
         <CRFDBox class="box" title="1. Setting">
           Here is some text that is inside the box
           <template #footer-left>Some Text</template>
@@ -51,9 +49,12 @@
             <CRFDButton flavour="secondary">Append a File</CRFDButton>
             No files
           </div>
-          (Max File Size: 5MB)
+          <p class="mt-3">(Max File Size: 5MB)</p>
+          <template #footer-left>
+            There are still some fields missing
+          </template>
           <template #footer-right>
-            <CRFDButton flavour="secondary">Send</CRFDButton>
+            <CRFDButton flavour="secondary" disabled>Send</CRFDButton>
           </template>
         </CRFDBox>
       </template>
