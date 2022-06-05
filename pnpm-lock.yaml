@@ -7,6 +7,7 @@ specifiers:
   autoprefixer: ^10.4.7
   crypto-js: ^4.1.1
   firebase: ^9.8.2
+  hotkeys-js: ^3.9.4
   legally: ^3.5.10
   pinia: ^2.0.14
   postcss: ^8.4.14
@@ -26,12 +27,14 @@ specifiers:
   vue-i18n: '9'
   vue-router: '4'
   vue-tsc: ^0.34.7
+  vue-use: ^0.2.0
 
 dependencies:
   '@vueuse/core': 8.5.0_vue@3.2.36
   '@zhuowenli/vue-feather-icons': 5.0.2
   crypto-js: 4.1.1
   firebase: 9.8.2
+  hotkeys-js: 3.9.4
   legally: 3.5.10
   pinia: 2.0.14_qhv4oyzxhhzeba5rd2zztmcg2y
   sass: 1.52.1
@@ -40,6 +43,7 @@ dependencies:
   vue: 3.2.36
   vue-i18n: 9.1.10_vue@3.2.36
   vue-router: 4.0.15_vue@3.2.36
+  vue-use: 0.2.0
 
 devDependencies:
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.36
@@ -2075,6 +2079,10 @@ packages:
     hasBin: true
     dev: true
 
+  /hotkeys-js/3.9.4:
+    resolution: {integrity: sha512-2zuLt85Ta+gIyvs4N88pCYskNrxf1TFv3LR9t5mdAZIX8BcgQQ48F2opUptvHa6m8zsy5v/a0i9mWzTrlNWU0Q==}
+    dev: false
+
   /http-basic/8.1.3:
     resolution: {integrity: sha512-/EcDMwJZh3mABI2NhGfHOGOeOZITqfkEO4p/xK+l3NpyncIHUQBoMvCSF/b5GqvKtySC2srL/GGG3+EtlqlmCw==}
     engines: {node: '>=6.0.0'}
@@ -3365,6 +3373,10 @@ packages:
       vue: 3.2.36
     dev: false
 
+  /vue-router/3.5.4:
+    resolution: {integrity: sha512-x+/DLAJZv2mcQ7glH2oV9ze8uPwcI+H+GgTgTmb5I55bCgY3+vXWIsqbYUzbBSZnwFHEJku4eoaH/x98veyymQ==}
+    dev: false
+
   /vue-router/4.0.15_vue@3.2.36:
     resolution: {integrity: sha512-xa+pIN9ZqORdIW1MkN2+d9Ui2pCM1b/UMgwYUCZOiFYHAvz/slKKBDha8DLrh5aCG/RibtrpyhKjKOZ85tYyWg==}
     peerDependencies:
@@ -3383,6 +3395,18 @@ packages:
       typescript: 4.7.2
     dev: true
 
+  /vue-use/0.2.0:
+    resolution: {integrity: sha512-5AXDyzSQOSTL5MpiDEDZ9OiBCboM1KhbXFA+zgmrYgdSbZn9ntfBtAKQt4ous8xZOKiGehaNIB6w4qHEQ3kdmg==}
+    dependencies:
+      vue: 2.6.14
+      vue-router: 3.5.4
+      vuex: 3.6.2_vue@2.6.14
+    dev: false
+
+  /vue/2.6.14:
+    resolution: {integrity: sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==}
+    dev: false
+
   /vue/3.2.36:
     resolution: {integrity: sha512-5yTXmrE6gW8IQgttzHW5bfBiFA6mx35ZXHjGLDmKYzW6MMmYvCwuKybANRepwkMYeXw2v1buGg3/lPICY5YlZw==}
     dependencies:
@@ -3391,6 +3415,14 @@ packages:
       '@vue/runtime-dom': 3.2.36
       '@vue/server-renderer': 3.2.36_vue@3.2.36
       '@vue/shared': 3.2.36
+
+  /vuex/3.6.2_vue@2.6.14:
+    resolution: {integrity: sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==}
+    peerDependencies:
+      vue: ^2.0.0
+    dependencies:
+      vue: 2.6.14
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
