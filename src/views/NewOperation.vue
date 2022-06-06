@@ -6,26 +6,38 @@
         <CRFDButton flavour="secondary" @click="push('operations')">
           Cancle
         </CRFDButton>
-        <CRFDButton :disabled="disabled">Save</CRFDButton>
+        <!-- <CRFDButton :disabled="disabled">Next</CRFDButton> -->
       </template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
     </ContentHeader>
 
-    <div class="page-body"></div>
+    <PathLayout :path="path" :value="step">
+      <CRFDBox :title="selectedPath">
+        Hello World
+        <template #footer-right>
+          <CRFDButton flavour="secondary" disabled> Next </CRFDButton>
+        </template>
+      </CRFDBox>
+    </PathLayout>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'new-operation',
   props: {},
   data() {
-    return {}
+    return {
+      path: ['General', 'Contact', 'Documents'],
+      step: 0
+    }
   },
   computed: {
     disabled() {
       return true
+    },
+    selectedPath() {
+      return this.path[this.step]
     }
   },
   methods: {

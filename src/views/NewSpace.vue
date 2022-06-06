@@ -13,7 +13,7 @@
     </ContentHeader>
 
     <PathLayout :path="path" :value="step">
-      <CRFDBox title="General">
+      <CRFDBox :title="selectedPath">
         Hello World
         <template #footer-right>
           <CRFDButton flavour="secondary" disabled> Next </CRFDButton>
@@ -25,7 +25,6 @@
 
 <script>
 export default {
-  name: 'new-spaces',
   props: {},
   data() {
     return {
@@ -36,6 +35,9 @@ export default {
   computed: {
     disabled() {
       return true
+    },
+    selectedPath() {
+      return this.path[this.step]
     }
   },
   methods: {
