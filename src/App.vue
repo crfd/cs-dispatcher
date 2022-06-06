@@ -1,8 +1,10 @@
 <template>
   <div id="global" v-cloak>
-    <CRFDOverlay v-if="showOverlay" @dismiss="showOverlay = false">
-      <CRFDCommandPalette id="palette" />
-    </CRFDOverlay>
+    <transition name="fade" mode="out-in">
+      <CRFDOverlay v-if="showOverlay" @dismiss="showOverlay = false">
+        <CRFDCommandPalette id="palette" />
+      </CRFDOverlay>
+    </transition>
 
     <PageHeader id="header" />
 

@@ -25,6 +25,9 @@ export default {
   methods: {
     clear() {
       this.value = ''
+    },
+    performAction(command) {
+      command.action()
     }
   }
 }
@@ -57,6 +60,7 @@ export default {
           v-for="command in results"
           :key="command.id"
           :command="command"
+          @click="performAction(command)"
         />
       </TransitionGroup>
     </VFlex>
