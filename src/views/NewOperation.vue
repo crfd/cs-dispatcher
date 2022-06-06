@@ -6,19 +6,39 @@
         <CRFDButton flavour="secondary" @click="push('operations')">
           Cancle
         </CRFDButton>
-        <!-- <CRFDButton :disabled="disabled">Next</CRFDButton> -->
+        <!-- <CRFDButton :disabled="disabled">Save</CRFDButton> -->
       </template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
     </ContentHeader>
 
     <PathLayout :path="path" :value="step">
-      <CRFDBox :title="selectedPath">
-        Hello World
-        <template #footer-right>
-          <CRFDButton flavour="secondary" disabled> Next </CRFDButton>
-        </template>
-      </CRFDBox>
+      <template #general>
+        <CRFDBox :title="selectedPath.name">
+          Hello World
+          <template #footer-right>
+            <CRFDButton flavour="secondary" disabled> Next </CRFDButton>
+          </template>
+        </CRFDBox>
+      </template>
+
+      <template #contact>
+        <CRFDBox :title="selectedPath.name">
+          Hello World
+          <template #footer-right>
+            <CRFDButton flavour="secondary" disabled> Next </CRFDButton>
+          </template>
+        </CRFDBox>
+      </template>
+
+      <template #documents>
+        <CRFDBox :title="selectedPath.name">
+          Hello World
+          <template #footer-right>
+            <CRFDButton flavour="secondary" disabled> Next </CRFDButton>
+          </template>
+        </CRFDBox>
+      </template>
     </PathLayout>
   </div>
 </template>
@@ -28,7 +48,20 @@ export default {
   props: {},
   data() {
     return {
-      path: ['General', 'Contact', 'Documents'],
+      path: [
+        {
+          id: 'general',
+          name: 'General'
+        },
+        {
+          id: 'contact',
+          name: 'Contact'
+        },
+        {
+          id: 'documents',
+          name: 'Documents'
+        }
+      ],
       step: 0
     }
   },

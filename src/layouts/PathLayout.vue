@@ -1,9 +1,15 @@
 <template>
   <RightDetailLayout>
     <template #left>
-      <CRFDPath :path="path" :value="value" />
+      <CRFDPath :path="pathStringArray" :value="value" />
     </template>
-    <template #right> <slot /> </template>
+    <template #right>
+      <template v-for="(step, i) in path" :key="step.id">
+        <div v-if="i === value">
+          <slot :name="step.id"></slot>
+        </div>
+      </template>
+    </template>
   </RightDetailLayout>
 </template>
 
@@ -12,7 +18,12 @@ export default {
   props: {
     path: {
       type: Array,
-      default: () => []
+      default: () => [
+        {
+          id: 'general',
+          name: 'General'
+        }
+      ]
     },
     value: {
       type: [String, Number],
@@ -22,7 +33,11 @@ export default {
   data() {
     return {}
   },
-  computed: {},
+  computed: {
+    pathStringArray() {
+      return this.path.map(step => step.name)
+    }
+  },
   emits: [],
   methods: {}
 }
