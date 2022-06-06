@@ -83,7 +83,7 @@ export default {
 }
 
 .content-header {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 
 .white-table-header {
