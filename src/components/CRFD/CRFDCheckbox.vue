@@ -1,11 +1,11 @@
 <template>
   <div class="relative m-1 inline-block">
-    <CRFDIcon
+    <i-crfd-done
       v-if="modelValue == true"
-      class="checkmark"
-      :icon="doneIcon"
       color="white"
       width="13px"
+      height="13px"
+      class="checkmark"
     />
     <input
       type="checkbox"
@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import { Done } from '../../assets/icons'
-
 export default {
   name: 'crfd-checkbox',
   props: {
@@ -33,9 +31,7 @@ export default {
     }
   },
   data() {
-    return {
-      doneIcon: Done
-    }
+    return {}
   },
   emits: ['update:modelValue'],
   methods: {
@@ -50,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 input {
   -webkit-appearance: none;
-  @apply h-5 w-5 cursor-pointer rounded border border-black/primary outline-none transition-all ease-in-out hover:bg-white/2;
+  @apply relative h-5 w-5 cursor-pointer rounded border border-black/primary outline-none transition-all ease-in-out hover:bg-white/2;
 }
 
 input:disabled {
@@ -72,9 +68,11 @@ input:hover.checked:not(:disabled) {
 
 .checkmark {
   position: absolute;
+  z-index: 5;
   pointer-events: none;
-  top: 0;
-  margin-left: 3px;
-  margin-top: -2px;
+  height: 13px;
+  width: 13px;
+  top: 3px;
+  left: 3px;
 }
 </style>

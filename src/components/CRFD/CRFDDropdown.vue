@@ -12,9 +12,8 @@
     <label :class="{ focus: valueNotEmpty, ...flavourClass }" for="input">
       {{ placeholder }}
     </label>
-    <CRFDIcon
+    <i-crfd-arrow-circle-right
       class="dropdown-icon"
-      :icon="icon"
       width="20px"
       height="20px"
       :color="iconColor"
@@ -48,8 +47,6 @@
 </template>
 
 <script>
-import { ArrowCircleRight } from '@icons'
-
 export default {
   name: 'crfd-input',
   props: {
@@ -111,7 +108,6 @@ export default {
       isFocused: false,
       listIsFocused: false,
       hover: false,
-      icon: ArrowCircleRight,
       didChange: false
     }
   },

@@ -1,8 +1,7 @@
 <template>
   <div class="detail">
     <summary @click="toggle">
-      <img
-        :src="icons.ArrowCircleRight"
+      <i-crfd-arrow-circle-right
         class="toggle-icon"
         :class="{ active: isExpended }"
       />
@@ -63,6 +62,7 @@ summary {
 .toggle-icon {
   width: 18px;
   height: 18px;
+  transform: rotate(0deg);
   @apply mr-2 transition-all ease-in-out;
 }
 
