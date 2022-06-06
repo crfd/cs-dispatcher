@@ -29,7 +29,7 @@
     </ElementPreview>
 
     <ElementPreview
-      title="Dropdown"
+      title="Select"
       v-model="dropdownFlavour"
       :options="inputFlavours"
     >
@@ -250,6 +250,7 @@
         https://dbrekalo.github.io/vue-date-pick/examples.html#calendar-widget
       </a>
     </ElementPreview>
+    <ElementPreview title="Dropdown"> </ElementPreview>
     <ElementPreview title="Select"> </ElementPreview>
     <ElementPreview title="Multi-Select"> </ElementPreview>
     <ElementPreview title="Table"> </ElementPreview>
