@@ -111,7 +111,7 @@ export default {
 .palette {
   transform: translateX(-50%);
   max-height: 70%;
-  @apply absolute left-1/2 top-12 w-4/5 max-w-lg overflow-hidden rounded-lg border-2 border-white/2 bg-white/primary;
+  @apply absolute left-1/2 top-12 w-4/5 max-w-lg overflow-hidden rounded-lg bg-white/primary;
 }
 
 .top {
