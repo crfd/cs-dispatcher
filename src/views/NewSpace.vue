@@ -6,13 +6,20 @@
         <CRFDButton flavour="secondary" @click="push('spaces')">
           Cancle
         </CRFDButton>
-        <CRFDButton :disabled="disabled">Save</CRFDButton>
+        <!-- <CRFDButton :disabled="disabled">Next</CRFDButton> -->
       </template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
     </ContentHeader>
 
-    <div class="page-body"></div>
+    <PathLayout :path="path" :value="step">
+      <CRFDBox title="General">
+        Hello World
+        <template #footer-right>
+          <CRFDButton flavour="secondary" disabled> Next </CRFDButton>
+        </template>
+      </CRFDBox>
+    </PathLayout>
   </div>
 </template>
 
@@ -21,7 +28,10 @@ export default {
   name: 'new-spaces',
   props: {},
   data() {
-    return {}
+    return {
+      path: ['General', 'Contact', 'Documents'],
+      step: 0
+    }
   },
   computed: {
     disabled() {

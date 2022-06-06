@@ -51,6 +51,7 @@ declare module '@vue/runtime-core' {
     NewSpace: typeof import('./src/views/NewSpace.vue')['default']
     Operations: typeof import('./src/views/Operations.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader.vue')['default']
+    PathLayout: typeof import('./src/layouts/PathLayout.vue')['default']
     RightDetailLayout: typeof import('./src/layouts/RightDetailLayout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
