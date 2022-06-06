@@ -10,6 +10,9 @@
         <input v-model="hideIcons" type="checkbox" />
         <div class="spacer"></div>
         <p class="text-sm text-red/primary">⚠️ Under Development</p>
+        <div @click="$emit('search')" class="search-btn">
+          <i-crfd-search width="20px" height="20px" color="black" />
+        </div>
       </h1>
     </div>
     <div class="navbar" :class="{ hide: hideBar || $route.meta.hideBar }">
@@ -68,5 +71,12 @@ header {
 
 .navbar.hide {
   @apply mt-[-38px] opacity-0;
+}
+
+.search-btn {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  @apply mx-4 cursor-pointer overflow-hidden rounded-full bg-transparent transition-all ease-in-out hover:bg-white/2 active:bg-white/3;
 }
 </style>

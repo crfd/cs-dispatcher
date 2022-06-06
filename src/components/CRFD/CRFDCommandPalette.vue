@@ -28,6 +28,7 @@ export default {
     },
     performAction(command) {
       command.action()
+      this.$emit('dismiss')
     }
   }
 }

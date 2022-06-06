@@ -122,6 +122,10 @@ export default {
           name: 'Advanced'
         },
         {
+          id: 'admin',
+          name: 'Administration'
+        },
+        {
           id: 'help',
           name: 'Help',
           newSection: true

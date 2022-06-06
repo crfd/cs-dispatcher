@@ -1,12 +1,12 @@
 <template>
   <div id="global" v-cloak>
     <transition name="fade" mode="out-in">
-      <CRFDOverlay v-if="showOverlay" @dismiss="showOverlay = false">
-        <CRFDCommandPalette id="palette" />
+      <CRFDOverlay v-if="showOverlay">
+        <CRFDCommandPalette id="palette" @dismiss="showOverlay = false" />
       </CRFDOverlay>
     </transition>
 
-    <PageHeader id="header" />
+    <PageHeader id="header" @search="showOverlay = true" />
 
     <div id="content">
       <router-view v-slot="{ Component }">
@@ -25,7 +25,7 @@ export default {
   name: 'App',
   data() {
     return {
-      showOverlay: true
+      showOverlay: false
     }
   },
   mounted() {
