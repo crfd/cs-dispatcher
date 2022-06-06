@@ -9,18 +9,34 @@ import markdown from 'vite-plugin-md'
 import components from 'unplugin-vue-components/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
 
+import icons from 'unplugin-icons/vite'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import IconsResolver from 'unplugin-icons/resolver'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/]
     }),
+    markdown(),
+    icons({
+      compiler: 'vue3',
+      customCollections: {
+        crfd: FileSystemIconLoader('./src/assets/icons', svg =>
+          svg.replace(/^<svg /, '<svg fill="currentColor" ')
+        )
+      }
+    }),
     components({
       dts: true,
-      deep: true,
-      dirs: ['src/components', 'src/views', 'src/layouts']
+      dirs: ['src/components', 'src/views', 'src/layouts'],
+      resolvers: [
+        IconsResolver({
+          customCollections: ['crfd']
+        })
+      ]
     }),
-    markdown(),
     visualizer()
   ],
   resolve: {

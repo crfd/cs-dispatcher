@@ -34,6 +34,7 @@ declare module '@vue/runtime-core' {
     ElementPreview: typeof import('./src/components/ElementPreview.vue')['default']
     FeedbackBox: typeof import('./src/views/Settings/FeedbackBox.vue')['default']
     HFlex: typeof import('./src/components/HFlex.vue')['default']
+    ICrfdCancle: typeof import('~icons/crfd/cancle')['default']
     Index: typeof import('./src/views/Index.vue')['default']
     InPageNavigationLayout: typeof import('./src/layouts/InPageNavigationLayout.vue')['default']
     Login: typeof import('./src/views/Login.vue')['default']
