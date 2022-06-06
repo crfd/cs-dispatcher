@@ -43,7 +43,7 @@ export default {
 }
 
 .title {
-  @apply px-6 pt-4 text-xl font-semibold;
+  @apply px-6 pt-4 pb-2 text-xl font-semibold;
 }
 
 .content {
