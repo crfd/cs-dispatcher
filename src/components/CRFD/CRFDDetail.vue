@@ -47,7 +47,7 @@ export default {
 .detail {
   display: block;
   list-style: none;
-  @apply my-3 w-full cursor-pointer rounded-md border border-white/3 px-3 py-2.5 text-left text-[15px] text-black/primary outline-none transition-all ease-in-out;
+  @apply my-3 w-full cursor-pointer rounded-md border border-white/3 bg-white/primary px-3 py-2.5 text-left text-[15px] text-black/primary outline-none transition-all ease-in-out;
 }
 
 summary {
