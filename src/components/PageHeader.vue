@@ -3,7 +3,7 @@
     <div class="title-wrapper">
       <h1 class="title">
         <span class="title-home-button" @click="push('home')">
-          <img src="../assets/logo-leaf.svg" width="28" class="inline-block" />
+          <img src="@assets/logo-leaf.svg" width="28" class="inline-block" />
           Confined Space Dispatcher
         </span>
         <span class="ml-2 text-base font-normal">Hide Icons:</span>
