@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto my-4 w-9/12 max-w-lg rounded bg-white/primary pt-4 pb-2 text-black/primary"
+    class="mx-auto my-4 w-9/12 max-w-lg rounded-lg border-2 border-white/2 bg-white/primary pt-4 pb-2 text-black/primary shadow-sm"
   >
     <h2 v-if="hasTitle" class="py-1 text-2xl font-bold">{{ title }}</h2>
     <select v-if="hasOptions" :value="modelValue" @change="updateValue">
