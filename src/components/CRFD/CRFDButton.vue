@@ -6,7 +6,7 @@
     @mouseenter="hover = true"
     @mouseleave="hover = false"
     :disabled="disabled"
-    :class="classes"
+    :class="buttonClass"
   >
     <CRFDIcon
       v-if="icon"
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import HFlex from '../HFlex.vue'
 export default {
   name: 'crfd-button',
   props: {
@@ -91,10 +92,10 @@ export default {
     }
   },
   computed: {
-    classes() {
+    buttonClass() {
       return {
         [this.flavour]: true,
-        [this.position]: true
+        ['flex-' + this.position]: true
       }
     },
     hasIcon() {
@@ -116,7 +117,8 @@ export default {
       if (this.disabled) return
       this.$emit('click')
     }
-  }
+  },
+  components: { HFlex }
 }
 </script>
 
@@ -126,11 +128,11 @@ button {
   @apply flex cursor-pointer justify-center whitespace-nowrap rounded-md border border-black/primary bg-black/primary px-3 py-1.5 font-medium text-white/primary transition-all ease-in-out hover:border-black/primary hover:bg-white/primary hover:text-black/primary  active:border-black/primary active:bg-white/2 active:text-black/primary disabled:cursor-not-allowed disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
 }
 
-button.left {
+button.flex-left {
   @apply justify-start;
 }
 
-button.right {
+button.flex-right {
   @apply justify-end;
 }
 
@@ -147,7 +149,7 @@ button.link {
 }
 
 button.link-active {
-  @apply border-white/2 bg-white/2 text-black/primary hover:border-white/2 hover:bg-white/2 hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
+  @apply border-transparent bg-transparent text-black/primary hover:border-transparent hover:bg-transparent hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
 }
 
 button.link-active-2 {
