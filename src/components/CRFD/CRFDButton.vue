@@ -8,23 +8,20 @@
     :disabled="disabled"
     :class="classes"
   >
-    <div class="flex justify-center">
-      <CRFDIcon
-        v-if="icon"
-        width="16px"
-        :icon="icon"
-        :color="color"
-        class="icon"
-      />
+    <CRFDIcon
+      v-if="icon"
+      width="16px"
+      :icon="icon"
+      :color="color"
+      class="icon"
+    />
+    {{ title }}
+    <span>
       {{ title }}
-      <span>
-        {{ title }}
-      </span>
-      <span>
-        <slot />
-      </span>
-    </div>
-    <!-- {{ color }} - {{ state }} -->
+    </span>
+    <span>
+      <slot />
+    </span>
   </button>
 </template>
 
@@ -47,6 +44,10 @@ export default {
     icon: {
       type: String,
       default: ''
+    },
+    position: {
+      type: Boolean,
+      default: 'center' // left, center, right
     }
   },
   data() {
@@ -92,7 +93,8 @@ export default {
   computed: {
     classes() {
       return {
-        [this.flavour]: true
+        [this.flavour]: true,
+        [this.position]: true
       }
     },
     hasIcon() {
@@ -121,7 +123,15 @@ export default {
 <style scoped>
 button {
   box-sizing: border-box;
-  @apply inline-block cursor-pointer whitespace-nowrap rounded-md border border-black/primary bg-black/primary px-3 py-1.5 font-medium text-white/primary transition-all ease-in-out hover:border-black/primary hover:bg-white/primary hover:text-black/primary  active:border-black/primary active:bg-white/2 active:text-black/primary disabled:cursor-not-allowed disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
+  @apply flex cursor-pointer justify-center whitespace-nowrap rounded-md border border-black/primary bg-black/primary px-3 py-1.5 font-medium text-white/primary transition-all ease-in-out hover:border-black/primary hover:bg-white/primary hover:text-black/primary  active:border-black/primary active:bg-white/2 active:text-black/primary disabled:cursor-not-allowed disabled:border-white/2 disabled:bg-white/2 disabled:text-black/2;
+}
+
+button.left {
+  @apply justify-start;
+}
+
+button.right {
+  @apply justify-end;
 }
 
 button.secondary {
@@ -137,7 +147,7 @@ button.link {
 }
 
 button.link-active {
-  @apply border-transparent bg-transparent text-black/primary hover:border-transparent hover:bg-transparent hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
+  @apply border-white/2 bg-white/2 text-black/primary hover:border-white/2 hover:bg-white/2 hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
 }
 
 button.link-active-2 {
