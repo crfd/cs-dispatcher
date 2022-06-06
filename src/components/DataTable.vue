@@ -24,12 +24,13 @@
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody v-if="hasData">
         <tr v-for="(r, iR) in sortedRows" :key="iR" @click="clickHandler(iR)">
           <td v-for="(h, i) in headers" :key="h">{{ r[i] }}</td>
         </tr>
       </tbody>
     </table>
+    <p v-if="!hasData" class="no-data">No Data</p>
   </div>
 </template>
 
@@ -93,6 +94,9 @@ export default {
       return [...this.rows].sort((a, b) => {
         return this.ascending ? a[i] > b[i] : a[i] < b[i]
       })
+    },
+    hasData() {
+      return this.rows.length > 0
     }
   },
   mounted() {
@@ -229,5 +233,12 @@ td:last-child {
   overflow: auto;
   -ms-overflow-style: none; /* IE 11 */
   scrollbar-width: none; /* Firefox 64 */
+}
+
+.no-data {
+  padding: 14px;
+  text-align: left;
+  font-weight: 500;
+  @apply text-black/2;
 }
 </style>
