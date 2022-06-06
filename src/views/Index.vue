@@ -166,7 +166,7 @@
     </ElementPreview>
 
     <ElementPreview title="Map">
-      <CRFDMap />
+      <CRFDMap class="rounded-lg" />
     </ElementPreview>
 
     <ElementPreview title="Card">
