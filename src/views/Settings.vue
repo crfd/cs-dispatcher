@@ -64,13 +64,18 @@
           A huge thanks to the developers of the following open source
           libraries:
         </p>
-        <CRFDLibraryDetail v-for="dep in deps" :key="dep" :library="dep" />
+        <CRFDLibraryDetail
+          class="shadow-sm"
+          v-for="dep in deps"
+          :key="dep"
+          :library="dep"
+        />
 
         <div class="divider"></div>
 
         <span>Further software and ressources:</span>
 
-        <CRFDDetail summary="Icons8" class="bg-white/primary">
+        <CRFDDetail summary="Icons8" class="bg-white/primary shadow-sm">
           <Markdown
             value="Many of the icons have been provided by [https://icons8.com](https://icons8.com)"
           />

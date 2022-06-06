@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 #box {
-  @apply flex flex-col overflow-hidden rounded-lg border border-white/2 bg-white/primary text-left;
+  @apply flex flex-col overflow-hidden rounded-lg border border-white/2 bg-white/primary text-left shadow-sm;
 }
 
 .spacer {
