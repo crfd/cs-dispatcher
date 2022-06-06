@@ -6,7 +6,8 @@
     </h1>
 
     <p class="mx-auto w-9/12 max-w-lg font-sans italic text-black/2">
-      This is a UI framework designed for the campbell river fire department.
+      This is a UI framework <b>customly</b> designed for the campbell river
+      fire department.
     </p>
 
     <ElementPreview
