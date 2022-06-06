@@ -56,6 +56,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Settings: typeof import('./src/views/Settings.vue')['default']
+    Spacer: typeof import('./src/components/Spacer.vue')['default']
     Spaces: typeof import('./src/views/Spaces.vue')['default']
     TableLayout: typeof import('./src/layouts/TableLayout.vue')['default']
     VFlex: typeof import('./src/components/VFlex.vue')['default']

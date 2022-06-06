@@ -14,7 +14,7 @@
       <div class="clear-icon-btn" v-if="file">
         <i-crfd-cancle @click="clearFile" width="24px" />
       </div>
-      <div class="spacer"></div>
+      <Spacer />
       <div>
         <p v-if="file && exceedsMaxFileSize" class="text-red/primary">
           The file is too large.

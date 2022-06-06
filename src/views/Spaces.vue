@@ -88,8 +88,4 @@ export default {
   border-bottom: 2px solid;
   @apply border-b-white/2 bg-white/primary;
 }
-
-.spacer {
-  flex-grow: 1;
-}
 </style>

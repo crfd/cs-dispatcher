@@ -8,7 +8,7 @@
       <HFlex>
         <slot name="footer-left" />
       </HFlex>
-      <div class="spacer"></div>
+      <Spacer />
       <HFlex>
         <slot name="footer-right" />
       </HFlex>
@@ -36,10 +36,6 @@ export default {
 <style lang="scss" scoped>
 #box {
   @apply flex flex-col overflow-hidden rounded-lg border border-white/2 bg-white/primary text-left shadow-sm;
-}
-
-.spacer {
-  flex-grow: 1;
 }
 
 .title {

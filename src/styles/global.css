@@ -23,10 +23,6 @@ body,
   transform: translate(-50%, -50%);
 }
 
-.spacer {
-  flex-grow: 1;
-}
-
 ::selection {
   @apply rounded bg-black/primary text-white/primary;
 }

@@ -8,7 +8,7 @@
         </span>
         <span class="ml-2 text-base font-normal">Hide Icons:</span>
         <input v-model="hideIcons" type="checkbox" />
-        <div class="spacer"></div>
+        <Spacer />
         <p class="text-sm text-red/primary">⚠️ Under Development</p>
         <CRFDTooltip text="CMD+K" position="left">
           <div @click="$emit('search')" class="search-btn">
@@ -55,10 +55,6 @@ header {
 
 .title {
   @apply flex items-center gap-2 bg-white/primary px-3 py-3 text-left text-lg font-semibold;
-}
-
-.spacer {
-  flex-grow: 1;
 }
 
 .title-home-button {
