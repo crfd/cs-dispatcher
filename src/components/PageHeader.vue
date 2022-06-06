@@ -10,9 +10,11 @@
         <input v-model="hideIcons" type="checkbox" />
         <div class="spacer"></div>
         <p class="text-sm text-red/primary">⚠️ Under Development</p>
-        <div @click="$emit('search')" class="search-btn">
-          <i-crfd-search width="20px" height="20px" color="black" />
-        </div>
+        <CRFDTooltip text="CMD+K" position="left">
+          <div @click="$emit('search')" class="search-btn">
+            <i-crfd-search width="20px" height="20px" color="black" />
+          </div>
+        </CRFDTooltip>
       </h1>
     </div>
     <div class="navbar" :class="{ hide: hideBar || $route.meta.hideBar }">
