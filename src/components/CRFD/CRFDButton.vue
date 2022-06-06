@@ -149,7 +149,7 @@ button.link {
 }
 
 button.link-active {
-  @apply border-transparent bg-transparent text-black/primary hover:border-transparent hover:bg-transparent hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
+  @apply border-white/2 bg-white/2 text-black/primary hover:border-white/2 hover:bg-white/2 hover:text-black/primary active:border-white/3 active:bg-white/3 disabled:text-white/3 disabled:hover:border-transparent disabled:hover:bg-transparent;
 }
 
 button.link-active-2 {
