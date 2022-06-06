@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <label :class="{ focus: valueNotEmpty, ...flavourClass }" for="input">
+    <label
+      v-if="!noFocus"
+      :class="{ focus: valueNotEmpty, ...flavourClass }"
+      for="input"
+    >
       {{ placeholder }}
     </label>
     <input
@@ -50,7 +54,11 @@ export default {
       type: Boolean,
       default: false
     },
-    flavour: String
+    flavour: String,
+    noFocus: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
