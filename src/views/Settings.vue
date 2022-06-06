@@ -46,6 +46,13 @@
         <LoremIpsum />
       </template>
 
+      <template #changelog>
+        <h4 class="title">Changelog</h4>
+        <Markdown
+          value="A history of all commits can be seen on the GitHub repository<br>[campbell-river-fire-department/cs-dispatcher](https://github.com/campbell-river-fire-department/cs-dispatcher/commits/main)"
+        />
+      </template>
+
       <template #about>
         <h4 class="title">About</h4>
         <Markdown :value="$t('settings.about.content')" />
@@ -58,6 +65,16 @@
           libraries:
         </p>
         <CRFDLibraryDetail v-for="dep in deps" :key="dep" :library="dep" />
+
+        <div class="divider"></div>
+
+        <span>Further software and ressources:</span>
+
+        <CRFDDetail summary="Icons8" class="bg-white/primary">
+          <Markdown
+            value="Many of the icons have been provided by [https://icons8.com](https://icons8.com)"
+          />
+        </CRFDDetail>
       </template>
     </InPageNavigationLayout>
     <a
@@ -169,5 +186,9 @@ export default {
 
 .title {
   @apply py-4 text-lg font-medium;
+}
+
+.divider {
+  @apply mt-8 mb-4 h-[2px] rounded bg-white/2;
 }
 </style>
