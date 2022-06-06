@@ -1,7 +1,7 @@
 <template>
   <div id="global" v-cloak>
     <transition name="fade" mode="out-in">
-      <CRFDOverlay v-if="showOverlay">
+      <CRFDOverlay v-if="showOverlay" @dismiss="showOverlay = false">
         <CRFDCommandPalette id="palette" @dismiss="showOverlay = false" />
       </CRFDOverlay>
     </transition>
