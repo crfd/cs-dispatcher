@@ -1,12 +1,11 @@
 <template>
-  <div class="flex flex-col" :class="classes">
+  <div class="relative flex flex-col" :class="classes">
     <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HFlex',
   props: {
     gap: {
       type: Number,

@@ -29,6 +29,7 @@
     "vue-use": "^0.2.0"
   },
   "devDependencies": {
+    "@types/uuid": "^8.3.4",
     "@vitejs/plugin-vue": "^2.3.3",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",

@@ -1,5 +1,9 @@
 <template>
   <div id="global" v-cloak>
+    <CRFDOverlay v-if="showOverlay" @dismiss="showOverlay = false">
+      <CRFDCommandPalette id="palette" />
+    </CRFDOverlay>
+
     <PageHeader id="header" />
 
     <div id="content">
@@ -13,12 +17,21 @@
 </template>
 
 <script>
+import hotkeys from 'hotkeys-js'
+
 export default {
   name: 'App',
   data() {
-    return {}
+    return {
+      showOverlay: true
+    }
   },
-  mounted() {},
+  mounted() {
+    hotkeys('command+k', event => {
+      event.preventDefault()
+      this.showOverlay = !this.showOverlay
+    })
+  },
   methods: {}
 }
 </script>
