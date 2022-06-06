@@ -21,6 +21,12 @@
 <script>
 import hotkeys from 'hotkeys-js'
 
+// See: https://wangchujiang.com/hotkeys/#filter
+hotkeys.filter = function (event) {
+  // Enable hotkeys on all elements
+  return true
+}
+
 export default {
   name: 'App',
   data() {
@@ -29,7 +35,7 @@ export default {
     }
   },
   mounted() {
-    hotkeys('command+k', event => {
+    hotkeys('command+k, strg+k, command+p, strg+p', event => {
       event.preventDefault()
       this.showOverlay = !this.showOverlay
     })

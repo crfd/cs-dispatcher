@@ -4,6 +4,10 @@ export default {
     command: {
       type: Object,
       required: true
+    },
+    highlight: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -14,7 +18,7 @@ export default {
   },
   computed: {
     iconColor() {
-      return this.isActive ? '#000' : this.isHovering ? '#000' : '#aaa'
+      return this.isActive ? '#000' : this.isHovering ? '#000' : '#ccc'
     }
   }
 }
@@ -23,6 +27,7 @@ export default {
 <template>
   <HFlex
     class="command"
+    :class="{ highlight: highlight }"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
     @keydown="isActive = true"
@@ -35,6 +40,10 @@ export default {
 
 <style lang="scss" scoped>
 .command {
-  @apply cursor-pointer rounded-lg px-4 py-2 font-medium text-black/2 transition-all ease-in-out hover:bg-white/2 hover:text-black/primary active:bg-white/3;
+  @apply cursor-pointer rounded-lg px-4 py-3 font-medium text-black/1 transition-all ease-in-out hover:bg-white/2 hover:text-black/primary active:bg-white/3;
+}
+
+.highlight {
+  @apply bg-white/2;
 }
 </style>
