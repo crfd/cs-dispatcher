@@ -70,7 +70,7 @@ export default {
 }
 
 .tooltip {
-  @apply w-full rounded-lg py-1 px-3 shadow transition-all ease-in-out;
+  @apply w-full rounded-lg py-1 px-3 text-[14px] shadow transition-all ease-in-out;
 }
 
 .hidden {
