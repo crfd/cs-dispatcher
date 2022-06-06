@@ -40,7 +40,6 @@ export default {
 
 .spacer {
   flex-grow: 1;
-  border: 2px greenyellow solid;
 }
 
 .title {
@@ -52,7 +51,6 @@ export default {
 }
 
 .footer {
-  border: 2px solid orangered;
   @apply justify-between border-t border-t-white/2 bg-white/1 py-2 px-6;
 }
 </style>
