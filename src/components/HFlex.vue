@@ -8,14 +8,14 @@
 export default {
   props: {
     gap: {
-      type: Number,
+      type: [String, Number],
       default: 3
     }
   },
   computed: {
     classes() {
       return {
-        [`gap-${this.gap}`]: true
+        [`gap-${this.gap.toString()}`]: true
       }
     }
   }

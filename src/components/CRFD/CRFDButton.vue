@@ -47,7 +47,7 @@ export default {
       default: ''
     },
     position: {
-      type: Boolean,
+      type: String,
       default: 'center' // left, center, right
     }
   },
