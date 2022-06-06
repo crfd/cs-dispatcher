@@ -18,7 +18,15 @@ export default {
   },
   computed: {
     iconColor() {
-      return this.isActive ? '#000' : this.isHovering ? '#000' : '#ccc'
+      if (this.active) {
+        return '#000'
+      } else if (this.isHovering) {
+        return '#000'
+      } else if (this.highlight) {
+        return '#666'
+      } else {
+        return '#aaa'
+      }
     }
   }
 }
