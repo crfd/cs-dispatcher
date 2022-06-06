@@ -10,6 +10,7 @@
           >
             <CRFDButton
               class="button"
+              position="left"
               :icon="route.icon"
               :flavour="buttonFlavour(route)"
               @click="routeChangeHandler(route)"
@@ -130,7 +131,7 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-  @apply my-1;
+  @apply my-1 w-full text-left;
 }
 li.divider {
   @apply mt-1 border-t-2 border-t-white/2 pt-1;
