@@ -68,7 +68,7 @@ export default {
 <style lang="scss">
 .path {
   text-align: left;
-  font-size: 17px;
+  font-size: 16px;
   @apply relative inline-block text-black/primary transition-all ease-in-out;
 
   & .disabled {
