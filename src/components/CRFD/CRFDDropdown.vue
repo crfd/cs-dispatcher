@@ -20,7 +20,7 @@
     />
     <input
       ref="input"
-      :type="type"
+      type="text"
       v-model="inputValue"
       :placeholder="placeholder"
       @input="didChange = true"
@@ -50,10 +50,6 @@
 export default {
   name: 'crfd-input',
   props: {
-    type: {
-      type: String,
-      default: 'text'
-    },
     modelValue: {
       type: String,
       default: ''
