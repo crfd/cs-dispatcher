@@ -8,28 +8,28 @@
     </ContentHeader>
     <InPageNavigationLayout :routes="routes">
       <template #general>
-        <CRFDBox class="box" title="1. Setting">
-          Here is some text that is inside the box
-          <template #footer-left>Some Text</template>
-          <template #footer-right>
-            <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
-          </template>
-        </CRFDBox>
+        <VFlex class="gap-8">
+          <CRFDBox class="box" title="1. Setting">
+            <p>Perform changes to the UI</p>
 
-        <CRFDBox class="box" title="2. Setting">
-          Here is some text that is inside the box
-          <template #footer-left>Some Text</template>
-          <template #footer-right>
-            <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
-          </template>
-        </CRFDBox>
+            <template #footer-left></template>
+            <template #footer-right>
+              <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
+            </template>
+          </CRFDBox>
 
-        <CRFDBox class="box" title="Map View">
-          <CRFDInput type="text" />
-          <template #footer-right>
-            <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
-          </template>
-        </CRFDBox>
+          <CRFDBox class="box" title="2. Setting">
+            Here is some text that is inside the box
+            <template #footer-left>Some Text</template>
+            <template #footer-right>
+              <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
+            </template>
+          </CRFDBox>
+        </VFlex>
+      </template>
+
+      <template #ui>
+        <UISettings />
       </template>
 
       <template #account>
@@ -42,8 +42,7 @@
       </template>
 
       <template #map>
-        <h4 class="title">Map</h4>
-        <LoremIpsum />
+        <MapSettings />
       </template>
 
       <template #changelog>
@@ -59,27 +58,7 @@
       </template>
 
       <template #licenses>
-        <h4 class="title">Licenses</h4>
-        <p class="mb-6">
-          A huge thanks to the developers of the following open source
-          libraries:
-        </p>
-        <CRFDLibraryDetail
-          class="shadow-sm"
-          v-for="dep in deps"
-          :key="dep"
-          :library="dep"
-        />
-
-        <div class="divider"></div>
-
-        <span>Further software and ressources:</span>
-
-        <CRFDDetail summary="Icons8" class="bg-white/primary shadow-sm">
-          <Markdown
-            value="Many of the icons have been provided by [https://icons8.com](https://icons8.com)"
-          />
-        </CRFDDetail>
+        <LicensesSettings />
       </template>
     </InPageNavigationLayout>
     <a
@@ -93,26 +72,27 @@
 </template>
 
 <script>
-import packageJson from '../../package.json'
-
 export default {
   name: 'settings',
   props: {},
   data() {
     return {
-      packageJson,
       routes: [
         {
           id: 'general',
           name: 'General'
         },
         {
-          id: 'account',
-          name: 'Account'
+          id: 'ui',
+          name: 'UI'
         },
         {
           id: 'map',
           name: 'Map View'
+        },
+        {
+          id: 'account',
+          name: 'Account'
         },
         {
           id: 'notifications',
@@ -155,25 +135,7 @@ export default {
       ]
     }
   },
-  computed: {
-    deps() {
-      console.log(this.packageJson.dependencies)
-
-      return [
-        ...Object.keys(this.packageJson.dependencies),
-        ...Object.keys(this.packageJson.devDependencies)
-      ].sort((a, b) => {
-        // when contains @types move to the end
-        if (a.includes('@')) {
-          return 1
-        } else if (b.includes('@')) {
-          return -1
-        } else {
-          return a.localeCompare(b)
-        }
-      })
-    }
-  },
+  computed: {},
   methods: {}
 }
 </script>
@@ -187,10 +149,6 @@ export default {
   width: 100%;
   overflow: hidden;
   flex: 1;
-}
-
-.box:not(:first-of-type) {
-  @apply mt-6;
 }
 
 .title {
