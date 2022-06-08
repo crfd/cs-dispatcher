@@ -3,12 +3,17 @@
     <ContentHeader class="content-header" title="Operations">
       <template v-slot:left></template>
       <template v-slot:right>
-        <CRFDButton flavour="secondary">Edit</CRFDButton>
+        <CRFDButton disabled flavour="secondary">Edit</CRFDButton>
         <CRFDButton @click="push('operation-new')">Create</CRFDButton>
       </template>
       <template v-slot:sub-left>
-        <CRFDModifier title="Calender View" :icon="icons.Calendar" />
-        <CRFDModifier title="Filter" :icon="icons.Filter" flavour="inactive" />
+        <CRFDModifier disabled title="Calender View" :icon="icons.Calendar" />
+        <CRFDModifier
+          disabled
+          title="Filter"
+          :icon="icons.Filter"
+          flavour="inactive"
+        />
       </template>
       <template v-slot:sub-right></template>
     </ContentHeader>
@@ -41,15 +46,15 @@ export default {
   computed: {
     rows() {
       return [
-        ['1', 'CRFD Toilet', 'Hazardous', '10:00', '12/12/2022', 'Clean'],
-        ...Array(50).fill([
-          '2',
-          'CRFD Paper Castle',
-          'Normal',
-          '12:00',
-          '12/12/2022',
-          'Build'
-        ])
+        // ['1', 'CRFD Toilet', 'Hazardous', '10:00', '12/12/2022', 'Clean'],
+        // ...Array(50).fill([
+        //   '2',
+        //   'CRFD Paper Castle',
+        //   'Normal',
+        //   '12:00',
+        //   '12/12/2022',
+        //   'Build'
+        // ])
       ]
     }
   },

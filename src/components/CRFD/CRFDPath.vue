@@ -83,6 +83,7 @@ export default {
   align-items: center;
   z-index: 5;
   font-weight: 500;
+  white-space: nowrap;
   
   &:not(:first-of-type) {
     margin-top: 12px;

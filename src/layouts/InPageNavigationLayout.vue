@@ -62,16 +62,12 @@ export default {
   },
   data() {
     return {
-      /**
-       * Holds the id of the currently active route
-       */
+      /** Holds the id of the currently active route */
       selectedRouteId: undefined
     }
   },
   computed: {
-    /**
-     * Returns the route object for the selected route.
-     */
+    /** Returns the route object for the selected route. */
     selectedRoute() {
       return this.getRouteById(this.selectedRouteId)
     }
@@ -80,6 +76,7 @@ export default {
   methods: {
     /**
      * Returns whether the provided route is the currently selected route.
+     *
      * @param {Object} route
      */
     isActiveRoute(route) {
@@ -88,6 +85,7 @@ export default {
 
     /**
      * Changes the selected route.
+     *
      * @param {Object} route
      */
     routeChangeHandler(route) {
@@ -102,6 +100,7 @@ export default {
 
     /**
      * Returns the button flavour for the provided route.
+     *
      * @param {Object} route
      */
     buttonFlavour(route) {
@@ -110,6 +109,7 @@ export default {
 
     /**
      * Returns the route for the provided id
+     *
      * @param {String} id The id of the route to return
      * @returns {Object} The route object
      */
@@ -119,8 +119,9 @@ export default {
 
     /**
      * When the provided route is the default (first) route the function returns true.
+     *
      * @param {Object} route The route to check for
-     * @returns { Boolean } Whether the provided route is the default route
+     * @returns {Boolean} Whether the provided route is the default route
      */
     isDefaultRoute(route) {
       return route.id === this.routes[0].id
@@ -134,6 +135,6 @@ export default {
   @apply my-1 w-full text-left;
 }
 li.divider {
-  @apply mt-1 border-t-2 border-t-white/2 pt-1;
+  @apply mt-2 border-t-2 border-t-white/2 pt-1;
 }
 </style>

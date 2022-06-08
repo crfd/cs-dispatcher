@@ -1,10 +1,10 @@
 <template>
   <div id="page">
-    <ContentHeader class="content-header" title="Spaces">
+    <ContentHeader class="content-header" title="Contractors">
       <template v-slot:left></template>
       <template v-slot:right>
         <CRFDButton disabled flavour="secondary">Edit</CRFDButton>
-        <CRFDButton @click="push('space-new')">Create</CRFDButton>
+        <CRFDButton @click="push('contactors-new')">Create</CRFDButton>
       </template>
       <template v-slot:sub-left>
         <CRFDModifier
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { Filter } from '@icons'
+import { Filter, Calendar } from '@icons'
 
 export default {
   name: 'operations',
@@ -36,9 +36,10 @@ export default {
   data() {
     return {
       icons: {
-        Filter
+        Filter,
+        Calendar
       },
-      headers: ['#', 'Name', 'Location', 'Description']
+      headers: ['#', 'Name']
     }
   },
   computed: {
@@ -54,7 +55,7 @@ export default {
       const row = this.rows[i]
 
       this.$router.push({
-        name: 'space-detail',
+        name: 'operation-detail',
         params: {
           id: i
         }
@@ -72,10 +73,11 @@ export default {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  flex: 1;
 }
 
 .content-header {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 
 .white-table-header {

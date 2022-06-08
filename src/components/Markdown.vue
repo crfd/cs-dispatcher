@@ -1,5 +1,8 @@
 <template>
   <div id="markdown" v-html="markdown"></div>
+  <div ref="slot">
+    <slot />
+  </div>
 </template>
 
 <script>
@@ -8,7 +11,8 @@ import snarkdown from 'snarkdown'
 export default {
   name: 'markdown',
   props: {
-    value: String
+    value: String,
+    slotValue: ''
   },
   computed: {
     markdown: function () {

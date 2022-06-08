@@ -7,8 +7,12 @@ import { useStorage } from '@vueuse/core'
 export const useMainStore = defineStore({
   id: 'main',
   state: () => ({
-    todos: useStorage('todos', [])
+    operations: useStorage('operations', []),
+    spaces: useStorage('spaces', [])
   }),
-  getters: {},
+  getters: {
+    getAllOperations: state => state.operations,
+    getAllSpaces: state => state.spaces
+  },
   actions: {}
 })

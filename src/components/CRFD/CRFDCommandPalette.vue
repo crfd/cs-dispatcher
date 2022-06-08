@@ -115,7 +115,7 @@ export default {
 }
 
 .top {
-  @apply px-4 py-2;
+  @apply px-4 pt-3;
 }
 
 .icon {

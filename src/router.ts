@@ -12,7 +12,8 @@ import {
   City as CityIcon,
   Map as MapIcon,
   PieChart as PieChartIcon,
-  Gear as GearIcon
+  Gear as GearIcon,
+  SafetyHat as SafetyHatIcon
 } from './assets/icons'
 
 const routes = [
@@ -146,6 +147,17 @@ const routes = [
       hidden: true,
       back: 'spaces',
       customNavbar: ['space-detail']
+    }
+  },
+  {
+    path: '/contractors',
+    name: 'contractors',
+    component: () => import('@views/Contractors.vue'),
+    meta: {
+      title: 'Contractors',
+      requiresAuth: true,
+      hidden: false,
+      icon: SafetyHatIcon
     }
   },
   {

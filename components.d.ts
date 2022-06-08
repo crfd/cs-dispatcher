@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
     Analytics: typeof import('./src/views/Analytics.vue')['default']
     Container: typeof import('./src/components/Hydrogen/Container.vue')['default']
     ContentHeader: typeof import('./src/components/ContentHeader.vue')['default']
+    Contractors: typeof import('./src/views/Contractors.vue')['default']
     CRFDAvatar: typeof import('./src/components/CRFD/CRFDAvatar.vue')['default']
     CRFDBox: typeof import('./src/components/CRFD/CRFDBox.vue')['default']
     CRFDButton: typeof import('./src/components/CRFD/CRFDButton.vue')['default']
@@ -61,7 +62,6 @@ declare module '@vue/runtime-core' {
     Spacer: typeof import('./src/components/Spacer.vue')['default']
     Spaces: typeof import('./src/views/Spaces.vue')['default']
     TableLayout: typeof import('./src/layouts/TableLayout.vue')['default']
-    UI: typeof import('./src/views/Settings/UI.vue')['default']
     UISettings: typeof import('./src/views/Settings/UISettings.vue')['default']
     VFlex: typeof import('./src/components/VFlex.vue')['default']
   }

@@ -1,12 +1,13 @@
 <template>
-  <CRFDBox class="box" title="Map View">
-    <p>Change important aspects of every map view inside the application</p>
+  <VFlex class="gap-6">
+    <CRFDBox class="box" title="View">
+      <p>Change important aspects of every map view inside the application</p>
 
-    <CRFDSideSelect :options="mapNames" v-model="selectedMapIndex">
-      <img class="map-preview" :src="selectedURL" />
-    </CRFDSideSelect>
+      <CRFDSideSelect :options="mapNames" v-model="selectedMapIndex">
+        <img class="map-preview" :src="selectedURL" />
+      </CRFDSideSelect>
 
-    <!-- <div>
+      <!-- <div>
       <CRFDDetail
         v-for="(url, index) in mapImageUrls"
         :key="index"
@@ -16,11 +17,36 @@
       </CRFDDetail>
     </div> -->
 
-    <template #footer-left></template>
-    <template #footer-right>
-      <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
-    </template>
-  </CRFDBox>
+      <template #footer-left></template>
+      <template #footer-right>
+        <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
+      </template>
+    </CRFDBox>
+
+    <CRFDBox class="box" title="API Token">
+      <p>
+        An API token is a way for a service to restrict and limit access to
+        their services. In case the request limit is reached the Mapbox service
+        prohibits any further use of their service. The request limit will be
+        reset monthly or can be increased by purchasing a paid plan.
+      </p>
+
+      <a href=""></a>
+
+      <p class="text-center text-red/primary">
+        DO NOT SHARE THIS KEY WITH ANYONE!
+      </p>
+
+      <HFlex>
+        <CRFDInput type="password" v-model="mapboxToken" />
+      </HFlex>
+
+      <template #footer-left> </template>
+      <template #footer-right>
+        <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
+      </template>
+    </CRFDBox>
+  </VFlex>
 </template>
 
 <script>
@@ -33,6 +59,7 @@ export default {
     return {
       selectedMapIndex: 0,
       mapStyleDidChange: false,
+      mapboxToken: import.meta.env.VITE_MAPBOX_TOKEN,
       maps: [
         {
           name: 'Streets',

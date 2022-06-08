@@ -61,4 +61,8 @@ export default {
 .divider {
   @apply mt-8 mb-4 h-[2px] rounded bg-white/2;
 }
+
+.title {
+  @apply py-4 text-lg font-medium;
+}
 </style>
