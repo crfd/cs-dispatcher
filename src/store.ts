@@ -7,6 +7,7 @@ import { useStorage } from '@vueuse/core'
 export const useMainStore = defineStore({
   id: 'main',
   state: () => ({
+    loading: false,
     operations: useStorage('operations', []),
     spaces: useStorage('spaces', [])
   }),

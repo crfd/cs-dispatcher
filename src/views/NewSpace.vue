@@ -94,6 +94,16 @@
             <li>Custom Document Names</li>
             <li>Optional descriptions of documents</li>
           </ul>
+
+          Supported Formats should include:
+          <ul>
+            <li>PDF</li>
+            <li>PNG</li>
+            <li>JPEG</li>
+            <li class="text-black/2">MP4</li>
+            <li class="text-black/2">DOC</li>
+            <li class="text-black/2">XLS</li>
+          </ul>
         </CRFDBox>
       </template>
     </PathLayout>

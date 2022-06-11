@@ -52,7 +52,8 @@ export default defineConfig({
       '@lib': resolve(__dirname, 'src/lib'),
       '@models': resolve(__dirname, 'src/models'),
       '@styles': resolve(__dirname, 'src/styles'),
-      '@views': resolve(__dirname, 'src/views')
+      '@views': resolve(__dirname, 'src/views'),
+      '@store': resolve(__dirname, 'src/store.ts')
     }
   }
 })

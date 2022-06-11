@@ -31,7 +31,8 @@
       "@styles": ["./src/styles"],
       "@styles/*": ["./src/styles/*"],
       "@views": ["src/views"],
-      "@views/*": ["src/views/*"]
+      "@views/*": ["src/views/*"],
+      "@store": ["./src/store.ts"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

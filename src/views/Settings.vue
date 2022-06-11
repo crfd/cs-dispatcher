@@ -32,6 +32,10 @@
         <UISettings />
       </template>
 
+      <template #knowledgebase>
+        <KnowledgebaseSettings />
+      </template>
+
       <template #account>
         <h4 class="title">Account</h4>
         <LoremIpsum />
@@ -103,12 +107,12 @@ export default {
           name: 'Security'
         },
         {
-          id: 'advanced',
-          name: 'Advanced'
+          id: 'knowledgebase',
+          name: 'Knowledgebase'
         },
         {
-          id: 'admin',
-          name: 'Administration'
+          id: 'advanced',
+          name: 'Advanced'
         },
         {
           id: 'help',

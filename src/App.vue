@@ -6,6 +6,8 @@
       </CRFDOverlay>
     </transition>
 
+    <CRFDMessageCenter id="notification-center" v-model="messages" />
+
     <PageHeader id="header" @search="showOverlay = true" />
 
     <div id="content">
@@ -20,6 +22,9 @@
 
 <script>
 import hotkeys from 'hotkeys-js'
+import { useMainStore } from '@store'
+import { v4 as uuid } from 'uuid'
+import MessageType from '@models/UI/MessageType'
 
 // See: https://wangchujiang.com/hotkeys/#filter
 hotkeys.filter = function (event) {
@@ -31,7 +36,20 @@ export default {
   name: 'App',
   data() {
     return {
-      showOverlay: false
+      showOverlay: false,
+      messages: [
+        {
+          id: uuid(),
+          text: 'I may fade but my spirit will not.',
+          type: MessageType.Info,
+          autoDismiss: '5'
+        },
+        {
+          id: uuid(),
+          text: 'I will stand strong!!!',
+          type: MessageType.Warning
+        }
+      ]
     }
   },
   mounted() {
@@ -56,5 +74,14 @@ export default {
 #content {
   height: 100vh;
   overflow-y: scroll;
+}
+
+#notification-center {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 </style>

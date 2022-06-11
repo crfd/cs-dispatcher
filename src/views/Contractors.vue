@@ -4,7 +4,7 @@
       <template v-slot:left></template>
       <template v-slot:right>
         <CRFDButton disabled flavour="secondary">Edit</CRFDButton>
-        <CRFDButton @click="push('contactors-new')">Create</CRFDButton>
+        <CRFDButton disabled @click="push('contactors-new')">Create</CRFDButton>
       </template>
       <template v-slot:sub-left>
         <CRFDModifier

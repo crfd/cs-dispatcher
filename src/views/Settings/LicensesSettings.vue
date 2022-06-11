@@ -26,6 +26,10 @@
       value="Any map shown inside the application is part of [© Mapbox](https://www.mapbox.com/about/maps/)"
     />
   </CRFDDetail>
+
+  <CRFDDetail summary="Research" class="bg-white/primary shadow-sm">
+    <Markdown value="List of research used to develop the application:" />
+  </CRFDDetail>
 </template>
 
 <script>
