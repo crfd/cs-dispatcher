@@ -13,8 +13,9 @@ import router from './router'
 import i18n from './locales'
 
 const app = createApp(App)
+const pinia = createPinia().use(PiniaFirestoreSync)
 
-app.use(createPinia().use(PiniaFirestoreSync))
+app.use(pinia)
 app.use(router)
 app.use(i18n)
 
