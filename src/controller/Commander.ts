@@ -1,6 +1,6 @@
 import router from '@/router'
-import { Command, RouteCommand } from '@/models'
-import CRFDRouteMeta from '@/models/UI/CRFDRouteMeta'
+import { Command, RouteCommand } from '@models/ui'
+import CRFDRouteMeta from '@/models/ui/CRFDRouteMeta'
 import cleanArray from '@/lib/cleanArray'
 
 function getRouteCommands(): RouteCommand[] {

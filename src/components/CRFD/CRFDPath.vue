@@ -15,7 +15,6 @@
 
 <script>
 export default {
-  name: 'crfd-path',
   props: {
     path: {
       type: Array,

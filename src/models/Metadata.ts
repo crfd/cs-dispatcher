@@ -1,8 +1,8 @@
-import Reference from './Reference'
+import { DocumentReference } from 'firebase/firestore'
 
-type Metadata = {
+type Meta = {
   UpdatedAt: Date
-  UpdatedByUser: Reference
+  UpdatedByUser: DocumentReference
 }
 
-export default Metadata
+export default Meta

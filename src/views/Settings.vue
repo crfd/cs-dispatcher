@@ -42,7 +42,7 @@
       </template>
 
       <template #feedback>
-        <FeedbackBox />
+        <FeedbackSettings />
       </template>
 
       <template #map>

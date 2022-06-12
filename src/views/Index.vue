@@ -141,7 +141,7 @@
     </ElementPreview>
 
     <ElementPreview title="Path" v-model="pathCurrent" :options="pathOptions">
-      <crfd-path :path="path" :value="pathCurrent" />
+      <CRFDPath :path="path" :value="pathCurrent" />
     </ElementPreview>
 
     <ElementPreview title="Spinner">

@@ -50,8 +50,6 @@
 </template>
 
 <script>
-import { HazardDiamond } from '@/models'
-
 export default {
   name: 'crfd-hazard-diamond',
   props: {

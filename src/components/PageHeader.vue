@@ -1,3 +1,15 @@
+<script setup>
+import { useSettingsStore } from '@/stores/settingsStore'
+import { storeToRefs } from 'pinia'
+
+const store = useSettingsStore()
+const { navbar } = storeToRefs(store)
+
+function push(name) {
+  this.$router.push({ name })
+}
+</script>
+
 <template>
   <header>
     <div class="title-wrapper">
@@ -6,8 +18,6 @@
           <img src="@assets/logo-leaf.svg" width="28" class="inline-block" />
           Confined Space Dispatcher
         </span>
-        <span class="ml-2 text-base font-normal">Hide Icons:</span>
-        <input v-model="hideIcons" type="checkbox" />
         <Spacer />
         <p class="text-sm text-red/primary">⚠️ Under Development</p>
         <CRFDTooltip text="CMD+K" position="left">
@@ -17,30 +27,11 @@
         </CRFDTooltip>
       </h1>
     </div>
-    <div class="navbar" :class="{ hide: hideBar || $route.meta.hideBar }">
-      <CRFDNavbar :hide-icons="hideIcons" />
+    <div class="navbar" :class="{ hide: $route.meta.hideBar }">
+      <CRFDNavbar :hideIcons="!navbar.showIcons" />
     </div>
   </header>
 </template>
-
-<script>
-export default {
-  name: 'PageHeader',
-  data() {
-    return {
-      hideBar: false,
-      backButton: false,
-      hideIcons: false
-    }
-  },
-  computed: {},
-  methods: {
-    push(routeName) {
-      this.$router.push({ name: routeName })
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 header {

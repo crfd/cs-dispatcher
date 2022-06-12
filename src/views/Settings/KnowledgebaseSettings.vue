@@ -14,11 +14,10 @@
     </CRFDBox>
 
     <CRFDBox class="box" title="Equipment">
-      <p>Customize the look and feel of the navigation bar</p>
-      <HFlex>
-        <input type="checkbox" />
-        <p>Show Icons</p>
-      </HFlex>
+      <p>
+        List predefined equipments that can be used to quickly be selected
+        during an hazard assessment
+      </p>
       <template #footer-left></template>
       <template #footer-right>
         <CRFDButton flavour="secondary" disabled>Save</CRFDButton>

@@ -7,16 +7,6 @@
         <img class="map-preview" :src="selectedURL" />
       </CRFDSideSelect>
 
-      <!-- <div>
-      <CRFDDetail
-        v-for="(url, index) in mapImageUrls"
-        :key="index"
-        :summary="textForMap(index)"
-      >
-        <img class="map-preview" :src="url" />
-      </CRFDDetail>
-    </div> -->
-
       <template #footer-left></template>
       <template #footer-right>
         <CRFDButton flavour="secondary" disabled>Save</CRFDButton>

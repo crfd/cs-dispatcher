@@ -1,3 +1,30 @@
+<script lang="ts" setup>
+import { onMounted, Ref, ref } from 'vue'
+import hotkeys from 'hotkeys-js'
+import { v4 as uuid } from 'uuid'
+import { MessageType } from './models/ui'
+import Message from '@/models/ui/Message'
+
+// See: https://wangchujiang.com/hotkeys/#filter
+hotkeys.filter = function (event) {
+  // Enable hotkeys on all elements
+  return true
+}
+
+const showOverlay = ref(false)
+const messages: Ref<Message[]> = ref([
+  // new Message('I may fade but my spirit will not.', MessageType.Info, 5),
+  // new Message('I will stand strong!', MessageType.Warning, undefined)
+])
+
+onMounted(() => {
+  hotkeys('command+k, strg+k, command+p, strg+p', event => {
+    event.preventDefault()
+    showOverlay.value = !showOverlay.value
+  })
+})
+</script>
+
 <template>
   <div id="global" v-cloak>
     <transition name="fade" mode="out-in">
@@ -19,48 +46,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import hotkeys from 'hotkeys-js'
-import { useMainStore } from '@store'
-import { v4 as uuid } from 'uuid'
-import MessageType from '@models/UI/MessageType'
-
-// See: https://wangchujiang.com/hotkeys/#filter
-hotkeys.filter = function (event) {
-  // Enable hotkeys on all elements
-  return true
-}
-
-export default {
-  name: 'App',
-  data() {
-    return {
-      showOverlay: false,
-      messages: [
-        {
-          id: uuid(),
-          text: 'I may fade but my spirit will not.',
-          type: MessageType.Info,
-          autoDismiss: '5'
-        },
-        {
-          id: uuid(),
-          text: 'I will stand strong!!!',
-          type: MessageType.Warning
-        }
-      ]
-    }
-  },
-  mounted() {
-    hotkeys('command+k, strg+k, command+p, strg+p', event => {
-      event.preventDefault()
-      this.showOverlay = !this.showOverlay
-    })
-  },
-  methods: {}
-}
-</script>
 
 <style lang="scss" scoped>
 #global {
