@@ -58,6 +58,7 @@ declare module '@vue/runtime-core' {
     Operations: typeof import('./src/views/Operations.vue')['default']
     PageHeader: typeof import('./src/components/PageHeader.vue')['default']
     PathLayout: typeof import('./src/layouts/PathLayout.vue')['default']
+    Profile: typeof import('./src/views/Profile.vue')['default']
     ResetPassword: typeof import('./src/views/ResetPassword.vue')['default']
     RightDetailLayout: typeof import('./src/layouts/RightDetailLayout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

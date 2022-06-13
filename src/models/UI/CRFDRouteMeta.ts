@@ -7,6 +7,7 @@ interface CRFDRouteMeta extends RouteMeta {
   icon: string
   back: string
   customNavbar: string[]
+  hideFromCommandPalette: boolean
 }
 
 export default CRFDRouteMeta

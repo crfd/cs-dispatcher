@@ -1,10 +1,15 @@
 <script setup>
 import router from '@/router'
+import { useAuthStore } from '@/stores/authStore'
 import { useSettingsStore } from '@/stores/settingsStore'
 import { storeToRefs } from 'pinia'
+import CRFDAvatar from './CRFD/CRFDAvatar.vue'
 
 const store = useSettingsStore()
+const auth = useAuthStore()
+
 const { navbar } = storeToRefs(store)
+const { isAuthenticated, user } = storeToRefs(auth)
 
 function push(name) {
   router.push({ name })
@@ -20,12 +25,20 @@ function push(name) {
           Confined Space Dispatcher
         </span>
         <Spacer />
-        <p class="text-sm text-red/primary">⚠️ Under Development</p>
-        <CRFDTooltip text="CMD+K" position="left">
-          <div @click="$emit('search')" class="search-btn">
-            <i-crfd-search width="20px" height="20px" color="black" />
-          </div>
-        </CRFDTooltip>
+        <HFlex id="right" class="gap-1">
+          <p class="text-sm text-red/primary">⚠️ Under Development</p>
+          <CRFDTooltip text="CMD+K" position="left">
+            <div @click="$emit('search')" class="search-btn">
+              <i-crfd-search width="20px" height="20px" color="black" />
+            </div>
+          </CRFDTooltip>
+          <CRFDAvatar
+            class="cursor-pointer"
+            @click="push('profile')"
+            :email="user.email"
+            :name="user.displayName"
+          />
+        </HFlex>
       </h1>
     </div>
     <div class="navbar" :class="{ hide: $route.meta.hideBar }">

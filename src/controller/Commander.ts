@@ -7,7 +7,7 @@ function getRouteCommands(): RouteCommand[] {
   return cleanArray(
     router.getRoutes().map(route => {
       const meta = route.meta as CRFDRouteMeta
-      if (meta.hidden === true) return undefined
+      if (meta.hideFromCommandPalette === true) return undefined
       return new RouteCommand(meta.title, '', route)
     })
   )

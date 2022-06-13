@@ -30,16 +30,21 @@ function login() {
     .catch(err => {
       const e = err as FirebaseError
 
-      if (e.code === 'auth/user-not-found') {
+      if (
+        e.code === 'auth/user-not-found' ||
+        e.code === 'auth/wrong-password'
+      ) {
         error.value = 'Invalid username or password'
       } else {
         error.value = e.message
       }
+
+      password.value = ''
+      isLoading.value = false
     })
 }
 
 function push(name: string) {
-  console.log('push', name)
   router.push({ name })
 }
 </script>

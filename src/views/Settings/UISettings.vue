@@ -14,10 +14,6 @@ const { navbar } = storeToRefs(store)
         <input v-model="navbar.showIcons" type="checkbox" />
         <p>Show Icons</p>
       </HFlex>
-      <template #footer-left></template>
-      <template #footer-right>
-        <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
-      </template>
     </CRFDBox>
   </VFlex>
 </template>

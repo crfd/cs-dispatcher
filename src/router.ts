@@ -18,6 +18,8 @@ import {
 } from './assets/icons'
 import { useUIStore } from './stores/uiStore'
 import isAuthenticated from './lib/isAuthenticated'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from './config/firebase'
 
 const routes = [
   {
@@ -28,7 +30,8 @@ const routes = [
       title: 'Login',
       requiresAuth: false,
       hidden: true,
-      hideBar: true
+      hideBar: true,
+      hideFromCommandPalette: true
     }
   },
   {
@@ -39,7 +42,8 @@ const routes = [
       title: 'Password Reset',
       requiresAuth: false,
       hidden: true,
-      hideBar: true
+      hideBar: true,
+      hideFromCommandPalette: true
     }
   },
   {
@@ -50,7 +54,8 @@ const routes = [
       title: 'Component Library',
       requiresAuth: false,
       hidden: false,
-      icon: HomeIcon
+      icon: HomeIcon,
+      hideFromCommandPalette: false
     }
   },
   {
@@ -61,7 +66,8 @@ const routes = [
       title: 'Operations',
       requiresAuth: true,
       hidden: false,
-      icon: RunnerIcon
+      icon: RunnerIcon,
+      hideFromCommandPalette: false
     }
   },
   {
@@ -73,7 +79,8 @@ const routes = [
       requiresAuth: true,
       hidden: true,
       hideBar: true
-    }
+    },
+    hideFromCommandPalette: true
   },
   {
     path: '/operations/:id',
@@ -90,7 +97,8 @@ const routes = [
         'operation-detail-contact',
         'operation-detail-documents',
         'operation-detail-map'
-      ]
+      ],
+      hideFromCommandPalette: true
     }
   },
   {
@@ -108,7 +116,8 @@ const routes = [
         'operation-detail-contact',
         'operation-detail-documents',
         'operation-detail-map'
-      ]
+      ],
+      hideFromCommandPalette: true
     }
   },
   {
@@ -126,7 +135,8 @@ const routes = [
         'operation-detail-contact',
         'operation-detail-documents',
         'operation-detail-map'
-      ]
+      ],
+      hideFromCommandPalette: true
     }
   },
   {
@@ -137,7 +147,8 @@ const routes = [
       title: 'Spaces',
       requiresAuth: true,
       hidden: false,
-      icon: CityIcon
+      icon: CityIcon,
+      hideFromCommandPalette: false
     }
   },
   {
@@ -148,7 +159,8 @@ const routes = [
       title: 'New Space',
       requiresAuth: true,
       hidden: true,
-      hideBar: true
+      hideBar: true,
+      hideFromCommandPalette: true
     }
   },
   {
@@ -160,7 +172,8 @@ const routes = [
       requiresAuth: true,
       hidden: true,
       back: 'spaces',
-      customNavbar: ['space-detail']
+      customNavbar: ['space-detail'],
+      hideFromCommandPalette: true
     }
   },
   {
@@ -171,7 +184,8 @@ const routes = [
       title: 'Contractors',
       requiresAuth: true,
       hidden: false,
-      icon: SafetyHatIcon
+      icon: SafetyHatIcon,
+      hideFromCommandPalette: false
     }
   },
   {
@@ -182,7 +196,8 @@ const routes = [
       title: 'Map',
       requiresAuth: true,
       hidden: false,
-      icon: MapIcon
+      icon: MapIcon,
+      hideFromCommandPalette: false
     }
   },
   {
@@ -193,7 +208,8 @@ const routes = [
       title: 'Analytics',
       requiresAuth: true,
       hidden: false,
-      icon: PieChartIcon
+      icon: PieChartIcon,
+      hideFromCommandPalette: false
     }
   },
   {
@@ -204,7 +220,21 @@ const routes = [
       title: 'Settings',
       requiresAuth: true,
       hidden: false,
-      icon: GearIcon
+      icon: GearIcon,
+      hideFromCommandPalette: false
+    }
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('@views/Profile.vue'),
+    meta: {
+      title: 'Profile',
+      requiresAuth: true,
+      hidden: true,
+      hideBar: true,
+      icon: undefined,
+      hideFromCommandPalette: false
     }
   }
 ]
@@ -218,6 +248,16 @@ const setLoading = (loading: boolean) => {
   useUIStore().isLoading = loading
 }
 
+// Get notified when the user gets logged out and return to the start page
+// this should not happen on initial load
+let initialPageLoad = true
+onAuthStateChanged(auth, user => {
+  if (!user && !initialPageLoad) {
+    router.push({ name: 'home' })
+  }
+  initialPageLoad = false
+})
+
 const authGuard = async (
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
@@ -227,6 +267,7 @@ const authGuard = async (
 
   if (to.meta.requiresAuth) {
     const authenticated = await isAuthenticated()
+    // TODO: Persist route that was tried to be accessed
     authenticated ? next() : next({ name: 'login' })
   } else {
     next()
