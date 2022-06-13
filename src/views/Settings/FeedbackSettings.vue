@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ComputedRef, Ref, ref } from 'vue'
+import { computed, Ref, ref } from 'vue'
 import { fileDialog } from 'file-select-dialog'
 import Feedback from '@/models/Feedback'
 import { sendFeedback } from '@/controller/Feedback.controller'

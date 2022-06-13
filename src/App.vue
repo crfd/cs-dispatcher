@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, Ref, ref } from 'vue'
 import hotkeys from 'hotkeys-js'
-import { v4 as uuid } from 'uuid'
-import { MessageType } from './models/ui'
 import Message from '@/models/ui/Message'
+import { useUIStore } from './stores/uiStore'
+import { storeToRefs } from 'pinia'
 
 // See: https://wangchujiang.com/hotkeys/#filter
 hotkeys.filter = function (event) {
@@ -11,6 +11,7 @@ hotkeys.filter = function (event) {
   return true
 }
 
+const { isLoading } = storeToRefs(useUIStore())
 const showOverlay = ref(false)
 const messages: Ref<Message[]> = ref([
   // new Message('I may fade but my spirit will not.', MessageType.Info, 5),
@@ -28,6 +29,12 @@ onMounted(() => {
 <template>
   <div id="global" v-cloak>
     <transition name="fade" mode="out-in">
+      <CRFDOverlay v-if="isLoading" light>
+        <CRFDSpinner class="center" />
+      </CRFDOverlay>
+    </transition>
+
+    <transition name="fade" mode="out-in">
       <CRFDOverlay v-if="showOverlay" @dismiss="showOverlay = false">
         <CRFDCommandPalette id="palette" @dismiss="showOverlay = false" />
       </CRFDOverlay>
@@ -40,7 +47,7 @@ onMounted(() => {
     <div id="content">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
-          <component :is="Component" />
+          <component v-if="!isLoading" :is="Component" />
         </transition>
       </router-view>
     </div>

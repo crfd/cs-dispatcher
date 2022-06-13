@@ -1,4 +1,5 @@
 <script setup>
+import router from '@/router'
 import { useSettingsStore } from '@/stores/settingsStore'
 import { storeToRefs } from 'pinia'
 
@@ -6,7 +7,7 @@ const store = useSettingsStore()
 const { navbar } = storeToRefs(store)
 
 function push(name) {
-  this.$router.push({ name })
+  router.push({ name })
 }
 </script>
 

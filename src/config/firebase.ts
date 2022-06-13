@@ -1,6 +1,12 @@
 import { initializeApp } from 'firebase/app'
-import { Firestore, getFirestore } from 'firebase/firestore'
+import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
+import {
+  getAuth,
+  setPersistence,
+  browserLocalPersistence,
+  onAuthStateChanged
+} from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC98i5YcbUMGICdztiYXfPUyC793eczeWQ',
@@ -14,5 +20,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 const storage = getStorage(app)
+const auth = getAuth(app)
 
-export { app, db, storage }
+setPersistence(auth, browserLocalPersistence)
+
+onAuthStateChanged(auth, user => {
+  if (user) {
+    console.log('User is signed in')
+  } else {
+    console.log('User is signed out')
+  }
+})
+
+export { app, db, storage, auth }

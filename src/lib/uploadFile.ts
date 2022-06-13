@@ -14,8 +14,9 @@ async function uploadFile(
   file: File,
   id: string | undefined = undefined
 ): Promise<StorageReference> {
+  console.dir(file)
   const fileId = id ?? uuidv4()
-  const fileRef = ref(storage, `files/${fileId}`)
+  const fileRef = ref(storage, `files/${fileId}.${file.name.split('.').pop()}`)
 
   await uploadBytes(fileRef, file)
 

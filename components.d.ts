@@ -38,7 +38,6 @@ declare module '@vue/runtime-core' {
     CRFDTooltip: typeof import('./src/components/CRFD/CRFDTooltip.vue')['default']
     DataTable: typeof import('./src/components/DataTable.vue')['default']
     ElementPreview: typeof import('./src/components/ElementPreview.vue')['default']
-    FeedbackBox: typeof import('./src/views/Settings/FeedbackBox.vue')['default']
     FeedbackSettings: typeof import('./src/views/Settings/FeedbackSettings.vue')['default']
     HFlex: typeof import('./src/components/HFlex.vue')['default']
     ICrfdArrowCircleRight: typeof import('~icons/crfd/arrow-circle-right')['default']

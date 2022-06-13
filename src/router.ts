@@ -1,7 +1,8 @@
 import {
   createRouter,
-  createWebHashHistory,
-  createWebHistory
+  createWebHistory,
+  NavigationGuardNext,
+  RouteLocationNormalized
 } from 'vue-router'
 
 import Home from '@views/Index.vue'
@@ -15,6 +16,8 @@ import {
   Gear as GearIcon,
   SafetyHat as SafetyHatIcon
 } from './assets/icons'
+import { useUIStore } from './stores/uiStore'
+import isAuthenticated from './lib/isAuthenticated'
 
 const routes = [
   {
@@ -45,7 +48,7 @@ const routes = [
     component: Home,
     meta: {
       title: 'Component Library',
-      requiresAuth: true,
+      requiresAuth: false,
       hidden: false,
       icon: HomeIcon
     }
@@ -209,6 +212,40 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+const setLoading = (loading: boolean) => {
+  useUIStore().isLoading = loading
+}
+
+const authGuard = async (
+  to: RouteLocationNormalized,
+  from: RouteLocationNormalized,
+  next: NavigationGuardNext
+) => {
+  // console.log(`${from.name?.toString()} -> ${to.name?.toString()}`)
+
+  if (to.meta.requiresAuth) {
+    const authenticated = await isAuthenticated()
+    authenticated ? next() : next({ name: 'login' })
+  } else {
+    next()
+  }
+}
+
+router.beforeEach(
+  (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
+    // This will prevent a page from showing the reload indicator when the page uses query parameters
+    // for navigation.
+    if (to.path == from.path) return
+    setLoading(true)
+  }
+)
+
+router.beforeEach(authGuard)
+
+router.afterEach(() => {
+  setLoading(false)
 })
 
 export default router

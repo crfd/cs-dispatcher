@@ -4,6 +4,8 @@ import * as Sentry from '@sentry/vue'
 import { BrowserTracing } from '@sentry/tracing'
 import { PiniaFirestoreSync } from 'pinia-plugin-firestore-sync'
 
+import '@/config/firebase'
+
 import '@styles/global.css'
 import '@styles/tailwind.css'
 import '@styles/fonts.css'

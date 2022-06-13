@@ -3,9 +3,11 @@ lockfileVersion: 5.4
 specifiers:
   '@sentry/tracing': ^7.1.1
   '@sentry/vue': ^7.1.1
+  '@types/crypto-js': ^4.1.1
   '@types/uuid': ^8.3.4
   '@vitejs/plugin-vue': ^2.3.3
   '@vueuse/core': ^8.6.0
+  '@vueuse/firebase': ^8.6.0
   '@zhuowenli/vue-feather-icons': ^5.0.2
   autoprefixer: ^10.4.7
   crypto-js: ^4.1.1
@@ -40,6 +42,7 @@ dependencies:
   '@sentry/tracing': 7.1.1
   '@sentry/vue': 7.1.1_vue@3.2.37
   '@vueuse/core': 8.6.0_vue@3.2.37
+  '@vueuse/firebase': 8.6.0_firebase@9.8.2+vue@3.2.37
   '@zhuowenli/vue-feather-icons': 5.0.2
   crypto-js: 4.1.1
   file-select-dialog: 1.5.4
@@ -57,6 +60,7 @@ dependencies:
   vue-use: 0.2.0
 
 devDependencies:
+  '@types/crypto-js': 4.1.1
   '@types/uuid': 8.3.4
   '@vitejs/plugin-vue': 2.3.3_vite@2.9.10+vue@3.2.37
   autoprefixer: 10.4.7_postcss@8.4.14
@@ -845,6 +849,10 @@ packages:
       '@types/node': 8.10.66
     dev: true
 
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
+    dev: true
+
   /@types/debug/4.1.7:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
@@ -1066,6 +1074,19 @@ packages:
       '@vueuse/shared': 8.6.0_vue@3.2.37
       vue: 3.2.37
       vue-demi: 0.13.1_vue@3.2.37
+
+  /@vueuse/firebase/8.6.0_firebase@9.8.2+vue@3.2.37:
+    resolution: {integrity: sha512-YsPi8m0AWUaYjVzp+Wd6l8RA19LfvW4EQhjKZQeFoBj/78m4spkhnwaQzOHMCiiV9dv2xrBI9gTFPGh74Vkd2w==}
+    peerDependencies:
+      firebase: '>=4.0.0'
+    dependencies:
+      '@vueuse/shared': 8.6.0_vue@3.2.37
+      firebase: 9.8.2
+      vue-demi: 0.13.1_vue@3.2.37
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
 
   /@vueuse/metadata/8.6.0:
     resolution: {integrity: sha512-F+CKPvaExsm7QgRr8y+ZNJFwXasn89rs5wth/HeX9lJ1q8XEt+HJ16Q5Sxh4rfG5YSKXrStveVge8TKvPjMjFA==}

@@ -1,16 +1,41 @@
 <script lang="ts" setup>
 import router from '@/router'
-import { computed, ref } from 'vue'
+import { useAuthStore } from '@/stores/authStore'
+import { FirebaseError } from 'firebase/app'
+import { computed, Ref, ref } from 'vue'
 
-const username = ref('')
+const isLoading = ref(false)
+const error: Ref<string | undefined> = ref(undefined)
+const email = ref('akuhltime@gmail.com')
 const password = ref('')
 
 const isValid = computed(() => {
-  return username.value.length > 0 && password.value.length > 0
+  return email.value.length > 0 && password.value.length > 0
 })
 
 function login() {
-  console.log('login')
+  if (!isValid.value) return
+
+  isLoading.value = true
+  useAuthStore()
+    .login(email.value, password.value)
+    .then(user => {
+      if (user) push('operations')
+      else {
+        error.value = 'Invalid username or password'
+      }
+
+      isLoading.value = false
+    })
+    .catch(err => {
+      const e = err as FirebaseError
+
+      if (e.code === 'auth/user-not-found') {
+        error.value = 'Invalid username or password'
+      } else {
+        error.value = e.message
+      }
+    })
 }
 
 function push(name: string) {
@@ -24,8 +49,22 @@ function push(name: string) {
     <Spacer />
     <Container maxWidth="320px" center>
       <CRFDBox title="Login">
-        <CRFDInput v-model="username" type="username" placeholder="Username" />
-        <CRFDInput v-model="password" type="password" placeholder="Password" />
+        <p class="text-red/primary" v-if="error">
+          {{ error }}
+        </p>
+
+        <CRFDInput
+          v-model="email"
+          type="email"
+          placeholder="E-Mail"
+          :disabled="isLoading"
+        />
+        <CRFDInput
+          v-model="password"
+          type="password"
+          placeholder="Password"
+          :disabled="isLoading"
+        />
 
         <template #footer-left>
           <a href="#" class="text-black/2" @click="push('resetPassword')">
@@ -33,7 +72,9 @@ function push(name: string) {
           </a>
         </template>
         <template #footer-right>
-          <CRFDButton :disabled="!isValid" @click="login">Login</CRFDButton>
+          <CRFDButton :disabled="!isValid || isLoading" @click="login"
+            >Login</CRFDButton
+          >
         </template>
       </CRFDBox>
     </Container>
