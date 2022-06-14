@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import router from '@/router'
-import { useAuthStore } from '@/stores/authStore'
-import { FirebaseError } from 'firebase/app'
 import { computed, Ref, ref } from 'vue'
+import { FirebaseError } from 'firebase/app'
+
+import router from '@/router'
+import { useAuthStore } from '@/store'
 
 const isLoading = ref(false)
 const error: Ref<string | undefined> = ref(undefined)

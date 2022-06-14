@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { onMounted, Ref, ref } from 'vue'
-import hotkeys from 'hotkeys-js'
-import Message from '@/models/ui/Message'
-import { useUIStore } from './stores/uiStore'
 import { storeToRefs } from 'pinia'
+import hotkeys from 'hotkeys-js'
+
+import Message from '@/models/ui/Message'
+import { useUIStore } from '@/store'
 
 // See: https://wangchujiang.com/hotkeys/#filter
 hotkeys.filter = function (event) {

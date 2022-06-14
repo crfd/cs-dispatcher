@@ -1,12 +1,13 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { auth } from '@/config/firebase'
-import { signOut, updateProfile } from 'firebase/auth'
+import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useAuthStore } from '@/stores/authStore'
-import router from '@/router'
+import { signOut, updateProfile } from 'firebase/auth'
 
-const { isAuthenticated, user } = storeToRefs(useAuthStore())
+import router from '@/router'
+import { auth } from '@/config/firebase'
+import { useAuthStore } from '@/store'
+
+const { user } = storeToRefs(useAuthStore())
 
 const isLoading = ref(false)
 const displayName = ref(user.value?.displayName ?? '')

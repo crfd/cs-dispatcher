@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { computed, Ref, ref, toRefs } from 'vue'
+import { computed, Ref, ref } from 'vue'
 import { fileDialog } from 'file-select-dialog'
+
 import Feedback from '@/models/Feedback'
 import { sendFeedback } from '@/controller/Feedback.controller'
-import { useFeedback } from '@/stores/global'
-import { useAuthStore } from '@/stores/authStore'
-import { storeToRefs } from 'pinia'
 
-/** DATA */
+// ====
+// DATA
+// ====
 
 const name = ref('')
 const feedback = ref('')
@@ -17,7 +17,9 @@ const isSending = ref(false)
 const success = ref(false)
 const error: Ref<string | undefined> = ref(undefined)
 
-/** COMPUTED */
+// ========
+// COMPUTED
+// ========
 
 const fileSize = computed(() => {
   return file.value?.size ?? 0
@@ -40,7 +42,9 @@ const feedbackObject = computed(() => {
   return new Feedback(name.value, feedback.value, f ? [f] : [])
 })
 
-/** METHODS */
+// =======
+// METHODS
+// =======
 
 function reset() {
   name.value = ''

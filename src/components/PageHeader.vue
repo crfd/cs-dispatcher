@@ -1,15 +1,14 @@
 <script setup>
-import router from '@/router'
-import { useAuthStore } from '@/stores/authStore'
-import { useSettingsStore } from '@/stores/settingsStore'
 import { storeToRefs } from 'pinia'
-import CRFDAvatar from './CRFD/CRFDAvatar.vue'
+
+import router from '@/router'
+import { useAuthStore, useSettingsStore } from '@/store'
 
 const store = useSettingsStore()
 const auth = useAuthStore()
 
 const { navbar } = storeToRefs(store)
-const { isAuthenticated, user } = storeToRefs(auth)
+const { user } = storeToRefs(auth)
 
 function push(name) {
   router.push({ name })
