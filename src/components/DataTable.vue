@@ -88,10 +88,21 @@ export default {
     scrolled() {
       return this.scrollY !== 0
     },
+    filteredRows() {
+      if (this.search === '') {
+        return this.rows
+      } else {
+        return this.rows.filter(row => {
+          return row.some(cell =>
+            cell.toLowerCase().includes(this.search.toLowerCase())
+          )
+        })
+      }
+    },
     sortedRows() {
       const i = this.sortKey
 
-      return [...this.rows].sort((a, b) => {
+      return [...this.filteredRows].sort((a, b) => {
         return this.ascending ? a[i] > b[i] : a[i] < b[i]
       })
     },
@@ -142,7 +153,7 @@ thead {
   top: 0;
   z-index: 200;
   color: rgba(255, 255, 255, 0.9);
-  @apply bg-white/primary transition-all ease-in-out;
+  @apply border-b border-b-white/2 bg-white/primary transition-all ease-in-out;
 }
 
 thead.shadow {

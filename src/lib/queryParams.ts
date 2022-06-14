@@ -1,7 +1,8 @@
-import router from '../router'
+import router from '@/router'
 
 /**
  * Gets the current windows location search params object
+ *
  * @returns {URLSearchParams}
  */
 function getSearchParams() {
@@ -10,6 +11,7 @@ function getSearchParams() {
 
 /**
  * Returns an object of all query params
+ *
  * @returns {object}
  */
 function getQueryParams(): object {
@@ -23,8 +25,9 @@ function getQueryParams(): object {
 
 /**
  * Returns the value of the query parameter with the given name
+ *
  * @param name The name of the parameter to get
- * @returns { string | undefined } When avialable, the value of the parameter gets returned
+ * @returns {string | undefined} When avialable, the value of the parameter gets returned
  */
 function getQueryParam(name: string): string | undefined {
   return getSearchParams().get(name) ?? undefined
@@ -36,6 +39,7 @@ function setQueryParam(name: string, value?: string) {
 
 /**
  * Set multiple parameters at once
+ *
  * @param params An object of query params to set
  */
 function setQueryParams(params: Record<string, any>) {
@@ -48,7 +52,8 @@ function setQueryParams(params: Record<string, any>) {
 
 /**
  * Removes the query parameter with the given name
- * @param name the name of the parameter to remove
+ *
+ * @param name The name of the parameter to remove
  */
 function removeQueryParam(name: string) {
   router.replace({ query: { [name]: undefined } })
@@ -56,6 +61,7 @@ function removeQueryParam(name: string) {
 
 /**
  * Remove all provided query parameters
+ *
  * @param names An array of query parameter names to remove
  */
 function removeQueryParams(names: string[]) {

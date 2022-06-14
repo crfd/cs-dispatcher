@@ -1,10 +1,10 @@
 enum PersonType {
+  Dispatcher,
   Entrant,
   Bystanders,
   Attendee,
   Rescuer,
   Employee,
-  Dispatcher,
   QualifiedPerson
 }
 

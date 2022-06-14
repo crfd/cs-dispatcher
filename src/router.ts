@@ -15,11 +15,12 @@ import {
   PieChart as PieChartIcon,
   Gear as GearIcon,
   SafetyHat as SafetyHatIcon
-} from './assets/icons'
-import { useUIStore } from './stores/uiStore'
-import isAuthenticated from './lib/isAuthenticated'
+} from '@icons'
+import { useUIStore } from '@/stores/uiStore'
+import isAuthenticated from '@lib/isAuthenticated'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from './config/firebase'
+import { auth } from '@/config/firebase'
+import initialLoad from '@lib/initialLoad'
 
 const routes = [
   {
@@ -251,10 +252,13 @@ const setLoading = (loading: boolean) => {
 // Get notified when the user gets logged out and return to the start page
 // this should not happen on initial load
 let initialPageLoad = true
-onAuthStateChanged(auth, user => {
+onAuthStateChanged(auth, async user => {
   if (!user && !initialPageLoad) {
     router.push({ name: 'home' })
   }
+
+  await initialLoad()
+
   initialPageLoad = false
 })
 

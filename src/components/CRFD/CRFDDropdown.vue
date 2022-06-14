@@ -9,29 +9,34 @@
   isFocused: {{ isFocused }}
   <br /> -->
   <div class="container">
+    <HFlex>
+      <div class="relative w-full">
+        <i-crfd-arrow-circle-right
+          class="dropdown-icon"
+          width="20px"
+          height="20px"
+          :color="iconColor"
+        />
+        <input
+          ref="input"
+          type="text"
+          v-model="inputValue"
+          :placeholder="placeholder"
+          @input="didChange = true"
+          @focus="updateFocus(true)"
+          @blur="updateFocus(false)"
+          @keydown="keyDownHandler"
+          @mouseenter="hover = true"
+          @mouseleave="hover = false"
+          :disabled="disabled"
+          :class="{ ...flavourClass }"
+        />
+      </div>
+      <i-crfd-asterisk v-if="required" class="required-icon" />
+    </HFlex>
     <label :class="{ focus: valueNotEmpty, ...flavourClass }" for="input">
       {{ placeholder }}
     </label>
-    <i-crfd-arrow-circle-right
-      class="dropdown-icon"
-      width="20px"
-      height="20px"
-      :color="iconColor"
-    />
-    <input
-      ref="input"
-      type="text"
-      v-model="inputValue"
-      :placeholder="placeholder"
-      @input="didChange = true"
-      @focus="updateFocus(true)"
-      @blur="updateFocus(false)"
-      @keydown="keyDownHandler"
-      @mouseenter="hover = true"
-      @mouseleave="hover = false"
-      :disabled="disabled"
-      :class="{ ...flavourClass }"
-    />
     <ul
       ref="list"
       class="list"
@@ -96,6 +101,10 @@ export default {
     sort: {
       type: Boolean,
       default: true
+    },
+    required: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

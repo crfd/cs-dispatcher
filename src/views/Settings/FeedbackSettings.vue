@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import { computed, Ref, ref } from 'vue'
+import { computed, Ref, ref, toRefs } from 'vue'
 import { fileDialog } from 'file-select-dialog'
 import Feedback from '@/models/Feedback'
 import { sendFeedback } from '@/controller/Feedback.controller'
+import { useFeedback } from '@/stores/global'
+import { useAuthStore } from '@/stores/authStore'
+import { storeToRefs } from 'pinia'
 
 /** DATA */
 

@@ -5,6 +5,8 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AddUserBox: typeof import('./src/views/Settings/AddUserBox.vue')['default']
+    AdvancedSettings: typeof import('./src/views/Settings/AdvancedSettings.vue')['default']
     Analytics: typeof import('./src/views/Analytics.vue')['default']
     Container: typeof import('./src/components/Hydrogen/Container.vue')['default']
     ContentHeader: typeof import('./src/components/ContentHeader.vue')['default']
@@ -24,6 +26,7 @@ declare module '@vue/runtime-core' {
     CRFDInput: typeof import('./src/components/CRFD/CRFDInput.vue')['default']
     CRFDLabel: typeof import('./src/components/CRFD/CRFDLabel.vue')['default']
     CRFDLibraryDetail: typeof import('./src/components/CRFD/CRFDLibraryDetail.vue')['default']
+    CRFDList: typeof import('./src/components/CRFD/CRFDList.vue')['default']
     CRFDMap: typeof import('./src/components/CRFD/CRFDMap.vue')['default']
     CRFDMessage: typeof import('./src/components/CRFD/CRFDMessage.vue')['default']
     CRFDMessageCenter: typeof import('./src/components/CRFD/CRFDMessageCenter.vue')['default']
@@ -41,6 +44,7 @@ declare module '@vue/runtime-core' {
     FeedbackSettings: typeof import('./src/views/Settings/FeedbackSettings.vue')['default']
     HFlex: typeof import('./src/components/HFlex.vue')['default']
     ICrfdArrowCircleRight: typeof import('~icons/crfd/arrow-circle-right')['default']
+    ICrfdAsterisk: typeof import('~icons/crfd/asterisk')['default']
     ICrfdCancle: typeof import('~icons/crfd/cancle')['default']
     ICrfdDone: typeof import('~icons/crfd/done')['default']
     ICrfdSearch: typeof import('~icons/crfd/search')['default']
@@ -68,6 +72,7 @@ declare module '@vue/runtime-core' {
     Spaces: typeof import('./src/views/Spaces.vue')['default']
     TableLayout: typeof import('./src/layouts/TableLayout.vue')['default']
     UISettings: typeof import('./src/views/Settings/UISettings.vue')['default']
+    UserManagementBox: typeof import('./src/views/Settings/UserManagementBox.vue')['default']
     VFlex: typeof import('./src/components/VFlex.vue')['default']
   }
 }

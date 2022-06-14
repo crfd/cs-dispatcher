@@ -1,16 +1,15 @@
 import Contact from './Contact'
-import Reference from './Reference'
-import UUID from './UUID'
+import { FirebaseMetaObject } from './FirebaseObject'
 
 enum UserRole {
   /** Has additional privilidges to the User */
-  Admin,
+  Admin = 0,
 
   /** Official of the fire department */
-  User,
+  User = 1,
 
   /** Only has access to the worker application */
-  Worker
+  Worker = 2
 }
 
 /**
@@ -21,12 +20,10 @@ enum UserRole {
  * - A worker working for a contractor
  * - The administation staff of a contractor
  */
-type User = {
-  /** The username is the email address of the user */
-  username: UUID
-  createdAt: Date
-  createdByUser: Reference
+interface User extends FirebaseMetaObject {
+  email: string
 
+  /** The role assigned to the user. The role sets certain security rules. */
   role: UserRole
 
   /** When no last login is set the user has never logged in. */
@@ -35,16 +32,14 @@ type User = {
   /** Contact information for the user. */
   contact: Contact
 
-  /** Wether or not the users has been verified. */
-  verified: boolean
-
   /**
    * Stores additional information about a user. Such as his position inside the
    * company or his obligations.
    */
   description?: string
 
-  isDeleted: boolean
+  /** The date at which the user has been marked as deleted. */
+  isDeleted?: Date
 }
 
 export default User

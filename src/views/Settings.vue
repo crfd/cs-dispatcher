@@ -61,6 +61,10 @@
         <Markdown :value="$t('settings.about.content')" />
       </template>
 
+      <template #advanced>
+        <AdvancedSettings />
+      </template>
+
       <template #licenses>
         <LicensesSettings />
       </template>

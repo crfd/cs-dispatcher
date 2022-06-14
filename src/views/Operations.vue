@@ -19,12 +19,7 @@
     </ContentHeader>
 
     <div class="white-table-header"></div>
-    <DataTable
-      class="data-table"
-      :headers="headers"
-      :rows="rows"
-      @select="rowSelectionHandler"
-    />
+    <DataTable :headers="headers" :rows="rows" @select="rowSelectionHandler" />
   </div>
 </template>
 

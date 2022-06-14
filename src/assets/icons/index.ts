@@ -1,5 +1,6 @@
 import ArrowCircleRight from './arrow-circle-right.svg'
 import ArrowLeft from './arrow-left.svg'
+import Asterisk from './asterisk.svg'
 import Calendar from './calendar.svg'
 import City from './city.svg'
 import ConfinedSpace from './confined-space.svg'
@@ -16,10 +17,12 @@ import PieChart from './pie-chart.svg'
 import Plus from './plus.svg'
 import Runner from './runner.svg'
 import SafetyHat from './safety-hat.svg'
+import Search from './search.svg'
 
 export {
   ArrowCircleRight,
   ArrowLeft,
+  Asterisk,
   Calendar,
   City,
   ConfinedSpace,
@@ -35,5 +38,6 @@ export {
   PieChart,
   Plus,
   Runner,
-  SafetyHat
+  SafetyHat,
+  Search
 }

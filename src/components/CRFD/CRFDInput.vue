@@ -1,5 +1,20 @@
 <template>
   <div class="container">
+    <HFlex>
+      <input
+        ref="input"
+        :type="type"
+        :value="modelValue"
+        :placeholder="placeholder"
+        @input="updateValue"
+        @focus="updateFocus(true)"
+        @blur="updateFocus(false)"
+        @keydown="keyDownHandler"
+        :disabled="disabled"
+        :class="{ ...flavourClass }"
+      />
+      <i-crfd-asterisk v-if="required" class="required-icon" />
+    </HFlex>
     <label
       v-if="!noFocus"
       :class="{ focus: valueNotEmpty, ...flavourClass }"
@@ -7,18 +22,6 @@
     >
       {{ placeholder }}
     </label>
-    <input
-      ref="input"
-      :type="type"
-      :value="modelValue"
-      :placeholder="placeholder"
-      @input="updateValue"
-      @focus="updateFocus(true)"
-      @blur="updateFocus(false)"
-      @keydown="keyDownHandler"
-      :disabled="disabled"
-      :class="{ ...flavourClass }"
-    />
   </div>
 </template>
 
@@ -56,6 +59,10 @@ export default {
     },
     flavour: String,
     noFocus: {
+      type: Boolean,
+      default: false
+    },
+    required: {
       type: Boolean,
       default: false
     }
