@@ -1,50 +1,39 @@
 <script lang="ts" setup>
-import { onMounted, Ref, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import hotkeys from 'hotkeys-js'
 
-import Message from '@/models/ui/Message'
-import { useUIStore } from '@/store'
+import { useMessageStore, useUIStore } from '@/store'
 
-// See: https://wangchujiang.com/hotkeys/#filter
-hotkeys.filter = function (event) {
-  // Enable hotkeys on all elements
-  return true
-}
-
-const { isLoading } = storeToRefs(useUIStore())
-const showOverlay = ref(false)
-const messages: Ref<Message[]> = ref([
-  // new Message('I may fade but my spirit will not.', MessageType.Info, 5),
-  // new Message('I will stand strong!', MessageType.Warning, undefined)
-])
-
-onMounted(() => {
-  hotkeys('command+k, strg+k, command+p, strg+p', event => {
-    event.preventDefault()
-    showOverlay.value = !showOverlay.value
-  })
-})
+const { messages } = storeToRefs(useMessageStore())
+const { isLoading, showCommandPalette } = storeToRefs(useUIStore())
 </script>
 
 <template>
   <div id="global" v-cloak>
+    <!-- Message Box -->
+    <CRFDMessageCenter id="notification-center" v-model="messages" />
+
+    <!-- Loading Spinner -->
     <transition name="fade" mode="out-in">
       <CRFDOverlay v-if="isLoading" light>
         <CRFDSpinner class="center" />
       </CRFDOverlay>
     </transition>
 
+    <!-- Command Palette -->
     <transition name="fade" mode="out-in">
-      <CRFDOverlay v-if="showOverlay" @dismiss="showOverlay = false">
-        <CRFDCommandPalette id="palette" @dismiss="showOverlay = false" />
+      <CRFDOverlay
+        v-if="showCommandPalette"
+        @dismiss="showCommandPalette = false"
+      >
+        <CRFDCommandPalette
+          id="palette"
+          @dismiss="showCommandPalette = false"
+        />
       </CRFDOverlay>
     </transition>
 
-    <CRFDMessageCenter id="notification-center" v-model="messages" />
-
-    <PageHeader id="header" @search="showOverlay = true" />
-
+    <!-- Main Content -->
+    <PageHeader @search="showCommandPalette = true" />
     <div id="content">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">

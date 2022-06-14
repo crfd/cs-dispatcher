@@ -9,10 +9,13 @@ export const useSettingsStore = defineStore('settings', {
         showIcons: true
       },
       map: {
-        username: 'mapbox',
-        styleId: 'streets-v11'
+        style: 'mapbox://styles/mapbox/streets-v11'
       }
     }),
-  actions: {},
+  actions: {
+    setMapStyle(username: string, styleId: string) {
+      this.map.style = `mapbox://styles/${username}/${styleId}`
+    }
+  },
   getters: {}
 })

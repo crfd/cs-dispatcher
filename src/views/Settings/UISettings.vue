@@ -1,9 +1,8 @@
 <script setup>
-import { useSettingsStore } from '@/stores/settingsStore'
 import { storeToRefs } from 'pinia'
+import { useSettingsStore } from '@/store'
 
-const store = useSettingsStore()
-const { navbar } = storeToRefs(store)
+const { navbar } = storeToRefs(useSettingsStore())
 </script>
 
 <template>

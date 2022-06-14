@@ -10,10 +10,11 @@ import { useCollection } from '@/lib/useCollection'
 // ============
 
 import { useAuthStore } from '@/store/authStore'
+import { useMessageStore } from '@/store/messageStore'
 import { useSettingsStore } from '@/store/settingsStore'
 import { useUIStore } from '@/store/uiStore'
 
-export { useAuthStore, useSettingsStore, useUIStore }
+export { useAuthStore, useMessageStore, useSettingsStore, useUIStore }
 
 // ==============
 // GLOBALE STATES

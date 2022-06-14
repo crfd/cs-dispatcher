@@ -8,6 +8,7 @@ import router from '@/router'
 import i18n from '@/locales'
 
 import '@/config/firebase'
+import '@/config/hotkey'
 
 import '@styles/global.css'
 import '@styles/tailwind.css'

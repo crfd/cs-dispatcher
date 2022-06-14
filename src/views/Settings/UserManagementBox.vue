@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { useUsers } from '@/stores/global'
 import { computed, Ref, ref } from 'vue'
+
+import { useUsers } from '@/store'
 
 const selected: Ref<number | null> = ref(null)
 const search = ref('')

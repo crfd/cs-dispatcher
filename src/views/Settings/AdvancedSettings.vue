@@ -1,7 +1,6 @@
 <template>
   <VFlex class="gap-8">
     <UserManagementBox />
-
     <AddUserBox />
   </VFlex>
 </template>

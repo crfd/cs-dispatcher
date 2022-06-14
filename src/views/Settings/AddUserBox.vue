@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-import { useUsers } from '@/stores/global'
 import { computed, ref } from 'vue'
-
-const users = useUsers()
 
 const displayName = ref('')
 const email = ref('')
