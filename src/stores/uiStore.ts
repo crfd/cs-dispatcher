@@ -6,6 +6,10 @@ export const useUIStore = defineStore('ui', {
       isLoading: true
     }
   },
-  actions: {},
+  actions: {
+    setLoading(loading: boolean) {
+      this.isLoading = loading
+    }
+  },
   getters: {}
 })

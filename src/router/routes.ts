@@ -1,12 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-  NavigationGuardNext,
-  RouteLocationNormalized
-} from 'vue-router'
-
-import Home from '@views/Index.vue'
-
+// Import Icons
 import {
   Home as HomeIcon,
   Runner as RunnerIcon,
@@ -16,13 +8,20 @@ import {
   Gear as GearIcon,
   SafetyHat as SafetyHatIcon
 } from '@icons'
-import { useUIStore } from '@/stores/uiStore'
-import isAuthenticated from '@lib/isAuthenticated'
-import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from '@/config/firebase'
-import initialLoad from '@lib/initialLoad'
 
-const routes = [
+export default [
+  {
+    path: '/',
+    name: 'home',
+    component: () => import('@views/Index.vue'),
+    meta: {
+      title: 'Component Library',
+      requiresAuth: false,
+      hidden: false,
+      icon: HomeIcon,
+      hideFromCommandPalette: false
+    }
+  },
   {
     path: '/login',
     name: 'login',
@@ -45,18 +44,6 @@ const routes = [
       hidden: true,
       hideBar: true,
       hideFromCommandPalette: true
-    }
-  },
-  {
-    path: '/',
-    name: 'home',
-    component: Home,
-    meta: {
-      title: 'Component Library',
-      requiresAuth: false,
-      hidden: false,
-      icon: HomeIcon,
-      hideFromCommandPalette: false
     }
   },
   {
@@ -239,58 +226,3 @@ const routes = [
     }
   }
 ]
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes
-})
-
-const setLoading = (loading: boolean) => {
-  useUIStore().isLoading = loading
-}
-
-// Get notified when the user gets logged out and return to the start page
-// this should not happen on initial load
-let initialPageLoad = true
-onAuthStateChanged(auth, async user => {
-  if (!user && !initialPageLoad) {
-    router.push({ name: 'home' })
-  }
-
-  await initialLoad()
-
-  initialPageLoad = false
-})
-
-const authGuard = async (
-  to: RouteLocationNormalized,
-  from: RouteLocationNormalized,
-  next: NavigationGuardNext
-) => {
-  // console.log(`${from.name?.toString()} -> ${to.name?.toString()}`)
-
-  if (to.meta.requiresAuth) {
-    const authenticated = await isAuthenticated()
-    // TODO: Persist route that was tried to be accessed
-    authenticated ? next() : next({ name: 'login' })
-  } else {
-    next()
-  }
-}
-
-router.beforeEach(
-  (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
-    // This will prevent a page from showing the reload indicator when the page uses query parameters
-    // for navigation.
-    if (to.path == from.path) return
-    setLoading(true)
-  }
-)
-
-router.beforeEach(authGuard)
-
-router.afterEach(() => {
-  setLoading(false)
-})
-
-export default router
