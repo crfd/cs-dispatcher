@@ -9,10 +9,10 @@ import { useCollection } from '@/lib/useCollection'
 // PINIA STORES
 // ============
 
-import { useAuthStore } from '@/store/authStore'
-import { useMessageStore } from '@/store/messageStore'
-import { useSettingsStore } from '@/store/settingsStore'
-import { useUIStore } from '@/store/uiStore'
+import { useAuthStore } from '@/store/stores/authStore'
+import { useMessageStore } from '@/store/stores/messageStore'
+import { useSettingsStore } from '@/store/stores/settingsStore'
+import { useUIStore } from '@/store/stores/uiStore'
 
 export { useAuthStore, useMessageStore, useSettingsStore, useUIStore }
 

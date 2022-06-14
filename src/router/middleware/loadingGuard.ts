@@ -1,6 +1,6 @@
 import { RouteLocationNormalized } from 'vue-router'
 
-import { useUIStore } from '@/store/uiStore'
+import { useUIStore } from '@/store'
 
 /** Starts the loading animation. */
 const start = (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
