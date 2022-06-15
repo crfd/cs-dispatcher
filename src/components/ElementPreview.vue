@@ -1,3 +1,53 @@
+<script lang="ts" setup>
+/**
+ * The ElementPreview Component is used as a preview box for other components.
+ * It gets used to display information about a certain component and gets used
+ * on the component library page. It has a build in selection field to switch
+ * between different predefined component styles.
+ */
+
+import { computed, toRefs } from 'vue';
+
+// =====
+// PROPS
+// =====
+
+const props = defineProps({
+  title: String,
+  modelValue: [String, Number],
+  options: Array<any>,
+})
+
+const { title, modelValue, options } = toRefs(props)
+
+// ========
+// COMPUTED
+// ========
+
+const hasOptions = computed(() => {
+  return options && options.value && options.value.length > 0;
+})
+
+const hasTitle = computed(() => {
+  return title && title.value && title.value.length > 0;
+})
+
+// ====
+// EMIT
+// ====
+
+const emit = defineEmits(['update:modelValue'])
+
+// =======
+// METHODS
+// =======
+
+function updateValue(event: Event) {
+  const value = (event.target as HTMLSelectElement)?.value;
+  emit('update:modelValue', value)
+}
+</script>
+
 <template>
   <div
     class="mx-auto my-4 w-9/12 max-w-lg rounded-lg border-2 border-white/2 bg-white/primary pt-4 pb-2 text-black/primary shadow-sm"
@@ -15,38 +65,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'element-preview',
-  props: {
-    modelValue: {
-      type: [String, Number],
-      default: ''
-    },
-    options: {
-      type: Array,
-      default: () => []
-    },
-    title: {
-      type: String,
-      default: 'Unknown'
-    }
-  },
-  computed: {
-    hasOptions() {
-      return this.options.length > 0
-    },
-    hasTitle() {
-      return this.title.length > 0
-    }
-  },
-  emits: ['update:modelValue'],
-  methods: {
-    updateValue(event) {
-      const value = event.target.value
-      this.$emit('update:modelValue', value)
-    }
-  }
-}
-</script>
