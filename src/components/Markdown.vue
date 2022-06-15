@@ -1,26 +1,29 @@
-<template>
-  <div id="markdown" v-html="markdown"></div>
-  <div ref="slot">
-    <slot />
-  </div>
-</template>
-
-<script>
+<script lang="ts" setup>
+import { computed, toRefs } from 'vue'
 import snarkdown from 'snarkdown'
 
-export default {
-  name: 'markdown',
-  props: {
-    value: String,
-    slotValue: ''
-  },
-  computed: {
-    markdown: function () {
-      return snarkdown(this.value)
-    }
-  }
-}
+// =====
+// PROPS
+// =====
+
+const props = defineProps({
+  value: String
+})
+
+const { value } = toRefs(props)
+
+// ========
+// COMPUTED
+// ========
+
+const markdown = computed(() => {
+  return snarkdown(value?.value ?? '')
+})
 </script>
+
+<template>
+  <div id="markdown" v-html="markdown" />
+</template>
 
 <style lang="scss" scoped>
 #markdown {
