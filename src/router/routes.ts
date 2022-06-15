@@ -177,6 +177,18 @@ export default [
     }
   },
   {
+    path: '/contractors/new',
+    name: 'contractor-new',
+    component: () => import('@/pages/Contractors/NewContractor.vue'),
+    meta: {
+      title: 'New Contractor',
+      requiresAuth: true,
+      hidden: true,
+      hideBar: true,
+      hideFromCommandPalette: true
+    }
+  },
+  {
     path: '/map',
     name: 'map',
     component: () => import('@/pages/Map/Map.vue'),

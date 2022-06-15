@@ -3,8 +3,6 @@ import { computed, ref } from 'vue'
 
 import router from '@/router'
 import { useContractors } from '@/store'
-import { useDocument } from '@/lib/useCollection'
-import { ConfinedSpace } from '@/models'
 import { DataTableRow } from '@/models/ui'
 import { Filter, Calendar } from '@icons'
 
@@ -47,7 +45,7 @@ function selectionHandler(index: number) {
       <template v-slot:left></template>
       <template v-slot:right>
         <CRFDButton disabled flavour="secondary">Edit</CRFDButton>
-        <CRFDButton disabled @click="push('contactors-new')">Create</CRFDButton>
+        <CRFDButton @click="push('contractor-new')">Create</CRFDButton>
       </template>
       <template v-slot:sub-left>
         <CRFDModifier
