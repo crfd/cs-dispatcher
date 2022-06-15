@@ -1,3 +1,18 @@
+<script lang="ts" setup>
+import { toRefs } from 'vue'
+
+// =====
+// PROPS
+// =====
+
+const props = defineProps({
+  title: String,
+  border: Boolean
+})
+
+const { title, border } = toRefs(props)
+</script>
+
 <template>
   <div class="content-header" :class="{ 'content-header-border': border }">
     <Container center class="container">
@@ -19,37 +34,6 @@
     </Container>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'content-header',
-  props: {
-    title: {
-      type: String,
-      default: 'Unknown'
-    },
-    border: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {}
-  },
-  computed: {
-    hasSubLeft() {
-      return !!this.$slots.subLeft
-    },
-    hasSubRight() {
-      return !!this.$slots.subRight
-    },
-    hasSub() {
-      return this.hasSubLeft || this.hasSubRight
-    }
-  },
-  methods: {}
-}
-</script>
 
 <style lang="scss" scoped>
 .content-header {
