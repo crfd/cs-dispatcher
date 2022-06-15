@@ -18,8 +18,8 @@ const isValid = computed(() => {
       privlages.
     </p>
 
-    <CRFDInput v-model="displayName" placeholder="Name" type="text" required />
-    <CRFDInput v-model="email" placeholder="E-Mail" type="email" required />
+    <CRFDInput v-model="displayName" placeholder="Name" type="text" />
+    <CRFDInput v-model="email" placeholder="E-Mail" type="email" />
 
     <CRFDTextarea placeholder="User Description (Optional)"></CRFDTextarea>
 

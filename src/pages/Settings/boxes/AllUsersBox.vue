@@ -46,7 +46,12 @@ function selectionHandler(index: number) {
 <template>
   <CRFDBox :title="title" class="box">
     <VFlex>
-      <CRFDInput v-model="search" placeholder="Search" type="search" />
+      <CRFDInput
+        v-model="search"
+        placeholder="Search"
+        type="search"
+        clearable
+      />
 
       <DataTable
         :headers="headers"

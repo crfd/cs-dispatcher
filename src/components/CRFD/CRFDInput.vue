@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ComputedRef, Ref, ref, toRefs } from 'vue'
+import { computed, Ref, ref, toRefs } from 'vue'
 
 import { Success, Error, Autofill } from '@icons'
 
@@ -32,10 +32,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  required: {
-    type: Boolean,
-    default: false
-  },
   escapable: {
     type: Boolean,
     default: true
@@ -59,7 +55,6 @@ const {
   disabled,
   flavour,
   noFocus,
-  required,
   formatter
 } = toRefs(props)
 
@@ -149,6 +144,12 @@ function keyHandler(event: KeyboardEvent) {
 
     case 'Enter':
       blur()
+
+      /** When escapeOnEnter is true pressing the enter key will deselect the input */
+      if (escapeOnEnter.value) {
+        blur()
+      }
+
       emit('enter')
       break
   }
@@ -178,7 +179,6 @@ function keyHandler(event: KeyboardEvent) {
         :disabled="disabled"
         :class="{ ...flavourClass }"
       />
-      <i-crfd-asterisk v-if="required" class="required-icon" />
     </HFlex>
     <label
       v-if="!noFocus"
