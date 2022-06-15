@@ -43,7 +43,7 @@ function push(name: string) {
 
 function selectionHandler(index: number) {
   const operation = operations.value[index]
-  router.push({ name: 'operation', params: { id: operation.id } })
+  router.push({ name: 'operation-detail', params: { id: operation.id } })
 }
 </script>
 

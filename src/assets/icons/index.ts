@@ -9,9 +9,9 @@ import Done from './done.svg'
 import Filter from './filter.svg'
 import Gear from './gear.svg'
 import Home from './home.svg'
-import InputAutofill from './input-autofill.svg'
-import InputError from './input-error.svg'
-import InputSuccess from './input-success.svg'
+import Autofill from './autofill.svg'
+import Error from './error.svg'
+import Success from './success.svg'
 import Map from './map.svg'
 import PieChart from './pie-chart.svg'
 import Plus from './plus.svg'
@@ -31,9 +31,9 @@ export {
   Filter,
   Gear,
   Home,
-  InputAutofill,
-  InputError,
-  InputSuccess,
+  Autofill,
+  Error,
+  Success,
   Map,
   PieChart,
   Plus,

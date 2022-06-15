@@ -42,7 +42,7 @@ function push(name: string) {
 
 function selectionHandler(index: number) {
   const space = spaces.value[index]
-  router.push({ name: 'operation', params: { id: space.id } })
+  router.push({ name: 'space-detail', params: { id: space.id } })
 }
 </script>
 

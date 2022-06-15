@@ -1,15 +1,180 @@
+<script lang="ts" setup>
+import { computed, ComputedRef, Ref, ref, toRefs } from 'vue'
+
+import { Success, Error, Autofill } from '@icons'
+
+// =====
+// PROPS
+// =====
+
+const props = defineProps({
+  modelValue: {
+    type: String,
+    default: ''
+  },
+  type: {
+    type: String,
+    default: 'text'
+  },
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  flavour: {
+    type: String,
+    default: 'default'
+  },
+  noFocus: {
+    type: Boolean,
+    default: false
+  },
+  required: {
+    type: Boolean,
+    default: false
+  },
+  escapable: {
+    type: Boolean,
+    default: true
+  },
+  escapeOnEnter: {
+    type: Boolean,
+    default: false
+  },
+  formatter: {
+    type: Function,
+    default: (value: string) => value
+  }
+})
+
+const {
+  modelValue,
+  type,
+  placeholder,
+  escapable,
+  escapeOnEnter,
+  disabled,
+  flavour,
+  noFocus,
+  required,
+  formatter
+} = toRefs(props)
+
+// ====
+// DATA
+// ====
+
+const isFocused = ref(false)
+const input: Ref<HTMLInputElement | null> = ref(null) // Get automatically set by Vue
+
+// ========
+// COMPUTED
+// ========
+
+const isEmpty = computed(() => {
+  return modelValue.value === ''
+})
+
+const flavourClass = computed(() => {
+  return {
+    [flavour.value]: true
+  }
+})
+
+const icon = computed(() => {
+  if (flavour.value === 'success') {
+    return {
+      color: '#0CCE6B',
+      icon: Success
+    }
+  } else if (flavour.value === 'error') {
+    return {
+      color: '#E93731',
+      icon: Error
+    }
+  } else if (flavour.value === 'autofill') {
+    return {
+      color: '#0070F3',
+      icon: Autofill
+    }
+  } else {
+    return undefined
+  }
+})
+
+const hasIcon = computed(() => {
+  return icon.value !== undefined
+})
+
+// =====
+// EMITS
+// =====
+
+const emit = defineEmits(['update:modelValue', 'enter', 'escape'])
+
+// =======
+// METHODS
+// =======
+
+function updateHandler(event: Event) {
+  const value = (event.target as HTMLInputElement).value
+  emit('update:modelValue', formatter.value(value))
+}
+
+function blur() {
+  input.value?.blur()
+}
+
+function keyHandler(event: KeyboardEvent) {
+  const key = event.key
+
+  switch (key) {
+    case 'Escape':
+      /**
+       * On safari pressing the escape key will exit full screen mode prevent
+       * that by disableing the default behavior
+       */
+      event.preventDefault()
+
+      /** When escapable is true pressing the escape key will deselect the input */
+      if (escapable.value) {
+        blur()
+      }
+
+      emit('escape')
+      break
+
+    case 'Enter':
+      blur()
+      emit('enter')
+      break
+  }
+}
+</script>
+
 <template>
   <div class="container">
+    <CRFDIcon
+      v-if="hasIcon && !disabled"
+      :icon="icon?.icon"
+      :color="icon?.color"
+      width="20px"
+      height="20px"
+      class="crfd-icon"
+    />
     <HFlex>
       <input
         ref="input"
         :type="type"
         :value="modelValue"
         :placeholder="placeholder"
-        @input="updateValue"
-        @focus="updateFocus(true)"
-        @blur="updateFocus(false)"
-        @keydown="keyDownHandler"
+        @input="updateHandler"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
+        @keydown="keyHandler"
         :disabled="disabled"
         :class="{ ...flavourClass }"
       />
@@ -17,111 +182,13 @@
     </HFlex>
     <label
       v-if="!noFocus"
-      :class="{ focus: valueNotEmpty, ...flavourClass }"
       for="input"
+      :class="{ focus: !isEmpty, ...flavourClass, disabled }"
     >
       {{ placeholder }}
     </label>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'crfd-input',
-  props: {
-    type: {
-      type: String,
-      default: 'text'
-    },
-    modelValue: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    formatter: {
-      type: Function,
-      default: value => value
-    },
-    escapable: {
-      type: Boolean,
-      default: true
-    },
-    escapeOnEnter: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    flavour: String,
-    noFocus: {
-      type: Boolean,
-      default: false
-    },
-    required: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-      isFocused: false
-    }
-  },
-  computed: {
-    valueNotEmpty() {
-      return this.modelValue.length !== 0
-    },
-    flavourClass() {
-      return {
-        [this.flavour]: true
-      }
-    }
-  },
-  emits: ['update:modelValue', 'update:focused', 'enter', 'escape'],
-  methods: {
-    updateValue(event) {
-      const value = event.target.value
-      const formattedValue = this.formatter(value)
-      this.$emit('update:modelValue', formattedValue)
-    },
-    keyDownHandler(event) {
-      const keyCode = event.code
-
-      switch (keyCode) {
-        case 'Escape': {
-          // On safari pressing the escape key will exit full screen mode
-          // prevent that by disableing the default behavior
-          event.preventDefault()
-          this.$emit('escape')
-          if (this.escapable) this.blur()
-          break
-        }
-        case 'Enter': {
-          this.$emit('enter')
-          if (this.escapeOnEnter) this.blur()
-          break
-        }
-        default:
-          break
-      }
-    },
-    updateFocus(value) {
-      this.isFocused = value
-    },
-    blur() {
-      this.$refs.input.blur()
-    },
-    clear() {
-      this.updateValue('')
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .container {
@@ -141,39 +208,36 @@ input {
   }
 }
 
-input.success {
+.crfd-icon {
+  transform: translateY(-50%);
+  @apply absolute top-[7px] left-[9px] z-10;
+}
+
+input.success:not(:disabled) {
   @apply border-green/primary text-green/primary placeholder:text-green/light focus:text-green/primary;
   @apply icon;
-  background-image: url('@icons/input-success.svg');
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 15px;
 
   & label {
     @apply text-green/primary;
   }
 }
 
-input.error {
+input.error:not(:disabled) {
   @apply border-red/primary text-red/primary placeholder:text-red/light focus:text-red/primary;
   @apply icon;
-  background-image: url('@icons/input-error.svg');
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 15px;
 
   & label {
     @apply text-red/primary;
   }
 }
 
-input.autofill {
+input.autofill:not(:disabled) {
   @apply border-blue/primary text-blue/primary placeholder:text-blue/light focus:text-blue/primary disabled:border-blue/light disabled:text-blue/light disabled:placeholder:text-blue/light;
   @apply icon;
-  background-image: url('@icons/input-autofill.svg');
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 17px;
+
+  & label {
+    @apply text-blue/primary;
+  }
 }
 
 label {
@@ -196,5 +260,9 @@ label {
   &.focus.autofill {
     @apply text-blue/primary;
   }
+}
+
+label.disabled {
+  color: #ccc !important;
 }
 </style>

@@ -1,3 +1,46 @@
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
+
+import router from '@/router'
+import { useContractors } from '@/store'
+import { useDocument } from '@/lib/useCollection'
+import { ConfinedSpace } from '@/models'
+import { DataTableRow } from '@/models/ui'
+import { Filter, Calendar } from '@icons'
+
+// ====
+// DATA
+// ====
+
+const headers = ref(['#', 'Space', 'Classification', 'Time', 'Date', 'Task'])
+const contractors = useContractors()
+
+const icons = ref({ Filter, Calendar })
+
+// ========
+// COMPUTED
+// ========
+
+const computedRows = computed(() => {
+  return contractors.value.map((contractor, i) => {
+    return new DataTableRow([contractor.id.slice(0, 8), contractor.name])
+  })
+})
+
+// =======
+// METHODS
+// =======
+
+function push(name: string) {
+  router.push({ name })
+}
+
+function selectionHandler(index: number) {
+  const contractor = contractors.value[index]
+  router.push({ name: 'operation', params: { id: contractor.id } })
+}
+</script>
+
 <template>
   <div id="page">
     <SubHeader class="content-header" title="Contractors">
@@ -22,50 +65,12 @@
       <DataTable
         class="data-table"
         :headers="headers"
-        :rows="rows"
-        @select="rowSelectionHandler"
+        :rows="computedRows"
+        @select="selectionHandler"
       />
     </Container>
   </div>
 </template>
-
-<script>
-import { Filter, Calendar } from '@icons'
-
-export default {
-  name: 'operations',
-  props: {},
-  data() {
-    return {
-      icons: {
-        Filter,
-        Calendar
-      },
-      headers: ['#', 'Name']
-    }
-  },
-  computed: {
-    rows() {
-      return []
-    }
-  },
-  methods: {
-    push(name) {
-      this.$router.push({ name })
-    },
-    rowSelectionHandler(i) {
-      const row = this.rows[i]
-
-      this.$router.push({
-        name: 'operation-detail',
-        params: {
-          id: i
-        }
-      })
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 #page {

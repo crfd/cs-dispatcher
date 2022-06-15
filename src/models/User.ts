@@ -24,6 +24,7 @@ interface User extends FirebaseMetaObject {
   /** The user id the user is associated with */
   uid: string
 
+  /** The email address with which the user logs in */
   email: string
 
   /** The role assigned to the user. The role sets certain security rules. */

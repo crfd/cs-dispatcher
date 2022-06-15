@@ -1,16 +1,16 @@
+import { DocumentReference } from 'firebase/firestore'
+
 import Contact from './Contact'
-import Reference from './Reference'
-import UUID from './UUID'
 
 type Contractor = {
   /** A unique identifier for the contractor. */
-  id: UUID
+  id: string
 
   /** The date at which this object got created. */
   createdAt: Date
 
   /** The person who created the contractor. */
-  createdByUser: Reference
+  createdByUser: DocumentReference
 
   /** The name of the contractor. */
   name: string
@@ -22,10 +22,10 @@ type Contractor = {
   contacts: Contact[]
 
   /** An array of confined spaces listed under this contractor. */
-  spaces: Reference[]
+  spaces: DocumentReference[]
 
   /** An array of users that are associated with this contractor. */
-  workers: Reference[]
+  workers: DocumentReference[]
 
   /**
    * Any documents that are associated with this contractor. Like the contract
