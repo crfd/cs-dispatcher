@@ -10,7 +10,6 @@ function useDocument<T extends FirebaseObject>(reference: DocumentReference) {
   let documentRef: Ref<T | null> = ref(null)
 
   onSnapshot(reference, snapshot => {
-    console.dir(snapshot)
     documentRef.value = {
       ...(snapshot.data() as T),
       id: snapshot.id

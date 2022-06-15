@@ -1,6 +1,6 @@
 <template>
   <div id="page">
-    <ContentHeader class="content-header" title="New Operation">
+    <SubHeader class="content-header" title="New Operation">
       <template v-slot:left></template>
       <template v-slot:right>
         <CRFDButton flavour="secondary" @click="push('operations')">
@@ -10,7 +10,7 @@
       </template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
-    </ContentHeader>
+    </SubHeader>
 
     <PathLayout :path="path" :value="step">
       <template #general>

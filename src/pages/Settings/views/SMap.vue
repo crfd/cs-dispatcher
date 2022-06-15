@@ -1,5 +1,5 @@
 <template>
-  <VFlex class="gap-6">
+  <VBoxLayout>
     <CRFDBox class="box" title="View">
       <p>Change important aspects of every map view inside the application</p>
 
@@ -36,7 +36,7 @@
         <CRFDButton flavour="secondary" disabled>Save</CRFDButton>
       </template>
     </CRFDBox>
-  </VFlex>
+  </VBoxLayout>
 </template>
 
 <script>

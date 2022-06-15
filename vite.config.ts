@@ -30,7 +30,7 @@ export default defineConfig({
     }),
     components({
       dts: true,
-      dirs: ['src/components', 'src/views', 'src/layouts'],
+      dirs: ['src/components', 'src/views', 'src/layouts', 'src/pages'],
       resolvers: [
         IconsResolver({
           customCollections: ['crfd']

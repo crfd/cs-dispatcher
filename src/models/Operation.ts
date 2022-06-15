@@ -1,28 +1,26 @@
-import CapturePoint from './CapturePoint'
-import Contact from './Contact'
-import EmergencyReport from './EmergencyReport'
-import Reference from './Reference'
-import UUID from './UUID'
+import { DocumentReference } from 'firebase/firestore'
+
+import { CapturePoint, Contact, EmergencyReport } from '@models'
 
 /** An object that links */
 type Capture = {
-  device: Reference
+  device: DocumentReference
   capturePoints: CapturePoint[]
 }
 
 /** A scheduled operation to enter a confined space. */
 type Operation = {
   /** A unique identifier for the operation. */
-  id: UUID
+  id: string
 
   /** The date and time the operation was entered into the system. */
   createdAt: Date
 
   /** The user who has created the operation. */
-  createdByUser: Reference
+  createdByUser: DocumentReference
 
   /** The id of the confined space that is being entered. */
-  space: Reference
+  space: DocumentReference
 
   /** The date and time the operation is scheduled to start. */
   scheduledAt: Date
@@ -31,7 +29,7 @@ type Operation = {
   approvedAt?: Date
 
   /** The dispatcher that approved the operation */
-  approvedByUser?: Reference
+  approvedByUser?: DocumentReference
 
   /** The time the operation started. */
   start?: Date

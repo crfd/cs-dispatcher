@@ -13,7 +13,7 @@ export default [
   {
     path: '/',
     name: 'home',
-    component: () => import('@views/Index.vue'),
+    component: () => import('@/pages/Dashboard/ComponentLibrary.vue'),
     meta: {
       title: 'Component Library',
       requiresAuth: false,
@@ -25,7 +25,7 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@views/Login.vue'),
+    component: () => import('@/pages/User/Login.vue'),
     meta: {
       title: 'Login',
       requiresAuth: false,
@@ -37,7 +37,7 @@ export default [
   {
     path: '/reset',
     name: 'resetPassword',
-    component: () => import('@views/ResetPassword.vue'),
+    component: () => import('@/pages/User/ResetPassword.vue'),
     meta: {
       title: 'Password Reset',
       requiresAuth: false,
@@ -49,7 +49,7 @@ export default [
   {
     path: '/operations',
     name: 'operations',
-    component: () => import('@views/Operations.vue'),
+    component: () => import('@/pages/Operations/Operations.vue'),
     meta: {
       title: 'Operations',
       requiresAuth: true,
@@ -61,7 +61,7 @@ export default [
   {
     path: '/operations/new',
     name: 'operation-new',
-    component: () => import('@views/NewOperation.vue'),
+    component: () => import('@/pages/Operations/NewOperation.vue'),
     meta: {
       title: 'New Operation',
       requiresAuth: true,
@@ -73,7 +73,7 @@ export default [
   {
     path: '/operations/:id',
     name: 'operation-detail',
-    component: () => import('@views/OperationDetail/Index.vue'),
+    component: () => import('@/pages/Operations/OperationDetail.vue'),
     meta: {
       title: 'Overview',
       requiresAuth: true,
@@ -92,7 +92,7 @@ export default [
   {
     path: '/operations/:id/space',
     name: 'operation-detail-space',
-    component: () => import('@views/OperationDetail/Index.vue'),
+    component: () => import('@/pages/Operations/OperationDetail.vue'),
     meta: {
       title: 'Space',
       requiresAuth: true,
@@ -111,7 +111,7 @@ export default [
   {
     path: '/operations/:id/contact',
     name: 'operation-detail-contact',
-    component: () => import('@views/OperationDetail/Index.vue'),
+    component: () => import('@/pages/Operations/OperationDetail.vue'),
     meta: {
       title: 'Contact',
       requiresAuth: true,
@@ -130,7 +130,7 @@ export default [
   {
     path: '/spaces',
     name: 'spaces',
-    component: () => import('@views/Spaces.vue'),
+    component: () => import('@/pages/Spaces/Spaces.vue'),
     meta: {
       title: 'Spaces',
       requiresAuth: true,
@@ -142,7 +142,7 @@ export default [
   {
     path: '/spaces/new',
     name: 'space-new',
-    component: () => import('@views/NewSpace.vue'),
+    component: () => import('@/pages/Spaces/NewSpace.vue'),
     meta: {
       title: 'New Space',
       requiresAuth: true,
@@ -154,7 +154,7 @@ export default [
   {
     path: '/spaces/:id',
     name: 'space-detail',
-    component: () => import('@views/SpaceDetail/Index.vue'),
+    component: () => import('@/pages/Spaces/SpaceDetail.vue'),
     meta: {
       title: 'Overview',
       requiresAuth: true,
@@ -167,7 +167,7 @@ export default [
   {
     path: '/contractors',
     name: 'contractors',
-    component: () => import('@views/Contractors.vue'),
+    component: () => import('@/pages/Contractors/Contractors.vue'),
     meta: {
       title: 'Contractors',
       requiresAuth: true,
@@ -179,7 +179,7 @@ export default [
   {
     path: '/map',
     name: 'map',
-    component: () => import('@views/Map.vue'),
+    component: () => import('@/pages/Map/Map.vue'),
     meta: {
       title: 'Map',
       requiresAuth: true,
@@ -191,7 +191,7 @@ export default [
   {
     path: '/analytics',
     name: 'analytics',
-    component: () => import('@views/Analytics.vue'),
+    component: () => import('@/pages/Analytics/Analytics.vue'),
     meta: {
       title: 'Analytics',
       requiresAuth: true,
@@ -203,7 +203,7 @@ export default [
   {
     path: '/settings',
     name: 'settings',
-    component: () => import('@views/Settings.vue'),
+    component: () => import('@/pages/Settings/Settings.vue'),
     meta: {
       title: 'Settings',
       requiresAuth: true,
@@ -215,7 +215,7 @@ export default [
   {
     path: '/profile',
     name: 'profile',
-    component: () => import('@views/Profile.vue'),
+    component: () => import('@/pages/User/Profile.vue'),
     meta: {
       title: 'Profile',
       requiresAuth: true,

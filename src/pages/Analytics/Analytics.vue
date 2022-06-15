@@ -1,11 +1,11 @@
 <template>
   <div id="page">
-    <ContentHeader class="content-header" title="Analytics" border>
+    <SubHeader class="content-header" title="Analytics" border>
       <template v-slot:left></template>
       <template v-slot:right></template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
-    </ContentHeader>
+    </SubHeader>
 
     <InPageNavigationLayout :routes="routes"> </InPageNavigationLayout>
   </div>

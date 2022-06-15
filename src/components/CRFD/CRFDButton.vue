@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import HFlex from '../HFlex.vue'
 export default {
   name: 'crfd-button',
   props: {
@@ -117,8 +116,7 @@ export default {
       if (this.disabled) return
       this.$emit('click')
     }
-  },
-  components: { HFlex }
+  }
 }
 </script>
 

@@ -1,11 +1,11 @@
 <template>
   <div id="page">
-    <ContentHeader class="content-header" :title="title">
+    <SubHeader class="content-header" :title="title">
       <template v-slot:left></template>
       <template v-slot:right></template>
       <template v-slot:sub-left></template>
       <template v-slot:sub-right></template>
-    </ContentHeader>
+    </SubHeader>
   </div>
 </template>
 

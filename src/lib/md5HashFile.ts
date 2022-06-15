@@ -1,5 +1,6 @@
 import { MD5 } from 'crypto-js'
 
+/** Generates a hashed version of the provided File. */
 async function md5HashFile(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     try {

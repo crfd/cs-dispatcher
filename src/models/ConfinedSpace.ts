@@ -1,4 +1,3 @@
-import UUID from './UUID'
 import Contact from './Contact'
 import Hazard from './Hazard'
 
@@ -26,7 +25,10 @@ type Assessment = {
 
 type ConfinedSpace = {
   /** A unique identifier for the confined space. */
-  id: UUID
+  id: string
+
+  /** A string representation that describes the confined space. */
+  name: string
 
   /** A detailed description of the confined space. */
   description: string

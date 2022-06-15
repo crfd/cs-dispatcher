@@ -33,7 +33,7 @@ const { isLoading, showCommandPalette } = storeToRefs(useUIStore())
     </transition>
 
     <!-- Main Content -->
-    <PageHeader @search="showCommandPalette = true" />
+    <Header @search="showCommandPalette = true" />
     <div id="content">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">

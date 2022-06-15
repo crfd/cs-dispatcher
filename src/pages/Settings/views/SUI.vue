@@ -6,7 +6,7 @@ const { navbar } = storeToRefs(useSettingsStore())
 </script>
 
 <template>
-  <VFlex class="gap-8">
+  <VBoxLayout>
     <CRFDBox class="box" title="Navigation Bar">
       <p>Customize the look and feel of the navigation bar</p>
       <HFlex>
@@ -14,5 +14,5 @@ const { navbar } = storeToRefs(useSettingsStore())
         <p>Show Icons</p>
       </HFlex>
     </CRFDBox>
-  </VFlex>
+  </VBoxLayout>
 </template>

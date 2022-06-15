@@ -1,13 +1,12 @@
 <template>
   <div id="page">
-    <ContentHeader class="content-header" title="Operations">
+    <SubHeader class="content-header" title="Contractors">
       <template v-slot:left></template>
       <template v-slot:right>
         <CRFDButton disabled flavour="secondary">Edit</CRFDButton>
-        <CRFDButton @click="push('operation-new')">Create</CRFDButton>
+        <CRFDButton disabled @click="push('contactors-new')">Create</CRFDButton>
       </template>
       <template v-slot:sub-left>
-        <CRFDModifier disabled title="Calender View" :icon="icons.Calendar" />
         <CRFDModifier
           disabled
           title="Filter"
@@ -16,10 +15,17 @@
         />
       </template>
       <template v-slot:sub-right></template>
-    </ContentHeader>
+    </SubHeader>
 
     <div class="white-table-header"></div>
-    <DataTable :headers="headers" :rows="rows" @select="rowSelectionHandler" />
+    <Container center>
+      <DataTable
+        class="data-table"
+        :headers="headers"
+        :rows="rows"
+        @select="rowSelectionHandler"
+      />
+    </Container>
   </div>
 </template>
 
@@ -35,22 +41,12 @@ export default {
         Filter,
         Calendar
       },
-      headers: ['#', 'Space', 'Classification', 'Time', 'Date', 'Task']
+      headers: ['#', 'Name']
     }
   },
   computed: {
     rows() {
-      return [
-        // ['1', 'CRFD Toilet', 'Hazardous', '10:00', '12/12/2022', 'Clean'],
-        // ...Array(50).fill([
-        //   '2',
-        //   'CRFD Paper Castle',
-        //   'Normal',
-        //   '12:00',
-        //   '12/12/2022',
-        //   'Build'
-        // ])
-      ]
+      return []
     }
   },
   methods: {

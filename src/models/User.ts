@@ -21,6 +21,9 @@ enum UserRole {
  * - The administation staff of a contractor
  */
 interface User extends FirebaseMetaObject {
+  /** The user id the user is associated with */
+  uid: string
+
   email: string
 
   /** The role assigned to the user. The role sets certain security rules. */

@@ -11,10 +11,7 @@ enum PersonType {
 // TODO: Maybe rename to Person
 type Contact = {
   type: PersonType[]
-  name: {
-    first: string
-    last: string
-  }
+  name: string
   email: string
   phone: string
   address?: {
