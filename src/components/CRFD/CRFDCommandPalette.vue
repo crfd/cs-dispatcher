@@ -80,7 +80,7 @@ export default {
 </script>
 
 <template>
-  <VFlex class="palette" gap="0">
+  <VFlex class="palette">
     <HFlex class="top">
       <div class="icon">
         <i-crfd-search width="20px" color="black" />
@@ -111,11 +111,11 @@ export default {
 .palette {
   transform: translateX(-50%);
   max-height: 70%;
-  @apply absolute left-1/2 top-12 w-4/5 max-w-lg overflow-hidden rounded-lg bg-white/primary;
+  @apply absolute left-1/2 top-12 w-4/5 max-w-lg gap-0 overflow-hidden rounded-lg bg-white/primary;
 }
 
 .top {
-  @apply px-4 pt-3;
+  @apply px-4 py-3;
 }
 
 .icon {
