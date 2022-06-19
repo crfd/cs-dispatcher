@@ -4,6 +4,7 @@ import { computed, Ref, ref } from 'vue'
 import { useUsers } from '@/store'
 import { DataTableRow } from '@/models/ui'
 import { User } from '@/models'
+import { UserRole } from '@crfd/cs-models'
 
 // ====
 // DATA
@@ -13,7 +14,7 @@ import { User } from '@/models'
 const users = useUsers()
 
 const selectedUser: Ref<User | null> = ref(null)
-const headers = ref(['Name', 'E-Mail'])
+const headers = ref(['Name', 'E-Mail', 'Role'])
 const search = ref('')
 
 // ========
@@ -22,7 +23,11 @@ const search = ref('')
 
 const computedRows = computed(() => {
   return users.value.map(user => {
-    return new DataTableRow([user.contact.name, user.contact.email])
+    return new DataTableRow([
+      user.contact.name,
+      user.contact.email,
+      UserRole[user.role]
+    ])
   })
 })
 
@@ -58,7 +63,7 @@ function selectionHandler(index: number) {
         :rows="computedRows"
         :search="search"
         class="data-table"
-        @select="selectionHandler"
+        @select=""
       />
     </VFlex>
   </CRFDBox>

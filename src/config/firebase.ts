@@ -7,6 +7,7 @@ import {
   browserLocalPersistence,
   onAuthStateChanged
 } from 'firebase/auth'
+import { getFunctions } from 'firebase/functions'
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -18,10 +19,11 @@ const firebaseConfig = {
   appId: '1:253564876414:web:93090ce2a84bf9f99d8a2f'
 }
 
-const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
-const storage = getStorage(app)
-const auth = getAuth(app)
+export const app = initializeApp(firebaseConfig)
+export const db = getFirestore(app)
+export const storage = getStorage(app)
+export const auth = getAuth(app)
+export const functions = getFunctions(app)
 
 // Enable authentication persistence
 setPersistence(auth, browserLocalPersistence)
@@ -37,5 +39,3 @@ onAuthStateChanged(auth, user => {
     console.log('User is signed out')
   }
 })
-
-export { app, db, storage, auth }

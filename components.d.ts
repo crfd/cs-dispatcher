@@ -41,6 +41,7 @@ declare module '@vue/runtime-core' {
     CRFDTooltip: typeof import('./src/components/crfd/CRFDTooltip.vue')['default']
     DataTable: typeof import('./src/components/hydrogen/DataTable.vue')['default']
     ElementPreview: typeof import('./src/components/boilerplate/ElementPreview.vue')['default']
+    HDivider: typeof import('./src/components/flex/HDivider.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
     HFlex: typeof import('./src/components/flex/HFlex.vue')['default']
     ICrfdArrowCircleRight: typeof import('~icons/crfd/arrow-circle-right')['default']
@@ -80,6 +81,8 @@ declare module '@vue/runtime-core' {
     SUI: typeof import('./src/pages/Settings/views/SUI.vue')['default']
     SUsers: typeof import('./src/pages/Settings/views/SUsers.vue')['default']
     VBoxLayout: typeof import('./src/layouts/VBoxLayout.vue')['default']
+    VDivider: typeof import('./src/components/flex/VDivider.vue')['default']
+    Verify: typeof import('./src/pages/User/Verify.vue')['default']
     VFlex: typeof import('./src/components/flex/VFlex.vue')['default']
   }
 }

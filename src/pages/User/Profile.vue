@@ -37,7 +37,11 @@ async function save() {
 <template>
   <Container maxWidth="360px" class="center">
     <VFlex class="gap-7">
-      <CRFDAvatar class="mx-5" size="xl" :email="email" :name="displayName" />
+      <HFlex position="center">
+        <Spacer />
+        <CRFDAvatar size="xl" :email="email" :name="displayName" />
+        <Spacer />
+      </HFlex>
       <CRFDBox title="Profile">
         <HFlex>
           <span>E-Mail:</span>

@@ -14,7 +14,7 @@ function getSearchParams() {
  *
  * @returns {object}
  */
-function getQueryParams(): object {
+function getQueryParams(): Record<string, string> {
   const a: Record<string, string> = {}
   // https://github.com/Microsoft/TypeScript/issues/23174#issuecomment-379044619
   for (let pair of getSearchParams().entries()) {

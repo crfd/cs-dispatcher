@@ -29,6 +29,7 @@
           @mouseenter="hover = true"
           @mouseleave="hover = false"
           :disabled="disabled"
+          :readonly="readonly"
           :class="{ ...flavourClass }"
         />
       </div>
@@ -103,6 +104,10 @@ export default {
       default: true
     },
     required: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
       type: Boolean,
       default: false
     }

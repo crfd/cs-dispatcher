@@ -18,7 +18,12 @@ async function logoutHandler(logoutPageName: string = 'home') {
   onAuthStateChanged(auth, async user => {
     // At the initial page load there most likely is no user logged in as this
     // Value gets populated later on in the applications lifecycle.
-    if (!user && !isInitialPageLoad) {
+    // Prevent from redirecting to the logout page if the page does not require authentication.
+    if (
+      !user &&
+      !isInitialPageLoad &&
+      router.currentRoute.value.meta.requiresAuth
+    ) {
       router.push({ name: logoutPageName })
     }
 

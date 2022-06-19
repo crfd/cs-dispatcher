@@ -47,6 +47,18 @@ export default [
     }
   },
   {
+    path: '/verify',
+    name: 'verify',
+    component: () => import('@/pages/User/Verify.vue'),
+    meta: {
+      title: 'Verify',
+      requiresAuth: false,
+      hidden: true,
+      hideBar: true,
+      hideFromCommandPalette: true
+    }
+  },
+  {
     path: '/operations',
     name: 'operations',
     component: () => import('@/pages/Operations/Operations.vue'),
@@ -232,7 +244,7 @@ export default [
       title: 'Profile',
       requiresAuth: true,
       hidden: true,
-      hideBar: true,
+      hideBar: false,
       icon: undefined,
       hideFromCommandPalette: false
     }

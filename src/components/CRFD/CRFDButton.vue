@@ -39,7 +39,7 @@ export default {
     },
     flavour: {
       type: String,
-      default: 'primary' // primary, secondary, cirtical, link, link-active
+      default: 'primary' // primary, secondary, critical, link, link-active
     },
     icon: {
       type: String,
