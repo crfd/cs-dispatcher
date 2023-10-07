@@ -41,7 +41,7 @@
     "@types/uuid": "^8.3.4",
     "@vitejs/plugin-vue": "^2.3.3",
     "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.31",
     "prettier": "^2.7.1",
     "prettier-plugin-jsdoc": "^0.3.38",
     "prettier-plugin-tailwindcss": "^0.1.11",
